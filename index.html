@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>kova.md — Markdown-powered presentations</title>
+  <meta name="description" content="Kova turns plain Markdown into polished slides — with live preview, auto layouts, theming, and PPTX export. Free and open source.">
+  <meta property="og:title" content="kova.md — Markdown-powered presentations">
+  <meta property="og:description" content="A fast, keyboard-driven presentation editor for people who'd rather write than click.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kova.md">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/favicon-128.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Restore saved theme before first paint to prevent flash
+    (function() {
+      var t = localStorage.getItem('kova-theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════ -->
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="assets/kova-icon.svg" width="28" height="28" alt="">
+    <span class="nav-wordmark">kova<span class="tld">.md</span></span>
+  </a>
+  <div class="nav-spacer"></div>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#syntax">Syntax</a></li>
+    <li><a href="https://github.com/kovamd/kova">GitHub</a></li>
+    <li>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle colour scheme">
+        <!-- Sun: shown in dark mode — click to go light -->
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="8" y1="1.5" x2="8" y2="3"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="8" y1="13"  x2="8" y2="14.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="1.5" y1="8" x2="3"   y2="8"  stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="13"  y1="8" x2="14.5" y2="8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="3.4" y1="3.4" x2="4.5" y2="4.5"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="11.5" y1="11.5" x2="12.6" y2="12.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="12.6" y1="3.4" x2="11.5" y2="4.5"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="4.5"  y1="11.5" x2="3.4" y2="12.6"  stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <!-- Moon: shown in light mode — click to go dark -->
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M14 8.5A6 6 0 0 1 7.5 2 6.5 6.5 0 1 0 14 8.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </li>
+    <li>
+      <a href="https://github.com/kovamd/kova/releases" class="btn btn-primary" style="padding:7px 16px;font-size:13px;">
+        Download
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ═══ HERO ═══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+
+  <div class="hero-badge">
+    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+      <circle cx="6.5" cy="6.5" r="5.5" stroke="#FF6B2B" stroke-width="1.3"/>
+      <path d="M6.5 3.5v3l2 1.2" stroke="#FF6B2B" stroke-width="1.3" stroke-linecap="round"/>
+    </svg>
+    Open source · GPLv3 · Free forever
+  </div>
+
+  <h1>Slides from<br><em>plain text.</em></h1>
+
+  <p class="hero-sub">
+    Kova turns Markdown into polished presentations — live preview, auto layouts,
+    and PPTX export. No drag and drop. No design mode. Just write.
+  </p>
+
+  <div class="hero-cta">
+    <a href="https://github.com/kovamd/kova/releases" class="btn btn-primary btn-lg">
+      <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true">
+        <path d="M8.5 2v9M5 8l3.5 3.5L12 8M2.5 13.5h12" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Download free
+    </a>
+    <a href="https://github.com/kovamd/kova" class="btn btn-secondary btn-lg">
+      <svg width="17" height="17" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M9 1.5C4.86 1.5 1.5 4.86 1.5 9a7.5 7.5 0 005.13 7.12c.375.07.51-.165.51-.36v-1.26c-2.085.45-2.52-.99-2.52-.99-.345-.87-.84-1.1-.84-1.1-.684-.465.054-.456.054-.456.756.054 1.155.78 1.155.78.672 1.146 1.764.816 2.19.624.066-.486.264-.816.48-.999-1.668-.189-3.42-.834-3.42-3.714 0-.822.294-1.494.777-2.022-.078-.189-.336-.954.075-1.989 0 0 .633-.204 2.073.774A7.17 7.17 0 019 5.685c.642.003 1.287.087 1.89.255 1.44-.978 2.07-.774 2.07-.774.414 1.035.156 1.8.078 1.989.483.528.774 1.2.774 2.022 0 2.886-1.755 3.522-3.426 3.708.27.231.51.69.51 1.392v2.064c0 .198.135.435.516.36A7.503 7.503 0 0016.5 9C16.5 4.86 13.14 1.5 9 1.5z" fill="currentColor"/>
+      </svg>
+      View on GitHub
+    </a>
+  </div>
+
+  <!-- App window mockup -->
+  <div class="app-window container">
+    <div class="window-bar">
+      <div class="tl tl-r"></div>
+      <div class="tl tl-y"></div>
+      <div class="tl tl-g"></div>
+      <div class="window-title">the-future-of-work.md — kova</div>
+    </div>
+    <div class="window-body">
+
+      <!-- Editor -->
+      <div class="editor-pane">
+        <p><span class="c-h1"># The Future of Work</span></p>
+        <p><span class="c-text">&nbsp;</span></p>
+        <p><span class="c-text">Productivity is shifting fast.</span></p>
+        <p><span class="c-text">Here's what it means for teams.</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-sep">---</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-h2">## Three Trends</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-text">- Remote-first by default</span></p>
+        <p><span class="c-text">- Async communication</span></p>
+        <p><span class="c-text">- AI-augmented workflows</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-sep">---</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-h3">### The numbers</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-text">Remote workers report</span></p>
+        <p><span class="c-text"><span class="c-kw">24%</span> higher productivity.</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-col">|||</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-code">```mermaid</span></p>
+        <p><span class="c-code">pie title Work modes</span></p>
+        <p><span class="c-code">  "Remote" : 60</span></p>
+        <p><span class="c-code">  "Hybrid" : 30</span></p>
+        <p><span class="c-code">  "Office" : 10</span></p>
+        <p><span class="c-code">```</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-note">???</span></p>
+        <p><span class="c-note">Mention the Stanford study here.</span><span class="cursor"></span></p>
+      </div>
+
+      <!-- Slide preview -->
+      <div class="preview-pane">
+        <div class="slide-card">
+          <div class="slide-title">The Future of Work</div>
+          <div class="slide-rule"></div>
+          <div class="slide-body">Productivity is shifting fast.<br>Here's what it means for teams.</div>
+          <div class="slide-num">1 / 3</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURES ═══════════════════════════════════════════ -->
+<section id="features">
+  <div class="container">
+    <p class="s-label">Features</p>
+    <h2 class="s-heading">Everything you need.<br>Nothing you don't.</h2>
+    <p class="s-sub">Built for people who'd rather write than click. Kova stays out of your way.</p>
+
+    <div class="feat-grid">
+
+      <!-- Markdown-first -->
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 20 20" fill="none">
+            <rect x="2.5" y="4" width="15" height="12" rx="2" stroke="#FF6B2B" stroke-width="1.5"/>
+            <line x1="5.5" y1="8"  x2="14.5" y2="8"  stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="5.5" y1="11" x2="11"   y2="11" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" opacity="0.55"/>
+            <line x1="5.5" y1="14" x2="13"   y2="14" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+        </div>
+        <h3>Markdown-first</h3>
+        <p>Slides separated by <code>---</code>. Headings set the layout. Write like you always have, get polished slides out the other end.</p>
+      </div>
+
+      <!-- Auto layouts -->
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 20 20" fill="none">
+            <rect x="2" y="2"   width="7" height="7" rx="1.5" stroke="#FF6B2B" stroke-width="1.5"/>
+            <rect x="11" y="2"  width="7" height="7" rx="1.5" stroke="#FF6B2B" stroke-width="1.5" opacity="0.6"/>
+            <rect x="2" y="11"  width="7" height="7" rx="1.5" stroke="#FF6B2B" stroke-width="1.5" opacity="0.6"/>
+            <rect x="11" y="11" width="7" height="7" rx="1.5" stroke="#FF6B2B" stroke-width="1.5" opacity="0.3"/>
+          </svg>
+        </div>
+        <h3>Auto layouts</h3>
+        <p>Title, section, two-column, quote, grid, and full-bleed layouts — detected automatically from your content structure.</p>
+      </div>
+
+      <!-- Live preview -->
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 20 20" fill="none">
+            <rect x="2" y="3"   width="7" height="14" rx="1.5" stroke="#FF6B2B" stroke-width="1.5"/>
+            <rect x="11" y="3"  width="7" height="14" rx="1.5" stroke="#FF6B2B" stroke-width="1.5" opacity="0.6"/>
+            <line x1="9.5" y1="7"  x2="11" y2="7"  stroke="#FF6B2B" stroke-width="1.4" stroke-linecap="round"/>
+            <line x1="9.5" y1="10" x2="11" y2="10" stroke="#FF6B2B" stroke-width="1.4" stroke-linecap="round"/>
+            <line x1="9.5" y1="13" x2="11" y2="13" stroke="#FF6B2B" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Live preview</h3>
+        <p>Editor and rendered slides stay in perfect sync as you type. See your presentation take shape in real time.</p>
+      </div>
+
+      <!-- PPTX export -->
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 20 20" fill="none">
+            <rect x="3" y="2.5" width="14" height="11" rx="2" stroke="#FF6B2B" stroke-width="1.5"/>
+            <path d="M7 17h6M10 13.5v3.5" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M7.5 8l2 2 3-3.5" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>PPTX export</h3>
+        <p>Export to PowerPoint in 16:9 or 4:3 — for stakeholders who need a <code>.pptx</code> and won't take no for an answer.</p>
+      </div>
+
+      <!-- Mermaid -->
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 20 20" fill="none">
+            <polyline points="3,15 7,9 10,12 13,7 17,11" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <circle cx="6" cy="5.5" r="1.5" stroke="#FF6B2B" stroke-width="1.4"/>
+          </svg>
+        </div>
+        <h3>Mermaid diagrams</h3>
+        <p>Pie, bar, and line charts plus flowcharts — rendered inline from fenced code blocks. No image exports needed.</p>
+      </div>
+
+      <!-- Themes -->
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="7" stroke="#FF6B2B" stroke-width="1.5"/>
+            <circle cx="10" cy="10" r="2.5" fill="#FF6B2B" opacity="0.4"/>
+            <line x1="10" y1="3"  x2="10" y2="5"  stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="10" y1="15" x2="10" y2="17" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="3"  y1="10" x2="5"  y2="10" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="15" y1="10" x2="17" y2="10" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Themes</h3>
+        <p>Built-in themes, plus drop your own into <code>~/.kova/themes/</code> as simple YAML files. Live reloaded instantly.</p>
+      </div>
+
+      <!-- Focus mode -->
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 20 20" fill="none">
+            <circle cx="10" cy="10" r="7"   stroke="#FF6B2B" stroke-width="1.5"/>
+            <circle cx="10" cy="10" r="3.5" stroke="#FF6B2B" stroke-width="1.5" opacity="0.5"/>
+            <circle cx="10" cy="10" r="1"   fill="#FF6B2B"/>
+          </svg>
+        </div>
+        <h3>Focus mode</h3>
+        <p>Dims inactive slides and collapses side panels. Toggle with <code>Ctrl+Shift+F</code> when it's time to actually write.</p>
+      </div>
+
+      <!-- Syntax highlighting -->
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 20 20" fill="none">
+            <rect x="2.5" y="4" width="15" height="12" rx="2" stroke="#FF6B2B" stroke-width="1.5"/>
+            <path d="M6.5 9l-2 2 2 2"  stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.5 9l2 2-2 2"  stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="11" y1="8" x2="9" y2="14" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+          </svg>
+        </div>
+        <h3>Syntax highlighting</h3>
+        <p>Fenced code blocks rendered with highlight.js — 190+ languages. Your code looks as good as your slides.</p>
+      </div>
+
+      <!-- Keyboard-driven -->
+      <div class="feat-card">
+        <div class="feat-icon">
+          <svg viewBox="0 0 20 20" fill="none">
+            <rect x="2" y="6.5" width="16" height="10" rx="2" stroke="#FF6B2B" stroke-width="1.5"/>
+            <rect x="5"    y="9.5" width="2.5" height="2" rx="0.5" fill="#FF6B2B" opacity="0.7"/>
+            <rect x="8.75" y="9.5" width="2.5" height="2" rx="0.5" fill="#FF6B2B" opacity="0.5"/>
+            <rect x="12.5" y="9.5" width="2.5" height="2" rx="0.5" fill="#FF6B2B" opacity="0.3"/>
+            <rect x="6"    y="12.5" width="8"  height="2" rx="0.5" fill="#FF6B2B" opacity="0.25"/>
+          </svg>
+        </div>
+        <h3>Keyboard-driven</h3>
+        <p>Every action has a shortcut. Fully remappable via <code>~/.kova/keybindings.yaml</code> — no settings UI required.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SYNTAX ══════════════════════════════════════════════ -->
+<section id="syntax" class="syntax-section">
+  <div class="container">
+    <p class="s-label">Syntax</p>
+    <h2 class="s-heading">Write it once.<br>kova figures out the rest.</h2>
+    <p class="s-sub">A handful of conventions give you powerful layouts without any configuration.</p>
+
+    <div class="syntax-demo">
+      <div class="syntax-code">
+        <div class="syntax-pane-label">Markdown input</div>
+        <p><span class="c-h1"># Title Slide</span></p>
+        <p><span class="c-text">Subtitle or intro text here</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-sep">---</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-h2">## Section Break</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-sep">---</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-h3">### Two-column slide</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-text">Left column content</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-col">|||</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-text">Right column content</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-sep">---</span></p>
+        <p>&nbsp;</p>
+        <p><span style="color:#888;">&gt; "A blockquote-only slide</span></p>
+        <p><span style="color:#888;">&gt; gets the quote layout."</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-sep">---</span></p>
+        <p>&nbsp;</p>
+        <p><span class="c-note">???</span></p>
+        <p><span class="c-note">Speaker notes — presenter view only.</span></p>
+      </div>
+
+      <div class="syntax-result">
+        <div class="syntax-pane-label">Rendered slides</div>
+
+        <div class="mini-slide" style="flex:1">
+          <div style="font-size:15px;font-weight:700;color:#0d0d0d;letter-spacing:-0.02em;">Title Slide</div>
+          <div style="width:24px;height:2px;background:#D94F00;border-radius:2px;margin:7px 0;"></div>
+          <div style="font-size:10px;color:#666;">Subtitle or intro text here</div>
+          <div class="mini-tag">H1 → title layout</div>
+        </div>
+
+        <div class="mini-slide" style="flex:1;background:#D94F00;align-items:center;justify-content:center;display:flex;">
+          <div style="font-size:13px;font-weight:600;color:white;letter-spacing:-0.01em;">Section Break</div>
+          <div class="mini-tag" style="color:rgba(255,255,255,0.3);">H2 → section layout</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRESENTER MODE ══════════════════════════════════════ -->
+<section class="present-section">
+  <div class="container">
+    <div>
+      <p class="s-label">Present</p>
+      <h2 class="s-heading" style="font-size:clamp(28px,3.5vw,46px)">Fullscreen mode.<br>Built for the stage.</h2>
+      <p style="font-size:16px;color:var(--text-muted);line-height:1.7;margin-top:14px;">
+        Presenter view shows your speaker notes, slide counter, and next slide preview —
+        while your audience sees only the clean, full-bleed presentation.
+      </p>
+      <ul class="checklist">
+        <li>
+          <span class="check-dot">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M2 5l2.5 2.5L8 3" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          Speaker notes visible only in presenter view
+        </li>
+        <li>
+          <span class="check-dot">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M2 5l2.5 2.5L8 3" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          Keyboard and click navigation
+        </li>
+        <li>
+          <span class="check-dot">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M2 5l2.5 2.5L8 3" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          YouTube embeds open in browser; polls render as QR codes
+        </li>
+        <li>
+          <span class="check-dot">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+              <path d="M2 5l2.5 2.5L8 3" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          File watcher reloads automatically when edited externally
+        </li>
+      </ul>
+    </div>
+
+    <!-- Presenter view mockup -->
+    <div class="presenter-mock">
+      <div class="presenter-bar">
+        <div style="font-size:11px;color:#3a3a3a;font-family:ui-monospace,monospace;">Fullscreen — presenter view</div>
+        <div style="font-size:11px;color:var(--orange-bright);font-family:ui-monospace,monospace;">3 / 8</div>
+      </div>
+      <div class="presenter-body">
+        <div style="background:white;border-radius:6px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 4px 20px rgba(0,0,0,0.35);">
+          <div style="text-align:center;padding:16px;">
+            <div style="font-size:17px;font-weight:700;color:#0d0d0d;letter-spacing:-0.02em;">Three Trends</div>
+            <div style="width:28px;height:2px;background:#D94F00;margin:8px auto;border-radius:2px;"></div>
+            <div style="font-size:10px;color:#555;line-height:1.9;">
+              Remote-first by default<br>
+              Async communication<br>
+              AI-augmented workflows
+            </div>
+          </div>
+        </div>
+        <div style="background:#0d0d0d;border-radius:6px;padding:12px 16px;border:1px solid rgba(255,255,255,0.05);">
+          <div style="font-size:10px;color:#444;margin-bottom:6px;letter-spacing:0.1em;font-family:ui-monospace,monospace;text-transform:uppercase;">Speaker notes</div>
+          <div style="font-size:11.5px;color:#666;line-height:1.65;">Mention the Stanford study here. Reference the 2024 data on async tooling adoption.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ INSTALL / SOURCE ════════════════════════════════════ -->
+<section class="install-section">
+  <div class="container">
+
+    <div>
+      <p class="s-label">Get started</p>
+      <h2 class="s-heading" style="font-size:clamp(28px,3.5vw,44px);">Up and running<br>in under a minute.</h2>
+      <p style="font-size:16px;color:var(--text-muted);line-height:1.7;margin-top:14px;">
+        Download a pre-built release, or build from source. Kova runs natively on
+        macOS, Linux, and Windows — no Electron, no browser shell.
+      </p>
+      <div style="margin-top:28px;display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="https://github.com/kovamd/kova/releases" class="btn btn-primary">
+          <svg width="15" height="15" viewBox="0 0 17 17" fill="none" aria-hidden="true">
+            <path d="M8.5 2v9M5 8l3.5 3.5L12 8M2.5 13.5h12" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Download release
+        </a>
+        <a href="https://github.com/kovamd/kova" class="btn btn-secondary">View source</a>
+      </div>
+    </div>
+
+    <div class="terminal-block">
+      <div class="terminal-bar">
+        <div class="tl tl-r"></div>
+        <div class="tl tl-y"></div>
+        <div class="tl tl-g"></div>
+        <span>Terminal</span>
+      </div>
+      <div class="terminal-body">
+        <p><span class="prompt">$</span> <span class="cmd">git clone https://github.com/kovamd/kova.git</span></p>
+        <p><span class="prompt">$</span> <span class="cmd">cd kova &amp;&amp; npm install</span></p>
+        <p><span class="prompt">$</span> <span class="cmd-hi">npm run tauri dev</span></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ CTA ════════════════════════════════════════════════ -->
+<section id="download" class="cta-section">
+  <div class="container">
+    <div class="cta-icon">
+      <img src="assets/kova-icon-256.svg" width="60" height="60" alt="">
+    </div>
+    <h2>Get started<br>in seconds.</h2>
+    <p>Free, open source, and runs natively on macOS, Linux, and Windows.</p>
+    <div class="cta-btns">
+      <a href="https://github.com/kovamd/kova/releases" class="btn btn-primary btn-lg">
+        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true">
+          <path d="M8.5 2v9M5 8l3.5 3.5L12 8M2.5 13.5h12" stroke="white" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Download free
+      </a>
+      <a href="https://github.com/kovamd/kova" class="btn btn-secondary btn-lg">View source on GitHub</a>
+    </div>
+    <div class="platform-tags">
+      <span class="platform-tag">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+          <path d="M6.5 1.5C3.74 1.5 1.5 3.74 1.5 6.5S3.74 11.5 6.5 11.5 11.5 9.26 11.5 6.5 9.26 1.5 6.5 1.5z" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M6.5 4v2.5l1.5 1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        Open source · GPLv3
+      </span>
+      <span class="platform-tag">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+          <rect x="1.5" y="3.5" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M4.5 3.5V2.5a2 2 0 014 0v1" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        No account required
+      </span>
+      <span class="platform-tag">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+          <rect x="1.5" y="2.5" width="10" height="7" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+          <line x1="4" y1="11.5" x2="9" y2="11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <line x1="6.5" y1="9.5" x2="6.5" y2="11.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        macOS · Linux · Windows
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <a class="nav-logo" href="/" style="text-decoration:none;">
+      <img src="assets/kova-icon.svg" width="24" height="24" alt="">
+      <span class="nav-wordmark">kova<span class="tld">.md</span></span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="https://github.com/kovamd/kova">GitHub</a></li>
+      <li><a href="https://github.com/kovamd/kova/releases">Releases</a></li>
+      <li><a href="https://github.com/kovamd/kova/blob/main/LICENSE">License</a></li>
+      <li><a href="https://github.com/kovamd/kova/issues">Issues</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Kova contributors · GPLv3</p>
+  </div>
+</footer>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

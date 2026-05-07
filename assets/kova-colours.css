@@ -1,0 +1,35 @@
+/* kova.md — Brand Colour Tokens */
+
+:root {
+  /* Primary */
+  --kova-orange:       #D94F00;  /* Primary brand, icon background */
+  --kova-orange-dark:  #8C2800;  /* Shadow rect, depth */
+  --kova-orange-bright:#FF6B2B;  /* Accent, dark mode strokes */
+  --kova-orange-warm:  #FF8C52;  /* Dark mode primary lines */
+
+  /* Neutrals */
+  --kova-ink:          #0D0D0D;  /* Primary text — light mode */
+  --kova-white:        #FFFFFF;  /* Backgrounds, front rect */
+  --kova-charcoal:     #2A1008;  /* Dark mode front rect fill */
+  --kova-night:        #111111;  /* Dark mode background */
+}
+
+/* Dark mode overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --kova-bg:          var(--kova-night);
+    --kova-text:        var(--kova-white);
+    --kova-accent:      var(--kova-orange-bright);
+    --kova-accent-soft: var(--kova-orange-warm);
+  }
+}
+
+/* Light mode */
+@media (prefers-color-scheme: light) {
+  :root {
+    --kova-bg:          var(--kova-white);
+    --kova-text:        var(--kova-ink);
+    --kova-accent:      var(--kova-orange);
+    --kova-accent-soft: var(--kova-orange-bright);
+  }
+}
