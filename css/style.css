@@ -618,7 +618,15 @@ html[data-theme="light"] .cta-section {
   color: var(--text-muted);
   margin-bottom: 36px;
 }
-.cta-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px; }
+.cta-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+.other-platforms { margin-bottom: 32px; }
+.other-platforms a {
+  font-size: 13px;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.other-platforms a:hover { color: var(--orange-bright); }
 .platform-tags { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; }
 .platform-tag  { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--text-dim); }
 
