@@ -247,72 +247,34 @@
   </div>
 </section>
 
-<!-- ═══ SYNTAX ══════════════════════════════════════════════ -->
+<!-- ═══ IN ACTION ════════════════════════════════════════════ -->
 <section id="syntax" class="syntax-section">
   <div class="container">
-    <p class="s-label">Syntax</p>
-    <h2 class="s-heading">Write it once.<br>kova figures out the rest.</h2>
-    <p class="s-sub">A handful of conventions give you powerful layouts without any configuration.</p>
+    <p class="s-label">In action</p>
+    <h2 class="s-heading">Write it once.<br>Kova figures out the rest.</h2>
+    <p class="s-sub">A handful of conventions give you powerful layouts — detected automatically from your content structure. Right-click to insert charts, tables, and more.</p>
 
-    <div class="syntax-demo">
-      <div class="syntax-code">
-        <div class="syntax-pane-label">Markdown input</div>
-        <p><span class="c-h1"># Title Slide</span></p>
-        <p><span class="c-text">Subtitle or intro text here</span></p>
-        <p>&nbsp;</p>
-        <p><span class="c-sep">---</span></p>
-        <p>&nbsp;</p>
-        <p><span class="c-h2">## Section Break</span></p>
-        <p>&nbsp;</p>
-        <p><span class="c-sep">---</span></p>
-        <p>&nbsp;</p>
-        <p><span class="c-h3">### Two-column slide</span></p>
-        <p>&nbsp;</p>
-        <p><span class="c-text">Left column content</span></p>
-        <p>&nbsp;</p>
-        <p><span class="c-col">|||</span></p>
-        <p>&nbsp;</p>
-        <p><span class="c-text">Right column content</span></p>
-        <p>&nbsp;</p>
-        <p><span class="c-sep">---</span></p>
-        <p>&nbsp;</p>
-        <p><span style="color:#888;">&gt; "A blockquote-only slide</span></p>
-        <p><span style="color:#888;">&gt; gets the quote layout."</span></p>
-        <p>&nbsp;</p>
-        <p><span class="c-sep">---</span></p>
-        <p>&nbsp;</p>
-        <p><span class="c-note">???</span></p>
-        <p><span class="c-note">Speaker notes — presenter view only.</span></p>
+    <div class="showcase-split">
+      <div class="showcase-shot">
+        <img src="assets/screenshot-drinks-dark.png" class="screenshot-dark" alt="Kova editor showing two-column layout with progress bar charts" width="820" height="auto">
+        <img src="assets/screenshot-drinks-light.png" class="screenshot-light" alt="Kova editor in light mode" width="820" height="auto">
       </div>
-
-      <div class="syntax-result">
-        <div class="syntax-pane-label">Rendered slides</div>
-
-        <div class="mini-slide" style="flex:1">
-          <div style="font-size:15px;font-weight:700;color:#0d0d0d;letter-spacing:-0.02em;">Title Slide</div>
-          <div style="width:24px;height:2px;background:#D94F00;border-radius:2px;margin:7px 0;"></div>
-          <div style="font-size:10px;color:#666;">Subtitle or intro text here</div>
-          <div class="mini-tag">H1 → title layout</div>
-        </div>
-
-        <div class="mini-slide" style="flex:1;background:#D94F00;align-items:center;justify-content:center;display:flex;">
-          <div style="font-size:13px;font-weight:600;color:white;letter-spacing:-0.01em;">Section Break</div>
-          <div class="mini-tag" style="color:rgba(255,255,255,0.3);">H2 → section layout</div>
-        </div>
+      <div class="showcase-shot">
+        <img src="assets/screenshot-context-menu.png" alt="Kova right-click context menu showing insert options for charts and tables" width="820" height="auto">
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ PRESENTER MODE ══════════════════════════════════════ -->
+<!-- ═══ THEMES / CUSTOMISE ═══════════════════════════════════ -->
 <section class="present-section">
   <div class="container">
     <div>
-      <p class="s-label">Present</p>
-      <h2 class="s-heading" style="font-size:clamp(28px,3.5vw,46px)">Fullscreen mode.<br>Built for the stage.</h2>
+      <p class="s-label">Customise</p>
+      <h2 class="s-heading" style="font-size:clamp(28px,3.5vw,46px)">Beautiful themes.<br>Zero configuration.</h2>
       <p style="font-size:16px;color:var(--text-muted);line-height:1.7;margin-top:14px;">
-        Presenter view shows your speaker notes, slide counter, and next slide preview —
-        while your audience sees only the clean, full-bleed presentation.
+        Switch themes instantly from the inspector panel. Build your own as simple YAML files
+        and share them with the community.
       </p>
       <ul class="checklist">
         <li>
@@ -321,7 +283,7 @@
               <path d="M2 5l2.5 2.5L8 3" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
-          Speaker notes visible only in presenter view
+          10+ built-in themes — from minimal to editorial
         </li>
         <li>
           <span class="check-dot">
@@ -329,7 +291,7 @@
               <path d="M2 5l2.5 2.5L8 3" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
-          Keyboard and click navigation
+          Per-slide layout and format overrides via the inspector
         </li>
         <li>
           <span class="check-dot">
@@ -337,7 +299,7 @@
               <path d="M2 5l2.5 2.5L8 3" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
-          YouTube embeds open in browser; polls render as QR codes
+          Drop-in custom themes as simple YAML — live reloaded
         </li>
         <li>
           <span class="check-dot">
@@ -345,57 +307,13 @@
               <path d="M2 5l2.5 2.5L8 3" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
-          File watcher reloads automatically when edited externally
+          Community themes at <a href="https://github.com/kovamd/themes/" style="color:var(--orange-bright);text-decoration:none;">github.com/kovamd/themes</a>
         </li>
       </ul>
     </div>
 
-    <!-- Presenter view mockup -->
-    <div class="presenter-mock">
-      <div class="presenter-bar">
-        <div style="font-size:11px;color:#3a3a3a;font-family:ui-monospace,monospace;">Fullscreen — presenter view</div>
-        <div style="font-size:11px;color:var(--orange-bright);font-family:ui-monospace,monospace;">3 / 8</div>
-      </div>
-      <div class="presenter-body">
-        <div style="background:white;border-radius:6px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 4px 20px rgba(0,0,0,0.35);">
-          <div style="text-align:center;padding:16px;">
-            <div style="font-size:17px;font-weight:700;color:#0d0d0d;letter-spacing:-0.02em;">Three Trends</div>
-            <div style="width:28px;height:2px;background:#D94F00;margin:8px auto;border-radius:2px;"></div>
-            <div style="font-size:10px;color:#555;line-height:1.9;">
-              Remote-first by default<br>
-              Async communication<br>
-              AI-augmented workflows
-            </div>
-          </div>
-        </div>
-        <div style="background:#0d0d0d;border-radius:6px;padding:12px 16px;border:1px solid rgba(255,255,255,0.05);">
-          <div style="font-size:10px;color:#444;margin-bottom:6px;letter-spacing:0.1em;font-family:ui-monospace,monospace;text-transform:uppercase;">Speaker notes</div>
-          <div style="font-size:11.5px;color:#666;line-height:1.65;">Mention the Stanford study here. Reference the 2024 data on async tooling adoption.</div>
-        </div>
-      </div>
-    </div>
+    <img src="assets/screenshot-inspector.png" class="app-screenshot" alt="Kova inspector panel showing theme selection and formatting options" width="540" height="auto">
 
-  </div>
-</section>
-
-<!-- ═══ INSTALL / SOURCE ════════════════════════════════════ -->
-<section class="install-section">
-  <div class="container" style="display:block;max-width:640px;">
-    <p class="s-label">Get started</p>
-    <h2 class="s-heading" style="font-size:clamp(28px,3.5vw,44px);">Up and running<br>in under a minute.</h2>
-    <p style="font-size:16px;color:var(--text-muted);line-height:1.7;margin-top:14px;">
-      Download a pre-built release for your platform. Kova runs natively on
-      macOS, Linux, and Windows — no Electron, no browser shell.
-    </p>
-    <div style="margin-top:28px;display:flex;gap:10px;flex-wrap:wrap;">
-      <a href="https://github.com/kovamd/kova/releases" class="btn btn-primary">
-        <svg width="15" height="15" viewBox="0 0 17 17" fill="none" aria-hidden="true">
-          <path d="M8.5 2v9M5 8l3.5 3.5L12 8M2.5 13.5h12" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        Download release
-      </a>
-      <a href="https://github.com/kovamd/kova" class="btn btn-secondary">View source on GitHub</a>
-    </div>
   </div>
 </section>
 
