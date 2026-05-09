@@ -32,13 +32,13 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ─── OS-targeted downloads ───────────────────────────── */
-const RELEASE_TAG  = 'v0.1.2-alpha.1';
+const RELEASE_TAG  = 'v0.1.6';
 const RELEASE_BASE = `https://github.com/KovaMD/Kova/releases/download/${RELEASE_TAG}`;
 
 const DOWNLOAD = {
-  mac:   { url: `${RELEASE_BASE}/Kova_0.1.2_universal.dmg`,  label: 'Download for macOS'   },
-  win:   { url: `${RELEASE_BASE}/Kova_0.1.2_x64_en-US.msi`,  label: 'Download for Windows' },
-  linux: { url: `${RELEASE_BASE}/Kova_0.1.2_amd64.AppImage`, label: 'Download for Linux'   },
+  mac:   { url: `${RELEASE_BASE}/Kova_0.1.6_universal.dmg`,  label: 'Download for macOS'   },
+  win:   { url: `${RELEASE_BASE}/Kova_0.1.6_x64_en-US.msi`,  label: 'Download for Windows' },
+  linux: { url: `${RELEASE_BASE}/Kova_0.1.6_amd64.AppImage`, label: 'Download for Linux'   },
 };
 
 function detectOS() {
