@@ -454,19 +454,18 @@ section { padding: 100px 40px; }
   gap: 20px;
   margin-top: 48px;
 }
+.showcase-triple { grid-template-columns: repeat(3, 1fr); }
 .showcase-shot {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.07);
 }
 .showcase-shot img { width: 100%; height: auto; display: block; }
-.app-screenshot {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 10px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.07);
-}
+
+/* Customise section compound layout */
+.theme-showcase { display: flex; flex-direction: column; gap: 16px; }
+.theme-slides   { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.inspector-panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 
 /* ─── Syntax section ──────────────────────────────────── */
 .syntax-section {
@@ -535,7 +534,7 @@ section { padding: 100px 40px; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: center;
+  align-items: start;
 }
 .checklist { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-top: 24px; }
 .checklist li {
@@ -700,7 +699,10 @@ footer {
   .hero { padding: 110px 20px 80px; }
   section { padding: 72px 20px; }
   .feat-grid { grid-template-columns: 1fr; }
-  .showcase-split { grid-template-columns: 1fr; }
+  .showcase-split  { grid-template-columns: 1fr; }
+  .showcase-triple { grid-template-columns: 1fr; }
+  .theme-slides    { grid-template-columns: 1fr 1fr; }
+  .inspector-panels { grid-template-columns: repeat(3, 1fr); }
   .present-section .container { grid-template-columns: 1fr; gap: 40px; }
   footer { padding: 36px 20px; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
