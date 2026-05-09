@@ -266,8 +266,8 @@ html[data-theme="dark"]  .theme-toggle .icon-moon { display: none;  }
   animation: fadeUp 0.5s 0.3s ease both;
 }
 
-/* ─── App mockup ──────────────────────────────────────── */
-.app-window {
+/* ─── Hero screenshot ─────────────────────────────────── */
+.hero-screenshot {
   width: 100%;
   max-width: 980px;
   border-radius: 12px;
@@ -278,6 +278,17 @@ html[data-theme="dark"]  .theme-toggle .icon-moon { display: none;  }
     0 0 140px rgba(217,79,0,0.07);
   animation: fadeUp 0.6s 0.4s ease both;
 }
+.hero-screenshot img { width: 100%; height: auto; display: block; }
+.screenshot-light { display: none;  }
+.screenshot-dark  { display: block; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .screenshot-light { display: block; }
+  html:not([data-theme="dark"]) .screenshot-dark  { display: none;  }
+}
+html[data-theme="light"] .screenshot-light { display: block; }
+html[data-theme="light"] .screenshot-dark  { display: none;  }
+html[data-theme="dark"]  .screenshot-light { display: none;  }
+html[data-theme="dark"]  .screenshot-dark  { display: block; }
 /* Window chrome — always dark (it's a macOS mock) */
 .window-bar {
   height: 40px;
@@ -667,8 +678,6 @@ footer {
   .nav-links li:not(:last-child) { display: none; }
   .hero { padding: 110px 20px 80px; }
   section { padding: 72px 20px; }
-  .window-body { grid-template-columns: 1fr; }
-  .preview-pane { display: none; }
   .feat-grid { grid-template-columns: 1fr; }
   .syntax-demo { grid-template-columns: 1fr; }
   .syntax-result { display: none; }
