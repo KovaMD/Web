@@ -465,7 +465,7 @@ section { padding: 100px 40px; }
 /* Customise section compound layout */
 .theme-showcase { display: flex; flex-direction: column; gap: 16px; }
 .theme-slides   { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-.inspector-panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.inspector-panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: start; }
 
 /* ─── Syntax section ──────────────────────────────────── */
 .syntax-section {
