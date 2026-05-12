@@ -172,8 +172,8 @@ nav.scrolled {
 .theme-toggle .icon-moon { display: none;  }
 
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .theme-toggle .icon-sun  { display: none;  }
-  html:not([data-theme="dark"]) .theme-toggle .icon-moon { display: block; }
+  .theme-toggle .icon-sun  { display: none;  }
+  .theme-toggle .icon-moon { display: block; }
 }
 html[data-theme="light"] .theme-toggle .icon-sun  { display: none;  }
 html[data-theme="light"] .theme-toggle .icon-moon { display: block; }
@@ -283,8 +283,8 @@ html[data-theme="dark"]  .theme-toggle .icon-moon { display: none;  }
 .screenshot-light { display: none;  }
 .screenshot-dark  { display: block; }
 @media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .screenshot-light { display: block; }
-  html:not([data-theme="dark"]) .screenshot-dark  { display: none;  }
+  .screenshot-light { display: block; }
+  .screenshot-dark  { display: none;  }
 }
 html[data-theme="light"] .screenshot-light { display: block; }
 html[data-theme="light"] .screenshot-dark  { display: none;  }
