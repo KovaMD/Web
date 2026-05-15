@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>kova.md — Markdown-powered presentations</title>
+  <title>Kova — Markdown-powered presentations</title>
   <meta name="description" content="Kova turns plain Markdown into polished slides — fast, private, and runs entirely on your machine. Free and open source for Windows, macOS, and Linux.">
   <meta property="og:title" content="kova.md — Markdown-powered presentations">
   <meta property="og:description" content="A fast, keyboard-driven presentation editor for people who'd rather write than click.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kova.md">
+  <meta property="og:image" content="https://kova.md/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://kova.md/assets/og-image.png">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-0CcKsY49q+QPM5JuwYJRbLzDg1qPO/qPc+rmWY6FDQ8='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src https://api.github.com; base-uri 'self'; form-action 'none'">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="128x128" href="assets/favicon-128.png">
@@ -19,7 +22,7 @@
     // Restore saved theme before first paint to prevent flash
     (function() {
       var t = localStorage.getItem('kova-theme');
-      if (t) document.documentElement.setAttribute('data-theme', t);
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
     })();
   </script>
 </head>
@@ -95,7 +98,7 @@
   <!-- App screenshot -->
   <div class="hero-screenshot container">
     <img src="assets/screenshot-editor-dark.png" class="screenshot-dark" alt="Kova editor — markdown on the left, rendered slides on the right" width="980">
-    <img src="assets/screenshot-editor-light.png" class="screenshot-light" alt="Kova editor in light mode" width="980">
+    <img src="assets/screenshot-editor-light.png" class="screenshot-light" alt="Kova editor in light mode — markdown on the left, rendered slides on the right" width="980">
   </div>
 </section>
 
@@ -112,10 +115,10 @@
         <img src="assets/screenshot-drinks-light.png" class="screenshot-light" alt="Kova editor in light mode" width="820">
       </div>
       <div class="showcase-shot">
-        <img src="assets/screenshot-context-menu.png" alt="Kova right-click context menu showing insert options for charts and tables" width="820">
+        <img src="assets/slide-features-code.png" alt="Rendered slide showing a feature list alongside a syntax-highlighted code block" width="820">
       </div>
       <div class="showcase-shot">
-        <img src="assets/slide-features-code.png" alt="Rendered slide showing syntax-highlighted Python code block alongside a feature list" width="820">
+        <img src="assets/screenshot-inspector.png" alt="Kova editor with inspector panel open, showing theme and layout controls" width="820">
       </div>
     </div>
   </div>
@@ -162,7 +165,7 @@
               <path d="M2 5l2.5 2.5L8 3" stroke="#FF6B2B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </span>
-          Community themes at <a href="https://github.com/kovamd/themes/" style="color:var(--orange-bright);text-decoration:none;">github.com/kovamd/themes</a>
+          Community themes at <a href="https://github.com/kovamd/themes/">github.com/kovamd/themes</a>
         </li>
       </ul>
     </div>
