@@ -32,13 +32,13 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ─── OS-targeted downloads ───────────────────────────── */
-const RELEASE_TAG  = 'v0.1.6';
-const RELEASE_BASE = `https://github.com/KovaMD/Kova/releases/download/${RELEASE_TAG}`;
+const RELEASES_PAGE = 'https://github.com/KovaMD/Kova/releases/latest';
+const RELEASES_API  = 'https://api.github.com/repos/KovaMD/Kova/releases/latest';
 
-const DOWNLOAD = {
-  mac:   { url: `${RELEASE_BASE}/Kova_0.1.6_universal.dmg`,  label: 'Download for macOS'   },
-  win:   { url: `${RELEASE_BASE}/Kova_0.1.6_x64_en-US.msi`,  label: 'Download for Windows' },
-  linux: { url: `${RELEASE_BASE}/Kova_0.1.6_amd64.AppImage`, label: 'Download for Linux'   },
+const OS_ASSET = {
+  mac:   { ext: '.dmg',      label: 'Download for macOS'   },
+  win:   { ext: '.msi',      label: 'Download for Windows' },
+  linux: { ext: '.AppImage', label: 'Download for Linux'   },
 };
 
 function detectOS() {
@@ -50,13 +50,9 @@ function detectOS() {
   return null;
 }
 
-(function initDownloads() {
-  const os    = detectOS();
-  const asset = os ? DOWNLOAD[os] : null;
-  if (!asset) return;
-
+function applyDownloadButtons(url, label) {
   document.querySelectorAll('a.btn-primary[href*="releases"]').forEach(btn => {
-    btn.href = asset.url;
+    btn.href = url;
 
     // Update the visible label — skip the compact nav "Download" button
     btn.childNodes.forEach(node => {
@@ -64,7 +60,24 @@ function detectOS() {
       const text = node.textContent.trim();
       if (!text || text === 'Download') return;
       const leadingWhitespace = node.textContent.match(/^\s*/)[0];
-      node.textContent = leadingWhitespace + asset.label;
+      node.textContent = leadingWhitespace + label;
     });
   });
+}
+
+(async function initDownloads() {
+  const os = detectOS();
+  if (!os) return;
+
+  const { ext, label } = OS_ASSET[os];
+
+  try {
+    const res  = await fetch(RELEASES_API);
+    if (!res.ok) throw new Error(res.status);
+    const data = await res.json();
+    const asset = data.assets?.find(a => a.name.endsWith(ext));
+    applyDownloadButtons(asset?.browser_download_url ?? RELEASES_PAGE, label);
+  } catch {
+    applyDownloadButtons(RELEASES_PAGE, label);
+  }
 })();

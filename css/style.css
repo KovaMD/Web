@@ -540,6 +540,8 @@ section { padding: 100px 40px; }
   align-items: start;
 }
 .checklist { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-top: 24px; }
+.checklist a { color: var(--orange-bright); text-decoration: none; }
+.checklist a:hover { text-decoration: underline; }
 .checklist li {
   display: flex;
   align-items: flex-start;
