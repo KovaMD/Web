@@ -138,13 +138,13 @@ nav.scrolled {
   gap: 28px;
   list-style: none;
 }
-.nav-links a {
+.nav-links a:not(.btn) {
   font-size: 14px;
   color: var(--text-muted);
   text-decoration: none;
   transition: color 0.15s;
 }
-.nav-links a:hover { color: var(--text); }
+.nav-links a:not(.btn):hover { color: var(--text); }
 
 /* ─── Theme toggle ────────────────────────────────────── */
 .theme-toggle {
@@ -463,7 +463,8 @@ section { padding: 100px 40px; }
   overflow: hidden;
   box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.07);
 }
-.showcase-shot img { width: 100%; }
+.showcase-shot img { width: 100%; cursor: zoom-in; }
+.hero-screenshot img { cursor: zoom-in; }
 
 /* Customise section compound layout */
 .theme-showcase { display: flex; flex-direction: column; gap: 16px; }
@@ -692,6 +693,72 @@ footer {
 .footer-copy { font-size: 13px; color: var(--text-dim); }
 
 /* ─── Animations ──────────────────────────────────────── */
+/* ─── Lightbox ────────────────────────────────────────── */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  cursor: zoom-out;
+}
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 32px 96px rgba(0,0,0,0.7);
+  transform: scale(0.96);
+  transition: transform 0.2s;
+  cursor: default;
+}
+.lightbox.is-open img {
+  transform: scale(1);
+}
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  font-size: 28px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+.lightbox-nav:hover { background: rgba(255,255,255,0.22); }
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+.lightbox-counter {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255,255,255,0.5);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }

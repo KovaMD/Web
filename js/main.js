@@ -81,3 +81,77 @@ function applyDownloadButtons(url, label) {
     applyDownloadButtons(RELEASES_PAGE, label);
   }
 })();
+
+/* ─── Lightbox ────────────────────────────────────────── */
+(function initLightbox() {
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox';
+  overlay.setAttribute('role', 'dialog');
+  overlay.setAttribute('aria-modal', 'true');
+  overlay.setAttribute('aria-label', 'Image preview');
+
+  const prevBtn = document.createElement('button');
+  prevBtn.className = 'lightbox-nav lightbox-prev';
+  prevBtn.setAttribute('aria-label', 'Previous image');
+  prevBtn.innerHTML = '&#8249;';
+
+  const img = document.createElement('img');
+  img.alt = '';
+
+  const nextBtn = document.createElement('button');
+  nextBtn.className = 'lightbox-nav lightbox-next';
+  nextBtn.setAttribute('aria-label', 'Next image');
+  nextBtn.innerHTML = '&#8250;';
+
+  const counter = document.createElement('span');
+  counter.className = 'lightbox-counter';
+
+  overlay.append(prevBtn, img, nextBtn, counter);
+  document.body.appendChild(overlay);
+
+  let gallery = [];
+  let current = 0;
+
+  function visibleImgs(scope) {
+    return Array.from(scope.querySelectorAll('.showcase-shot img, .hero-screenshot img'))
+      .filter(el => el.offsetParent !== null);
+  }
+
+  function show(index) {
+    current = (index + gallery.length) % gallery.length;
+    img.src = gallery[current].src;
+    img.alt = gallery[current].alt || '';
+    const multi = gallery.length > 1;
+    counter.textContent = multi ? `${current + 1} / ${gallery.length}` : '';
+    prevBtn.style.visibility = multi ? 'visible' : 'hidden';
+    nextBtn.style.visibility = multi ? 'visible' : 'hidden';
+  }
+
+  function open(el) {
+    const section = el.closest('section') || document;
+    gallery = visibleImgs(section);
+    show(gallery.indexOf(el));
+    overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  prevBtn.addEventListener('click', () => show(current - 1));
+  nextBtn.addEventListener('click', () => show(current + 1));
+
+  document.addEventListener('keydown', e => {
+    if (!overlay.classList.contains('is-open')) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowLeft')  show(current - 1);
+    if (e.key === 'ArrowRight') show(current + 1);
+  });
+
+  document.querySelectorAll('.showcase-shot img, .hero-screenshot img').forEach(el => {
+    el.addEventListener('click', () => open(el));
+  });
+})();
