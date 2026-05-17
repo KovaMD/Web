@@ -15,7 +15,7 @@ jobs:
         env:
           SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
           SSH_HOST: 145.14.153.1
-          SSH_USER: u550675304.kova.md
+          SSH_USER: u550675304
           # Hostinger uses port 65002 — change if your host uses 22
           SSH_PORT: 65002
           # Confirm this path with: run `pwd` after SSH-ing in
