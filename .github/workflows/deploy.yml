@@ -13,7 +13,7 @@ jobs:
 
       - name: Deploy via rsync
         env:
-          SSH_KEY: ${{ secrets.kova_web_deploy }}
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
           SSH_HOST: 145.14.153.1
           SSH_USER: u550675304.kova.md
           # Hostinger uses port 65002 — change if your host uses 22
@@ -21,6 +21,7 @@ jobs:
           # Confirm this path with: run `pwd` after SSH-ing in
           REMOTE_PATH: ~/domains/kova.md/public_html/
         run: |
+          mkdir -p ~/.ssh
           install -m 600 /dev/null ~/.ssh/id_ed25519
           echo "$SSH_KEY" > ~/.ssh/id_ed25519
           ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts 2>/dev/null
