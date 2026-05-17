@@ -106,7 +106,13 @@ function applyDownloadButtons(url, label) {
   const counter = document.createElement('span');
   counter.className = 'lightbox-counter';
 
-  overlay.append(prevBtn, img, nextBtn, counter);
+  const closeBtn = document.createElement('button');
+  closeBtn.className = 'lightbox-close';
+  closeBtn.setAttribute('aria-label', 'Close');
+  closeBtn.innerHTML = '&#215;';
+  closeBtn.addEventListener('click', close);
+
+  overlay.append(prevBtn, img, nextBtn, counter, closeBtn);
   document.body.appendChild(overlay);
 
   let gallery = [];
