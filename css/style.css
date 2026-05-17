@@ -467,6 +467,7 @@ section { padding: 100px 40px; }
 .hero-screenshot img { cursor: zoom-in; }
 
 /* Customise section compound layout */
+.present-heading { font-size: clamp(28px, 3.5vw, 46px); }
 .theme-showcase { display: flex; flex-direction: column; gap: 16px; }
 .theme-slides   { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .inspector-panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: start; }
@@ -748,6 +749,24 @@ footer {
 .lightbox-nav:hover { background: rgba(255,255,255,0.22); }
 .lightbox-prev { left: 20px; }
 .lightbox-next { right: 20px; }
+.lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.lightbox-close:hover { background: rgba(255,255,255,0.22); }
 .lightbox-counter {
   position: absolute;
   bottom: 18px;
