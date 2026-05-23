@@ -330,9 +330,9 @@ html[data-theme="dark"]  .screenshot-dark  { display: block; }
 .c-h2   { color: #FF6B2B; font-weight: 600; }
 .c-h3   { color: #e88060; font-weight: 600; }
 .c-text { color: #999; }
-.c-sep  { color: #3a3a3a; }
+.c-sep  { color: #666; }
 .c-col  { color: #D94F00; font-weight: bold; }
-.c-note { color: #484848; font-style: italic; }
+.c-note { color: #777; font-style: italic; }
 .c-code { color: #6a9955; }
 .c-kw   { color: #FF8C52; }
 .cursor {
@@ -398,14 +398,14 @@ section { padding: 100px 40px; }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--orange-bright);
-  margin-bottom: 14px;
+  margin-bottom: 20px;
 }
 .s-heading {
   font-size: clamp(32px, 4vw, 52px);
   font-weight: 600;
   letter-spacing: -0.025em;
   line-height: 1.08;
-  margin-bottom: 16px;
+  margin-bottom: 44px;
 }
 .s-sub {
   font-size: 17px;
@@ -471,6 +471,7 @@ section { padding: 100px 40px; }
 .theme-showcase { display: flex; flex-direction: column; gap: 16px; }
 .theme-slides   { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .inspector-panels { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; align-items: start; }
+.inspector-panels .showcase-shot img { width: auto; max-width: 100%; }
 
 /* ─── Syntax section ──────────────────────────────────── */
 .syntax-section {
@@ -778,6 +779,133 @@ footer {
   pointer-events: none;
 }
 
+/* ─── Hero OS links ───────────────────────────────────── */
+.hero-os-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: -48px;
+  margin-bottom: 56px;
+  animation: fadeUp 0.5s 0.35s ease both;
+}
+.os-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.os-link:hover { color: var(--orange-bright); }
+.os-sep { font-size: 12px; color: var(--text-dim); }
+
+/* ─── Hero trust strip ────────────────────────────────── */
+.hero-trust {
+  border-bottom: 1px solid var(--card-border);
+  padding: 16px 40px;
+  background: var(--bg-alt);
+  transition: background 0.2s;
+}
+.hero-trust-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.trust-sep { font-size: 13px; color: var(--text-dim); }
+
+/* ─── Audience cards ──────────────────────────────────── */
+.audiences-section {
+  border-top: 1px solid var(--card-border);
+  background: var(--bg-alt);
+  transition: background 0.2s;
+}
+.audiences-section .s-heading { margin-bottom: 0; }
+.audience-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 48px;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--card-border);
+}
+.audience-card {
+  background: var(--card-bg);
+  padding: 28px 24px;
+  transition: background 0.2s;
+}
+.audience-card:hover { background: var(--feat-hover); }
+.audience-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--orange-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 12px;
+}
+.audience-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* ─── Feature card CTA variant ────────────────────────── */
+.feat-card-cta { display: flex; flex-direction: column; }
+.feat-more-link {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--orange-bright);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.feat-more-link:hover { color: var(--orange-warm); }
+
+/* ─── Per-OS download buttons ─────────────────────────── */
+.os-download-btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.btn-os {
+  background: rgba(128,128,128,0.1);
+  color: var(--text);
+  border: 1px solid var(--card-border);
+  padding: 12px 24px;
+  font-size: 15px;
+  border-radius: 8px;
+  min-width: 130px;
+  justify-content: center;
+}
+.btn-os:hover {
+  background: rgba(128,128,128,0.18);
+  border-color: var(--orange-bright);
+  color: var(--orange-bright);
+}
+
+/* ─── Alpha note ──────────────────────────────────────── */
+.alpha-note {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 32px;
+}
+.alpha-note a {
+  color: var(--text-dim);
+  text-decoration: underline;
+  transition: color 0.15s;
+}
+.alpha-note a:hover { color: var(--orange-bright); }
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -795,6 +923,13 @@ footer {
   .theme-slides    { grid-template-columns: 1fr 1fr; }
   .inspector-panels { grid-template-columns: repeat(3, 1fr); }
   .present-section .container { grid-template-columns: 1fr; gap: 40px; }
+  .audience-grid { grid-template-columns: 1fr 1fr; }
+  .hero-trust { padding: 14px 20px; }
   footer { padding: 36px 20px; }
   .footer-inner { flex-direction: column; align-items: flex-start; }
+}
+@media (max-width: 500px) {
+  .audience-grid { grid-template-columns: 1fr; }
+  .os-download-btns { flex-direction: column; align-items: center; }
+  .btn-os { width: 100%; max-width: 220px; }
 }

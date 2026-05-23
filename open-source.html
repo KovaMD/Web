@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open source — kova.md</title>
+  <meta name="description" content="Kova is free and open source under GPLv3. Read the code, contribute, build themes, and report issues on GitHub.">
+  <meta property="og:title" content="Open source — kova.md">
+  <meta property="og:description" content="Kova is free and open source under GPLv3. Read the code, contribute, build themes, and report issues on GitHub.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kova.md/open-source">
+  <meta property="og:image" content="https://kova.md/assets/og-image.png">
+  <link rel="canonical" href="https://kova.md/open-source">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-0CcKsY49q+QPM5JuwYJRbLzDg1qPO/qPc+rmWY6FDQ8='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src https://api.github.com; base-uri 'self'; form-action 'none'">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/favicon-128.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css?v=20260522">
+  <link rel="stylesheet" href="css/open-source.css?v=20260522">
+  <script>
+    (function() {
+      var t = localStorage.getItem('kova-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════ -->
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="assets/kova-icon.svg?v=20260522" width="28" height="28" alt="">
+    <span class="nav-wordmark">kova<span class="tld">.md</span></span>
+  </a>
+  <div class="nav-spacer"></div>
+  <ul class="nav-links">
+    <li><a href="features.html">Features</a></li>
+    <li><a href="https://github.com/KovaMD/Kova/wiki">Docs</a></li>
+    <li><a href="open-source.html" aria-current="page">Open source</a></li>
+    <li><a href="https://github.com/kovamd/kova">GitHub</a></li>
+    <li>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle colour scheme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="8" y1="1.5" x2="8" y2="3"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="8" y1="13"  x2="8" y2="14.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="1.5" y1="8" x2="3"   y2="8"  stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="13"  y1="8" x2="14.5" y2="8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="3.4" y1="3.4" x2="4.5" y2="4.5"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="11.5" y1="11.5" x2="12.6" y2="12.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="12.6" y1="3.4" x2="11.5" y2="4.5"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="4.5"  y1="11.5" x2="3.4" y2="12.6"  stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M14 8.5A6 6 0 0 1 7.5 2 6.5 6.5 0 1 0 14 8.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </li>
+    <li>
+      <a href="https://github.com/kovamd/kova/releases" class="btn btn-primary" style="padding:7px 16px;font-size:13px;">
+        Download
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ═══ PAGE HERO ══════════════════════════════════════════ -->
+<section class="os-page-hero">
+  <div class="container">
+    <p class="s-label">Open source</p>
+    <h1 class="os-hero-heading">Free and open source.<br>Always.</h1>
+    <p class="os-hero-sub">Kova is licensed under GPLv3. That means you can read the code, modify it, and distribute it — as long as anything you build from it stays open too. It also means Kova will always be free. No one can change that.</p>
+    <a href="https://github.com/kovamd/kova" class="btn btn-primary btn-lg os-github-btn">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+        <path d="M9 1.5C4.86 1.5 1.5 4.86 1.5 9a7.5 7.5 0 005.13 7.12c.375.07.51-.165.51-.36v-1.26c-2.085.45-2.52-.99-2.52-.99-.345-.87-.84-1.1-.84-1.1-.684-.465.054-.456.054-.456.756.054 1.155.78 1.155.78.672 1.146 1.764.816 2.19.624.066-.486.264-.816.48-.999-1.668-.189-3.42-.834-3.42-3.714 0-.822.294-1.494.777-2.022-.078-.189-.336-.954.075-1.989 0 0 .633-.204 2.073.774A7.17 7.17 0 019 5.685c.642.003 1.287.087 1.89.255 1.44-.978 2.07-.774 2.07-.774.414 1.035.156 1.8.078 1.989.483.528.774 1.2.774 2.022 0 2.886-1.755 3.522-3.426 3.708.27.231.51.69.51 1.392v2.064c0 .198.135.435.516.36A7.503 7.503 0 0016.5 9C16.5 4.86 13.14 1.5 9 1.5z" fill="currentColor"/>
+      </svg>
+      View on GitHub
+    </a>
+  </div>
+</section>
+
+<!-- ═══ WHAT GPLv3 MEANS ════════════════════════════════════ -->
+<section class="os-section">
+  <div class="container">
+    <div class="os-two-col">
+      <div>
+        <p class="s-label">The licence</p>
+        <h2 class="s-heading">What GPLv3 means for you</h2>
+      </div>
+      <div class="os-body">
+        <p>GPLv3 is a copyleft licence. In plain terms:</p>
+        <ul class="os-list">
+          <li><strong>You can use Kova for anything.</strong> Personal projects, commercial work, education — no restrictions on how you use it.</li>
+          <li><strong>You can read and modify the source code.</strong> If something doesn't work the way you need, you can change it.</li>
+          <li><strong>If you distribute a modified version, it must also be open source.</strong> You can't take Kova's code, make it proprietary, and sell it. This is the core of the copyleft guarantee.</li>
+          <li><strong>Kova will always be free.</strong> The GPLv3 licence applies to all versions. No one can retroactively change that — not now, not ever.</li>
+        </ul>
+        <p class="os-body-note">The full licence text is at <a href="https://github.com/KovaMD/Kova/blob/main/LICENSE">github.com/KovaMD/Kova/blob/main/LICENSE</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTRIBUTE ══════════════════════════════════════════ -->
+<section class="os-section os-section-alt">
+  <div class="container">
+    <p class="s-label">Contribute</p>
+    <h2 class="s-heading">Get involved</h2>
+    <div class="os-card-grid">
+
+      <a href="https://github.com/KovaMD/Kova/wiki/Contributing" class="os-card">
+        <div class="os-card-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <path d="M11 2.75a8.25 8.25 0 1 0 0 16.5 8.25 8.25 0 0 0 0-16.5z" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M11 7.5v4.5l2.75 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Contributing guide</h3>
+        <p>How to set up a local dev environment, coding conventions, and the PR process.</p>
+        <span class="os-card-link">Read the guide →</span>
+      </a>
+
+      <a href="https://github.com/KovaMD/Kova/issues" class="os-card">
+        <div class="os-card-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <circle cx="11" cy="11" r="8.25" stroke="currentColor" stroke-width="1.5"/>
+            <line x1="11" y1="7" x2="11" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="11" cy="15" r="0.75" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3>Report a bug</h3>
+        <p>Found something broken? Open an issue on GitHub. Include your OS, Kova version, and steps to reproduce.</p>
+        <span class="os-card-link">Open an issue →</span>
+      </a>
+
+      <a href="https://github.com/KovaMD/Kova/issues" class="os-card">
+        <div class="os-card-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+            <path d="M11 3.5v15M3.5 11h15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3>Request a feature</h3>
+        <p>Have an idea? Open a feature request on GitHub. Describe the use case and what you'd like Kova to do.</p>
+        <span class="os-card-link">Open a request →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ALPHA STATUS ════════════════════════════════════════ -->
+<section class="os-section">
+  <div class="container">
+    <div class="os-alpha-box">
+      <p class="s-label">Status</p>
+      <h2 class="s-heading">Early access</h2>
+      <p class="os-alpha-body">Kova is in active development. Core features — the editor, presenter view, themes, Mermaid diagrams, syntax highlighting, and export — are stable. Some features documented in the wiki are still in progress.</p>
+      <p class="os-alpha-body">Feedback directly shapes what gets built next. If something is broken or missing, <a href="https://github.com/KovaMD/Kova/issues">open an issue</a>. If something works well for you, that's worth saying too.</p>
+      <div class="os-alpha-actions">
+        <a href="https://github.com/KovaMD/Kova/releases" class="btn btn-primary btn-lg">Download the latest release</a>
+        <a href="https://github.com/KovaMD/Kova/issues" class="btn btn-secondary btn-lg">View open issues</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <a class="nav-logo" href="/" style="text-decoration:none;">
+      <img src="assets/kova-icon.svg?v=20260522" width="24" height="24" alt="">
+      <span class="nav-wordmark">kova<span class="tld">.md</span></span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="features.html">Features</a></li>
+      <li><a href="https://github.com/KovaMD/Kova/wiki">Docs</a></li>
+      <li><a href="open-source.html">Open source</a></li>
+      <li><a href="https://github.com/KovaMD/Kova/releases">Releases</a></li>
+      <li><a href="https://github.com/KovaMD/Kova">GitHub</a></li>
+      <li><a href="https://github.com/KovaMD/Kova/issues">Issues</a></li>
+      <li><a href="https://github.com/KovaMD/Kova/blob/main/LICENSE">License</a></li>
+      <li><a href="mailto:support@kova.md">Support</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Kova contributors · GPLv3</p>
+  </div>
+</footer>
+
+<script src="js/main.js?v=20260522" defer></script>
+</body>
+</html>

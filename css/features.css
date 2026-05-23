@@ -1,0 +1,215 @@
+/* ─── Page hero ───────────────────────────────────────── */
+.page-hero {
+  padding: 140px 40px 80px;
+  border-bottom: 1px solid var(--card-border);
+}
+.page-hero-heading {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin-bottom: 16px;
+  max-width: 700px;
+}
+.page-hero-sub {
+  font-size: 18px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ─── Feature sections ────────────────────────────────── */
+.feat-section { padding: 80px 40px; }
+.feat-section-flagship { padding-top: 100px; }
+.feat-section-alt {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+  transition: background 0.2s;
+}
+
+.feat-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.feat-detail-reverse { direction: rtl; }
+.feat-detail-reverse > * { direction: ltr; }
+
+.feat-detail-text .s-label { margin-bottom: 10px; }
+.feat-detail-text .s-heading { margin-bottom: 16px; }
+.feat-detail-body {
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.feat-detail-body a { color: var(--orange-bright); text-decoration: none; }
+.feat-detail-body a:hover { text-decoration: underline; }
+
+.feat-detail-body code,
+.feat-detail-text code {
+  font-family: ui-monospace, monospace;
+  font-size: 13px;
+  color: var(--orange-warm);
+}
+
+.feat-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 0;
+}
+.feat-list li {
+  font-size: 14.5px;
+  color: var(--text-muted);
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+.feat-list li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--orange-bright);
+}
+
+/* ─── Text-only sections (no visual column) ──────────── */
+.feat-text-only { max-width: 640px; }
+.feat-text-only .s-heading { margin-bottom: 16px; }
+.feat-text-only .feat-detail-body { margin-bottom: 20px; }
+
+/* ─── Placeholder visual ──────────────────────────────── */
+.feat-detail-visual-placeholder { display: flex; align-items: center; }
+.feat-placeholder {
+  width: 100%;
+  border: 1px dashed var(--card-border);
+  border-radius: 12px;
+  background: var(--card-bg);
+  padding: 48px 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.feat-placeholder svg { color: var(--text-dim); }
+.feat-placeholder p {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  max-width: 200px;
+}
+
+/* ─── Export graphic ─────────────────────────────────── */
+.feat-graphic-card {
+  width: 100%;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  padding: 40px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.feat-graphic-card svg {
+  width: 100%;
+  max-width: 340px;
+  overflow: visible;
+}
+
+/* ─── Code examples ───────────────────────────────────── */
+.feat-code-example {
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  overflow: hidden;
+  background: #111;
+}
+.fce-bar {
+  background: #181818;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.fce-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: #888;
+  text-transform: uppercase;
+  font-family: ui-monospace, monospace;
+}
+.fce-body {
+  padding: 20px 22px;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.fce-body pre { margin: 0; }
+.fce-body code { font-family: inherit; font-size: inherit; color: #999; }
+
+/* ─── Inline feature grid ─────────────────────────────── */
+.inline-feat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.inline-feat-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+.inline-feat h3 { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 10px; }
+.inline-feat-heading { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 10px; }
+.inline-feat p { font-size: 14.5px; color: var(--text-muted); line-height: 1.65; }
+.inline-feat p a { color: var(--orange-bright); text-decoration: none; }
+.inline-feat p a:hover { text-decoration: underline; }
+.inline-feat code {
+  font-family: ui-monospace, monospace;
+  font-size: 12px;
+  color: var(--orange-warm);
+}
+
+/* ─── Layout grid ──────────────────────────────────────── */
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.layout-item { display: flex; flex-direction: column; gap: 10px; }
+.layout-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* ─── Theme trio (3 slides in visual column) ──────────── */
+.theme-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.theme-name {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--text-dim);
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+/* ─── Responsive ───────────────────────────────────────── */
+@media (max-width: 820px) {
+  .page-hero { padding: 110px 20px 60px; }
+  .feat-section { padding: 60px 20px; }
+  .feat-detail { grid-template-columns: 1fr; gap: 40px; }
+  .feat-detail-reverse { direction: ltr; }
+  .inline-feat-grid { grid-template-columns: 1fr; gap: 32px; }
+  .inline-feat-grid-2 { grid-template-columns: 1fr; }
+  .layout-grid { grid-template-columns: 1fr 1fr; }
+  .theme-trio { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 500px) {
+  .layout-grid { grid-template-columns: 1fr; }
+}
