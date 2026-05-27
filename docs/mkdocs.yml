@@ -7,6 +7,7 @@ edit_uri: ""
 theme:
   name: material
   favicon: assets/favicon.png
+  logo: assets/kova-icon.svg
   font:
     text: Inter
     code: IBM Plex Mono
