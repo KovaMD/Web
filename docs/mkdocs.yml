@@ -7,6 +7,9 @@ edit_uri: ""
 theme:
   name: material
   favicon: assets/favicon.png
+  font:
+    text: Inter
+    code: IBM Plex Mono
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
