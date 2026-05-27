@@ -1,0 +1,31 @@
+/* ── Kova brand colours ─────────────────────────────────────── */
+:root {
+  --kova-orange:        #D94F00;
+  --kova-orange-bright: #FF6B2B;
+  --kova-orange-warm:   #FF8C52;
+}
+
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:           #D94F00;
+  --md-primary-fg-color--light:    #FF6B2B;
+  --md-primary-fg-color--dark:     #8C2800;
+  --md-accent-fg-color:            #FF6B2B;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:           #FF6B2B;
+  --md-primary-fg-color--light:    #FF8C52;
+  --md-primary-fg-color--dark:     #D94F00;
+  --md-accent-fg-color:            #FF8C52;
+}
+
+/* ── Tighten nav tabs slightly ──────────────────────────────── */
+.md-tabs__link {
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+}
+
+/* ── Grid cards ─────────────────────────────────────────────── */
+.md-typeset .grid.cards > ul > li {
+  border-radius: 6px;
+}

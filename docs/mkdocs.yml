@@ -1,0 +1,80 @@
+site_name: Kova Documentation
+site_url: https://wiki.kova.md
+repo_url: https://github.com/KovaMD/Kova
+repo_name: KovaMD/Kova
+edit_uri: ""
+
+theme:
+  name: material
+  favicon: assets/favicon.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - attr_list
+  - md_in_html
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: installation.md
+    - Your First Presentation: getting-started.md
+  - Writing Slides:
+    - Markdown & Syntax: markdown-and-syntax.md
+    - Layouts: layouts.md
+    - Themes: themes.md
+  - Working with Kova:
+    - Presenting: presenting.md
+    - Keyboard Shortcuts: keyboard-shortcuts.md
+    - Settings & Keybindings: settings-and-keybindings.md
+    - Exporting to PowerPoint: exporting-to-powerpoint.md
+  - Examples:
+    - Business Pitch: examples/business-pitch.md
+    - Technical Talk: examples/technical-talk.md
+    - Classroom Slides: examples/classroom.md
+  - Contributing: contributing.md

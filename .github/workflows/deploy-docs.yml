@@ -1,0 +1,43 @@
+name: Deploy Docs
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/**'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install MkDocs Material
+        run: pip install mkdocs-material
+
+      - name: Build docs
+        working-directory: docs/
+        run: mkdocs build
+
+      - name: Deploy via rsync
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          SSH_KNOWN_HOST: ${{ secrets.DEPLOY_KNOWN_HOST }}
+          SSH_HOST: 145.14.153.1
+          SSH_USER: u550675304
+          SSH_PORT: 65002
+          REMOTE_PATH: ~/domains/kova.md/public_html/wiki/
+        run: |
+          mkdir -p ~/.ssh
+          install -m 600 /dev/null ~/.ssh/id_ed25519
+          echo "$SSH_KEY" > ~/.ssh/id_ed25519
+          echo "$SSH_KNOWN_HOST" > ~/.ssh/known_hosts
+          rsync -az --delete \
+            -e "ssh -p $SSH_PORT -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=yes" \
+            ./docs/site/ "$SSH_USER@$SSH_HOST:$REMOTE_PATH"
