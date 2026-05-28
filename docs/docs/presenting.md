@@ -90,21 +90,10 @@ Note: the churn drop is worth emphasising — it directly ties to the onboarding
 
 ## Aspect ratio
 
-Set the aspect ratio per-document in the frontmatter. Both windows in dual-screen mode use the same ratio.
+Use the **Aspect Ratio** toggle in the Inspector to choose the ratio for the current document. Both windows in dual-screen mode use the same ratio.
 
-```yaml
----
-title: My Presentation
-aspect_ratio: "16:9"     # PowerPoint LAYOUT_WIDE (default)
----
-```
-
-```yaml
----
-title: My Presentation
-aspect_ratio: "4:3"      # PowerPoint LAYOUT_4x3
----
-```
-
-!!! note
-    There is no global default — set `aspect_ratio` in each document's frontmatter.
+| Setting | Value | Notes |
+|---------|-------|-------|
+| 16:9 | `"16:9"` | Default — widescreen |
+| 16:10 | `"16:10"` | Common on MacBooks and many laptop displays |
+| 4:3 | `"4:3"` | Older projectors and some venue requirements |

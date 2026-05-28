@@ -41,27 +41,13 @@ Every slide layout is reproduced in the `.pptx` output:
 
 ## Aspect ratio
 
-The output respects the `aspect_ratio` field in your document frontmatter:
+The output respects the aspect ratio set in the Inspector. Use the **Aspect Ratio** toggle to choose before exporting.
 
-=== "16:9 (default)"
-
-    ```yaml
-    ---
-    aspect_ratio: "16:9"
-    ---
-    ```
-
-    Maps to PowerPoint's **LAYOUT_WIDE** (33.87 cm × 19.05 cm).
-
-=== "4:3"
-
-    ```yaml
-    ---
-    aspect_ratio: "4:3"
-    ---
-    ```
-
-    Maps to PowerPoint's **LAYOUT_4x3** (25.4 cm × 19.05 cm).
+| Setting | PowerPoint layout | Dimensions |
+|---------|-------------------|------------|
+| 16:9 (default) | `LAYOUT_WIDE` | 33.87 cm × 19.05 cm |
+| 16:10 | `LAYOUT_WIDE` (custom) | 25.4 cm × 15.88 cm |
+| 4:3 | `LAYOUT_4x3` | 25.4 cm × 19.05 cm |
 
 ---
 

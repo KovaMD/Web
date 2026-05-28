@@ -6,16 +6,7 @@ Kova ships with 11 built-in themes and supports fully custom themes via YAML fil
 
 ## Selecting a theme
 
-Open the **Inspector** panel (click **ⓘ** in the titlebar) and choose a theme from the swatches in the **Theme** section. The change is instant. Kova saves your selection to the document frontmatter automatically:
-
-```yaml
----
-title: My Presentation
-theme: slate
----
-```
-
-You can also set or change the theme by editing `theme:` directly in the frontmatter.
+Open the **Inspector** panel (click **ⓘ** in the titlebar) and choose a theme from the swatches in the **Theme** section. The change is instant and Kova saves it to the file automatically.
 
 ---
 
@@ -56,7 +47,7 @@ Without writing a custom theme file, you can override specific aspects of any bu
 | **Header text** | Custom text shown at the top of every slide |
 | **Footer text** | Custom text shown at the bottom — supports `{slide_number}`, `{total}`, `{title}`, `{date}` |
 
-Overrides are saved to `theme_overrides` in your frontmatter:
+Kova saves overrides to the file automatically. The underlying frontmatter looks like:
 
 ```yaml
 ---
@@ -81,7 +72,7 @@ Create a `.yaml` file in `~/.kova/themes/` to define a fully custom theme. Kova 
 # ~/.kova/themes/my-brand.yaml
 
 name: My Brand          # Display name shown in the Inspector
-id: my-brand            # Used in frontmatter: theme: my-brand
+id: my-brand            # The ID Kova uses internally to reference this theme
 
 colors:
   primary:    "#0057B8"   # Accent colour (headings, progress bars, decorations)
@@ -115,8 +106,8 @@ Use these in `header` and `footer` strings:
 
 | Variable | Value |
 |----------|-------|
-| `{title}` | Document title from frontmatter |
-| `{date}` | Document date from frontmatter |
+| `{title}` | Document title |
+| `{date}` | Document date |
 | `{slide_number}` | Current slide number |
 | `{total}` | Total slide count |
 

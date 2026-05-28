@@ -236,7 +236,7 @@ Take questions. Common ones:
 
 | Slide | Layout | Feature |
 |-------|--------|---------|
-| Title | `title` | Theme and frontmatter |
+| Title | `title` | Theme and document settings |
 | "The cost" | `bsp` | Multiple progress bars |
 | "Architecture overview" | `code` | Mermaid flowchart |
 | "The canary gate" | `code` | Rust syntax highlighting |

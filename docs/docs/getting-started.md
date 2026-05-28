@@ -44,22 +44,11 @@ date: 2026
 
 ---
 
-## Step 2 — Edit the frontmatter
+## Step 2 — Document settings
 
-The block between the opening `---` lines is YAML frontmatter. It controls document-level settings:
+Kova stores document settings (title, date, theme, colour overrides, logo) in a YAML frontmatter block at the top of the file and keeps it in sync automatically. You interact with all of these through the **Inspector** panel — there is nothing to edit manually.
 
-```yaml
----
-title: My Talk           # shown in the titlebar; used by themes on the title slide
-author: Your Name        # available to themes as a subtitle
-date: 2026               # year or full date
-theme: slate             # which built-in theme to use (see Themes)
-aspect_ratio: "16:9"     # "16:9" or "4:3"
----
-```
-
-!!! tip
-    You can change the theme at any time from the Inspector panel without touching frontmatter — Kova writes it for you.
+Use the **Aspect Ratio** toggle in the Inspector to choose between `16:9`, `16:10`, and `4:3`. See [Presenting](presenting.md) and [Exporting to PowerPoint](exporting-to-powerpoint.md) for details.
 
 ---
 
@@ -93,7 +82,7 @@ Kova automatically selects a layout for each slide based on its content. See [La
 
 ## Step 4 — Choose a theme
 
-Open the **Inspector** (click **ⓘ** in the titlebar). The **Theme** section shows all 11 built-in themes as swatches. Click any theme to apply it — the change is instant and is saved to your frontmatter automatically.
+Open the **Inspector** (click **ⓘ** in the titlebar). The **Theme** section shows all 11 built-in themes as swatches. Click any theme to apply it — the change is instant and Kova saves it to the file automatically.
 
 See [Themes](themes.md) for the full list and custom theme instructions.
 
