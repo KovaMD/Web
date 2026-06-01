@@ -203,7 +203,7 @@ Multiple consecutive `!progress` bars are grouped as a single logical unit for l
 Displays the video thumbnail on the slide. During presentation, clicking the thumbnail opens the video in the default browser.
 
 !!! note "Export behaviour"
-    YouTube embeds export to PowerPoint as a text placeholder with the URL — not as an embedded video. See [Exporting to PowerPoint](exporting-to-powerpoint.md#limitations).
+    YouTube embeds export to PowerPoint as a text placeholder with the URL — not as an embedded video. In PDF export they appear as a static placeholder. See [Exporting](exporting.md#limitations_1).
 
 ---
 

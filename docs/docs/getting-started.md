@@ -48,7 +48,7 @@ date: 2026
 
 Kova stores document settings (title, date, theme, colour overrides, logo) in a YAML frontmatter block at the top of the file and keeps it in sync automatically. You interact with all of these through the **Inspector** panel — there is nothing to edit manually.
 
-Use the **Aspect Ratio** toggle in the Inspector to choose between `16:9`, `16:10`, and `4:3`. See [Presenting](presenting.md) and [Exporting to PowerPoint](exporting-to-powerpoint.md) for details.
+Use the **Aspect Ratio** toggle in the Inspector to choose between `16:9`, `16:10`, and `4:3`. See [Presenting](presenting.md) and [Exporting](exporting.md) for details.
 
 ---
 

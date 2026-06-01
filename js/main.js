@@ -32,13 +32,14 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ─── OS-targeted downloads ───────────────────────────── */
-const RELEASES_PAGE = 'https://github.com/KovaMD/Kova/releases/latest';
-const RELEASES_API  = 'https://api.github.com/repos/KovaMD/Kova/releases/latest';
+const RELEASES_PAGE    = 'https://github.com/KovaMD/Kova/releases/latest';
+const RELEASES_API     = 'https://api.github.com/repos/KovaMD/Kova/releases/latest';
+const LINUX_INSTALL_URL = 'https://wiki.kova.md/installation/#linux';
 
 const OS_ASSET = {
-  mac:   { ext: '.dmg',      label: 'Download for macOS'   },
-  win:   { ext: '.msi',      label: 'Download for Windows' },
-  linux: { ext: '.AppImage', label: 'Download for Linux'   },
+  mac:   { ext: '.dmg', label: 'Download for macOS'  },
+  win:   { ext: '.msi', label: 'Download for Windows' },
+  linux: { ext: null,   label: 'Install on Linux'     },
 };
 
 function detectOS() {
@@ -70,6 +71,14 @@ function applyDownloadButtons(url, label) {
   if (!os) return;
 
   const { ext, label } = OS_ASSET[os];
+
+  if (os === 'linux') {
+    applyDownloadButtons(LINUX_INSTALL_URL, label);
+    document.querySelectorAll('[data-os="linux"]').forEach(btn => {
+      btn.href = LINUX_INSTALL_URL;
+    });
+    return;
+  }
 
   try {
     const res  = await fetch(RELEASES_API);

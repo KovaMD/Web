@@ -1,6 +1,6 @@
 # Kova
 
-**Kova** is a free, open-source desktop app for creating presentations from plain Markdown. Write slides in your editor; Kova handles layout, theming, and export to PowerPoint — no drag-and-drop required.
+**Kova** is a free, open-source desktop app for creating presentations from plain Markdown. Write slides in your editor; Kova handles layout, theming, and export to PDF or PowerPoint — no drag-and-drop required.
 
 [Download Kova](https://github.com/KovaMD/Kova/releases){ .md-button .md-button--primary } [View on GitHub](https://github.com/KovaMD/Kova){ .md-button }
 
@@ -56,6 +56,7 @@ Kova parses the file in real time, detects the best layout for each slide automa
 | **Speaker notes** | Hidden from the audience, visible in presenter view |
 | **Presenter view** | Dual-screen: next slide preview, notes, elapsed timer |
 | **Export to PowerPoint** | Full `.pptx` output via PptxGenJS — no internet required |
+| **Import from PowerPoint** | Convert a `.pptx` file into a Kova Markdown presentation |
 | **Focus mode** | Distraction-free writing with `Ctrl+Shift+F` |
 
 ---
@@ -109,10 +110,15 @@ Kova parses the file in real time, detects the best layout for each slide automa
     ---
     Autosave, display modes, and key remapping
 
--   :material-microsoft-powerpoint: **[Exporting to PowerPoint](exporting-to-powerpoint.md)**
+-   :material-export: **[Exporting](exporting.md)**
 
     ---
-    `.pptx` export and what carries across
+    PDF and `.pptx` export and what carries across
+
+-   :material-import: **[Importing](importing.md)**
+
+    ---
+    Convert a `.pptx` file to a Kova Markdown presentation
 
 -   :material-source-branch: **[Contributing](contributing.md)**
 

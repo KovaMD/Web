@@ -88,6 +88,20 @@ Note: the churn drop is worth emphasising — it directly ties to the onboarding
 
 ---
 
+## Display wake lock
+
+During a presentation, Kova prevents your screen from sleeping so that slides stay visible without you needing to move the mouse.
+
+| Platform | Mechanism |
+|---|---|
+| **macOS** | `caffeinate -d` |
+| **Linux** | `org.freedesktop.ScreenSaver` D-Bus inhibit (works on X11 and Wayland) |
+| **Windows** | `SetThreadExecutionState` |
+
+The wake lock is released automatically when you exit the presentation. No configuration is needed.
+
+---
+
 ## Aspect ratio
 
 Use the **Aspect Ratio** toggle in the Inspector to choose the ratio for the current document. Both windows in dual-screen mode use the same ratio.
