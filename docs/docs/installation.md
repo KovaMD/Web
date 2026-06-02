@@ -43,32 +43,49 @@ Kova is a native desktop application for macOS, Windows, and Linux. Download the
 
 ## Linux
 
-=== "Debian / Ubuntu (.deb)"
-
-    Download the `.deb` package and install with `apt`:
+=== "Debian 13+"
 
     ```bash
-    sudo apt install ./kova_*.deb
+    sudo curl -fsSL https://deb.kova.md/key.gpg \
+      | sudo gpg --dearmor -o /etc/apt/keyrings/kova.gpg
+
+    sudo tee /etc/apt/sources.list.d/kova.sources > /dev/null << EOF
+    Types: deb
+    URIs: https://deb.kova.md
+    Suites: stable
+    Components: main
+    Signed-By: /etc/apt/keyrings/kova.gpg
+    EOF
+
+    sudo apt update && sudo apt install kova
     ```
 
-    Then launch with:
+=== "Ubuntu / older Debian"
 
     ```bash
-    kova
+    sudo curl -fsSL https://deb.kova.md/key.gpg \
+      | sudo gpg --dearmor -o /etc/apt/keyrings/kova.gpg
+
+    echo "deb [signed-by=/etc/apt/keyrings/kova.gpg] https://deb.kova.md stable main" \
+      | sudo tee /etc/apt/sources.list.d/kova.list
+
+    sudo apt update && sudo apt install kova
     ```
 
-=== "Fedora / RHEL (.rpm)"
-
-    Download the `.rpm` package and install with `dnf`:
+=== "Fedora / RHEL / CentOS Stream"
 
     ```bash
-    sudo dnf install ./kova-*.rpm
+    sudo rpm --import https://rpm.kova.md/key.gpg
+    sudo curl -o /etc/yum.repos.d/kova.repo https://rpm.kova.md/kova.repo
+    sudo dnf install kova
     ```
 
-    Then launch with:
+=== "openSUSE"
 
     ```bash
-    kova
+    sudo rpm --import https://rpm.kova.md/key.gpg
+    sudo curl -o /etc/zypp/repos.d/kova.repo https://rpm.kova.md/kova.repo
+    sudo zypper refresh && sudo zypper install kova
     ```
 
 === "AppImage"
