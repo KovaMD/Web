@@ -24,6 +24,16 @@ When enabled, Kova saves the file automatically after the first manual save. Aut
 
 ---
 
+## Editor
+
+| Setting | Options | Default |
+|---------|---------|---------|
+| **Show frontmatter** | On · Off | Off |
+
+When **Show frontmatter** is on, the YAML frontmatter block is visible in the editor. By default it is hidden — Kova manages it automatically via the Inspector. Turn it on if you want to edit frontmatter directly.
+
+---
+
 ## Workspace
 
 | Setting | Options | Default |
@@ -48,6 +58,12 @@ Controls for the **▶ Present** feature. See [Presenting](presenting.md) for a 
 ---
 
 ## Themes
+
+| Setting | Options | Default |
+|---------|---------|---------|
+| **Default theme** | Any installed theme | `light` |
+
+Sets the theme applied when you create a new document with `Ctrl+N`. Existing files keep whatever theme is saved in their frontmatter.
 
 Shows the path to the custom themes folder (`~/.kova/themes/`) with an **Open folder** button. If Kova finds any `.yaml` files with syntax errors in that folder, the filenames and error details are listed here.
 

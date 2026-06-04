@@ -108,15 +108,11 @@ We want to find the line of best fit through our data points.
 
 Formally, we learn parameters **w** and **b** such that:
 
-```
-ŷ = w · x + b
-```
+$$\hat{y} = w \cdot x + b$$
 
 minimises the **mean squared error** over all training examples:
 
-```
-MSE = (1/n) Σ (yᵢ − ŷᵢ)²
-```
+$$\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2$$
 
 ---
 
@@ -265,6 +261,7 @@ TA sessions: Wednesday 18:00 on Discord.
 | Title | `title` | Frontmatter, subtitle |
 | "Types of learning" | `two-column` | `\|\|\|` column break |
 | "The learning loop" | `code` | Mermaid flowchart |
+| "Linear regression — intuition" | `title-content` | Display math (`$$...$$`) |
 | "Linear regression — in Python" | `code` | Python code block |
 | "Decision trees — intuition" | `code` | Mixed text + Mermaid |
 | "Comparing models" | `title-content` | GFM table |

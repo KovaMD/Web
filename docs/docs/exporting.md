@@ -12,6 +12,15 @@ Kova can export your presentation to **PDF** or **PowerPoint (`.pptx`)** — bot
 
 ---
 
+## Print
+
+Select **File → Print** to send your slides to the OS print dialog. Each slide is rendered at full quality and laid out one per page using the current aspect ratio. This uses the same capture pipeline as PDF export, so Mermaid diagrams and syntax-highlighted code are included exactly as they appear on screen.
+
+!!! tip
+    For sharing or archiving, **PDF export** (File → Export → PDF) is usually preferable — it gives you a file you can save. Print is most useful when you need a physical handout quickly.
+
+---
+
 ## PDF export
 
 Each slide is rendered to a single page at the exact pixel dimensions of the current aspect ratio. Because PDF export captures the live slide view, it faithfully reproduces everything you see in Kova — fonts, colours, gradients, images, Mermaid diagrams, syntax-highlighted code, and progress bars.

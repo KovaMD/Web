@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Features — kova.md</title>
-  <meta name="description" content="An overview of every capability in Kova — presenter view, speaker notes, PowerPoint export, 11 built-in themes, Mermaid diagrams, and more.">
+  <meta name="description" content="An overview of every capability in Kova — presenter view, speaker notes, PowerPoint export, 11 built-in themes, Mermaid diagrams, LaTeX math, and more.">
   <meta property="og:title" content="Features — kova.md">
-  <meta property="og:description" content="An overview of every capability in Kova — presenter view, speaker notes, PowerPoint export, 11 built-in themes, and more.">
+  <meta property="og:description" content="An overview of every capability in Kova — presenter view, speaker notes, PowerPoint export, 11 built-in themes, Mermaid diagrams, LaTeX math, and more.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kova.md/features">
   <meta property="og:image" content="https://kova.md/assets/og-image.png">
@@ -207,6 +207,53 @@
   </div>
 </section>
 
+<!-- ═══ PDF EXPORT ══════════════════════════════════════════ -->
+<section class="feat-section">
+  <div class="container">
+    <div class="feat-detail feat-detail-reverse">
+      <div class="feat-detail-text">
+        <p class="s-label">Export</p>
+        <h2 class="s-heading">PDF export</h2>
+        <p class="feat-detail-body">Export any presentation to PDF — each slide becomes a page at the exact dimensions of your chosen aspect ratio. Fonts, colours, Mermaid diagrams, and syntax-highlighted code are all faithfully captured. File → Export → PDF.</p>
+        <ul class="feat-list">
+          <li>Pixel-accurate rendering of every slide</li>
+          <li>Mermaid diagrams composited at full quality</li>
+          <li>Aspect ratio respected — 16:9, 16:10, or 4:3</li>
+          <li>No internet connection required</li>
+        </ul>
+      </div>
+      <div class="feat-detail-visual">
+        <div class="feat-graphic-card">
+          <svg viewBox="0 0 340 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kova exports to PDF format">
+            <!-- Kova icon -->
+            <rect x="10" y="20" width="80" height="80" rx="16" fill="#D94F00"/>
+            <rect x="43" y="55" width="30" height="22" rx="4" fill="#8C2800" opacity="0.8"/>
+            <rect x="28" y="40" width="30" height="22" rx="4" fill="white" opacity="0.95"/>
+            <line x1="33" y1="48" x2="52" y2="48" stroke="#D94F00" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="33" y1="55" x2="47" y2="55" stroke="#FF6B2B" stroke-width="1.8" stroke-linecap="round" opacity="0.65"/>
+            <!-- Arrow -->
+            <line x1="104" y1="60" x2="170" y2="60" stroke="#FF6B2B" stroke-width="2.2" stroke-linecap="round"/>
+            <path d="M159 51 L172 60 L159 69" stroke="#FF6B2B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <!-- Output page -->
+            <rect x="182" y="14" width="100" height="92" rx="6" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1.5"/>
+            <line x1="198" y1="36" x2="266" y2="36" stroke="var(--text-muted)" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="198" y1="50" x2="250" y2="50" stroke="var(--text-dim)" stroke-width="1.8" stroke-linecap="round"/>
+            <line x1="198" y1="61" x2="258" y2="61" stroke="var(--text-dim)" stroke-width="1.8" stroke-linecap="round" opacity="0.7"/>
+            <line x1="198" y1="72" x2="240" y2="72" stroke="var(--text-dim)" stroke-width="1.8" stroke-linecap="round" opacity="0.5"/>
+            <!-- .pdf badge -->
+            <rect x="232" y="92" width="56" height="22" rx="5" fill="#D94F00"/>
+            <text x="260" y="107" text-anchor="middle" fill="white" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" font-weight="600" letter-spacing="0.3">.pdf</text>
+            <!-- Second page peek -->
+            <rect x="290" y="22" width="44" height="82" rx="4" fill="var(--card-bg)" stroke="var(--card-border)" stroke-width="1.2" opacity="0.55"/>
+            <line x1="298" y1="38" x2="326" y2="38" stroke="var(--text-dim)" stroke-width="1.6" stroke-linecap="round" opacity="0.4"/>
+            <line x1="298" y1="49" x2="320" y2="49" stroke="var(--text-dim)" stroke-width="1.4" stroke-linecap="round" opacity="0.3"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ INLINE ELEMENTS ════════════════════════════════════ -->
 <section class="feat-section feat-section-alt">
   <div class="container">
@@ -293,6 +340,37 @@
 <span class="c-text">  "Referral" : 28</span>
 <span class="c-text">  "Direct"   : 30</span>
 <span class="c-code">```</span></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MATH & LATEX ════════════════════════════════════════ -->
+<section class="feat-section">
+  <div class="container">
+    <div class="feat-detail feat-detail-reverse">
+      <div class="feat-detail-text">
+        <p class="s-label">Math &amp; LaTeX</p>
+        <h2 class="s-heading">Mathematical equations</h2>
+        <p class="feat-detail-body">Render mathematical notation with KaTeX. Inline expressions with <code>$...$</code>, display equations with <code>$$...$$</code>. Ideal for academic lectures, science slides, and technical talks.</p>
+        <ul class="feat-list">
+          <li>Inline math: <code>$E = mc^2$</code></li>
+          <li>Display math: <code>$$...$$</code> on its own line</li>
+          <li>Powered by KaTeX — fast, accurate, no internet required</li>
+        </ul>
+      </div>
+      <div class="feat-detail-visual">
+        <div class="feat-code-example">
+          <div class="fce-bar"><span class="fce-label">Markdown</span></div>
+          <div class="fce-body">
+            <pre><code><span class="c-text">The sigmoid function </span><span class="c-kw">$\sigma(x) = \frac{1}{1+e^{-x}}$</span>
+<span class="c-text">maps any value to </span><span class="c-kw">$(0, 1)$</span><span class="c-text">.</span>
+
+<span class="c-code">$$</span>
+<span class="c-kw">\text{MSE} = \frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2</span>
+<span class="c-code">$$</span></code></pre>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ When you open Kova you'll see four panels:
 
 | Panel | Location | Purpose |
 |-------|----------|---------|
-| **Slides** | Left | Thumbnail strip — click any slide to jump to it |
+| **Slides** | Left | Thumbnail strip — click any slide to jump to it; drag thumbnails to reorder |
 | **Editor** | Centre-left | Write your Markdown here |
 | **Preview** | Centre-right | Live rendering of the current slide |
 | **Inspector** | Right | Theme, colours, fonts, logo, and text formatting tools |

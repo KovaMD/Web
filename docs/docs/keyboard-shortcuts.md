@@ -45,6 +45,7 @@
 | `→` / `↓` / `Space` / `PageDown` | Next slide |
 | `←` / `↑` / `PageUp` | Previous slide |
 | `N` | Toggle speaker notes panel *(single-screen only)* |
+| `L` | Toggle laser pointer |
 | `Esc` | Exit presentation mode |
 
 You can also navigate by clicking the **left third** or **right third** of the screen in single-screen mode.

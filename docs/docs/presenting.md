@@ -88,6 +88,18 @@ Note: the churn drop is worth emphasising — it directly ties to the onboarding
 
 ---
 
+## Laser pointer
+
+During a presentation, press `L` (or click the **laser pointer** button in the HUD) to toggle a glowing dot that follows your cursor across the slide. In dual-screen mode the pointer appears on the audience display in real time, at the correct position regardless of display size.
+
+To change the pointer colour, open the **Inspector** before presenting and pick a colour under **Laser colour**.
+
+| Key | Action |
+|-----|--------|
+| `L` | Toggle laser pointer on/off |
+
+---
+
 ## Display wake lock
 
 During a presentation, Kova prevents your screen from sleeping so that slides stay visible without you needing to move the mouse.
@@ -104,7 +116,7 @@ The wake lock is released automatically when you exit the presentation. No confi
 
 ## Aspect ratio
 
-Use the **Aspect Ratio** toggle in the Inspector to choose the ratio for the current document. Both windows in dual-screen mode use the same ratio.
+Use the **Aspect Ratio** toggle in the Inspector, or click the ratio indicator in the **status bar** at the bottom of the window, to choose the ratio for the current document. Both windows in dual-screen mode use the same ratio.
 
 | Setting | Value | Notes |
 |---------|-------|-------|

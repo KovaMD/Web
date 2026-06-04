@@ -1,6 +1,6 @@
 # Markdown & Syntax
 
-Kova supports standard Markdown via [remark](https://remark.js.org/), GitHub Flavored Markdown (GFM) tables, Mermaid diagrams, and a set of Kova-specific extensions for presentation content.
+Kova supports standard Markdown via [remark](https://remark.js.org/), GitHub Flavored Markdown (GFM) tables, Mermaid diagrams, LaTeX math via KaTeX, and a set of Kova-specific extensions for presentation content.
 
 ---
 
@@ -106,6 +106,9 @@ Slides containing only code blocks or Mermaid diagrams automatically use the `co
 | Custom themes | ✅     |
 ```
 
+!!! tip "Insert table dialog"
+    Right-click in the editor and choose **Insert → Table** to open a dialog where you can set the number of rows and columns. Kova inserts a ready-to-fill GFM table at the cursor position.
+
 ---
 
 ### Horizontal rule
@@ -149,6 +152,39 @@ graph LR
 
 !!! tip
     See the [Mermaid documentation](https://mermaid.js.org/intro/) for all supported diagram types: flowcharts, sequence diagrams, Gantt charts, pie charts, class diagrams, and more.
+
+---
+
+## Math & LaTeX
+
+Kova renders mathematical expressions using [KaTeX](https://katex.org/).
+
+### Inline math
+
+Wrap an expression in single dollar signs: `$...$`
+
+```markdown
+The derivative of $f(x) = x^2$ is $f'(x) = 2x$.
+```
+
+### Display math
+
+Wrap a block equation in double dollar signs on their own lines: `$$...$$`
+
+```markdown
+$$
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+$$
+```
+
+```markdown
+$$
+\sigma(x) = \frac{1}{1 + e^{-x}}
+$$
+```
+
+!!! tip "Literal dollar signs"
+    To display a literal `$` (e.g. a price), escape it with a backslash: `\$49.99`.
 
 ---
 
