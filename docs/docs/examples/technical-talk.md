@@ -9,14 +9,6 @@ Copy the source below into a new `.md` file and open it in Kova.
 ## Source
 
 ````markdown
----
-title: "Zero-downtime deploys at scale"
-author: Marcus Lee
-date: 2026
-theme: forge
-aspect_ratio: "16:9"
----
-
 # Zero-downtime deploys at scale
 
 How we ship 40× a day without waking anyone up.

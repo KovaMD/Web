@@ -63,7 +63,7 @@ Controls for the **▶ Present** feature. See [Presenting](presenting.md) for a 
 |---------|---------|---------|
 | **Default theme** | Any installed theme | `light` |
 
-Sets the theme applied when you create a new document with `Ctrl+N`. Existing files keep whatever theme is saved in their frontmatter.
+Sets the theme applied when you create a new document with `Ctrl+N`. Existing files keep whatever theme was last applied to them.
 
 Shows the path to the custom themes folder (`~/.kova/themes/`) with an **Open folder** button. If Kova finds any `.yaml` files with syntax errors in that folder, the filenames and error details are listed here.
 

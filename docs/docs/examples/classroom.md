@@ -9,14 +9,6 @@ Copy the source below into a new `.md` file and open it in Kova.
 ## Source
 
 ````markdown
----
-title: "Introduction to Machine Learning"
-author: Dr. Priya Nair
-date: 2026
-theme: editorial
-aspect_ratio: "16:9"
----
-
 # Introduction to Machine Learning
 
 Lecture 3 — Supervised Learning
@@ -258,7 +250,7 @@ TA sessions: Wednesday 18:00 on Discord.
 
 | Slide | Layout | Feature |
 |-------|--------|---------|
-| Title | `title` | Frontmatter, subtitle |
+| Title | `title` | Subtitle |
 | "Types of learning" | `two-column` | `\|\|\|` column break |
 | "The learning loop" | `code` | Mermaid flowchart |
 | "Linear regression — intuition" | `title-content` | Display math (`$$...$$`) |

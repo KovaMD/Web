@@ -8,15 +8,9 @@
 
 ## How it works
 
-A Kova presentation is a single `.md` file. Slides are separated by `---` on its own line. Kova stores document settings (title, theme, overrides) in a YAML frontmatter block at the top of the file and manages it automatically — you interact with these through the Inspector panel, not by editing the file directly.
+A Kova presentation is a single `.md` file. Slides are separated by `---` on its own line. Kova manages document settings (title, theme, overrides) automatically — you interact with these through the Inspector panel.
 
 ```markdown
----
-title: My Presentation
-theme: slate
-aspect_ratio: "16:9"
----
-
 # My Presentation
 
 Your Name · 2026

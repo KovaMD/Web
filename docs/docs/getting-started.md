@@ -26,11 +26,6 @@ The **status bar** at the bottom shows the current slide number, total word coun
 Press `Ctrl+N` (or click **New**) to open a starter template:
 
 ```markdown
----
-title: My Presentation
-date: 2026
----
-
 # My Presentation
 
 ---
@@ -46,7 +41,7 @@ date: 2026
 
 ## Step 2 — Document settings
 
-Kova stores document settings (title, date, theme, colour overrides, logo) in a YAML frontmatter block at the top of the file and keeps it in sync automatically. You interact with all of these through the **Inspector** panel — there is nothing to edit manually.
+Kova manages document settings (title, date, theme, colour overrides, logo) automatically. You interact with all of these through the **Inspector** panel — there is nothing to edit manually.
 
 Use the **Aspect Ratio** toggle in the Inspector to choose between `16:9`, `16:10`, and `4:3`. See [Presenting](presenting.md) and [Exporting](exporting.md) for details.
 

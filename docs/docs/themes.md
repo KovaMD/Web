@@ -47,18 +47,7 @@ Without writing a custom theme file, you can override specific aspects of any bu
 | **Header text** | Custom text shown at the top of every slide |
 | **Footer text** | Custom text shown at the bottom — supports `{slide_number}`, `{total}`, `{title}`, `{date}` |
 
-Kova saves overrides to the file automatically. The underlying frontmatter looks like:
-
-```yaml
----
-title: Brand Deck
-theme: light
-theme_overrides:
-  primary: "#0057B8"
-  title_font: "Georgia"
-  footer: "{title} — Slide {slide_number} of {total}"
----
-```
+Kova saves overrides to the file automatically.
 
 ---
 

@@ -9,14 +9,6 @@ Copy the source below into a new `.md` file and open it in Kova.
 ## Source
 
 ````markdown
----
-title: Acme Analytics
-author: Jane Smith, CEO
-date: 2026
-theme: pitch
-aspect_ratio: "16:9"
----
-
 # Acme Analytics
 
 Turning raw data into decisions that matter.
@@ -191,7 +183,7 @@ Questions?
 
 | Slide | Layout | Feature |
 |-------|--------|---------|
-| Title | `title` | Frontmatter, subtitle, theme |
+| Title | `title` | Subtitle, theme |
 | Section breaks | `section` | Chapter dividers |
 | "Why existing tools" | `two-column` | `\|\|\|` column break |
 | "How it works" | `code` | Mermaid flowchart |
