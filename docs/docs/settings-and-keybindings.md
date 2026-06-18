@@ -34,13 +34,34 @@ When **Show frontmatter** is on, the YAML frontmatter block is visible in the ed
 
 ---
 
+## Language & Spelling
+
+| Setting | Options | Default |
+|---------|---------|---------|
+| **Check spelling while typing** | On · Off | Off |
+| **Dictionary language** | 22 languages | Auto-detected from system locale |
+
+When **Check spelling while typing** is enabled, Kova underlines misspelled words in red as you type. The dictionary is loaded on first use.
+
+When enabled, a **Dictionary language** selector appears. Kova supports 22 languages including English (US/UK/AU), French, German, Spanish, Italian, Portuguese, Dutch, Polish, Russian, Ukrainian, and more.
+
+Kova also tracks **Learned words** — words you've right-clicked and added to your personal dictionary. These are listed in Settings and can be removed individually.
+
+---
+
 ## Workspace
 
 | Setting | Options | Default |
 |---------|---------|---------|
 | **Confirm before closing** | On · Off | On |
+| **On startup** | Blank document · Reopen last file | Blank document |
 
-When enabled, Kova shows a confirmation dialog if you try to close a file with unsaved changes.
+**Confirm before closing** — when enabled, Kova shows a confirmation dialog if you try to close or quit with unsaved changes. This applies to the window × button, Alt+F4, taskbar close, and Cmd+Q.
+
+**On startup** — controls what Kova opens when it launches. Window size and position are always restored regardless of this setting.
+
+- **Blank document** — opens a new empty file on every launch.
+- **Reopen last file** — reopens the file you had open when you last quit, and restores the active slide position.
 
 ---
 

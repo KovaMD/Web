@@ -49,6 +49,9 @@ Without writing a custom theme file, you can override specific aspects of any bu
 
 Kova saves overrides to the file automatically.
 
+!!! note "Font availability"
+    If a font you've chosen in the Inspector isn't installed on the current machine, a **⚠** warning appears next to the font name in the Inspector. Slides will fall back to the theme's default font until the missing font is installed.
+
 ---
 
 ## Custom themes

@@ -30,6 +30,9 @@ Kova analyses the elements on a slide and applies the **first matching rule** in
 !!! note "Overflow guard"
     Text-only slides that exceed the safe area line count automatically fall back to `two-column` to prevent text clipping (rule 12).
 
+!!! note "Rescaled to fit"
+    If a slide's content still exceeds the available space after layout selection, Kova scales it down to fit. A **"rescaled to fit"** badge appears in the bottom-right corner of the preview to let you know. Consider splitting the slide or reducing content if you see this badge.
+
 ---
 
 ## Layout reference

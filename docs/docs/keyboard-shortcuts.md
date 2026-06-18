@@ -28,7 +28,7 @@
 | `Ctrl+6` | Toggle H6 heading on the current line |
 | `Ctrl+C` | Copy |
 | `Ctrl+X` | Cut |
-| `Ctrl+V` | Paste |
+| `Ctrl+V` | Paste — also pastes clipboard images directly into the editor |
 | `Ctrl+Z` | Undo |
 | `Ctrl+Shift+Z` | Redo |
 

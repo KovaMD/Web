@@ -108,9 +108,11 @@ See [Presenting](presenting.md) for the full reference.
 
 ---
 
-## Step 7 — Insert images
+## Step 7 — Open and insert files
 
-Drag an image file from your file manager and drop it onto the editor. Kova inserts a Markdown image reference at the drop position using a **path relative to the current document**:
+**Open a Markdown file:** drag a `.md` file from your file manager and drop it onto the Kova window. Kova opens the file, replacing the current document (with an unsaved-changes prompt if needed).
+
+**Insert an image:** drag an image file from your file manager and drop it onto the **editor**. Kova inserts a Markdown image reference at the drop position using a **path relative to the current document**:
 
 ```markdown
 ![My diagram](./assets/diagram.png)
@@ -118,8 +120,10 @@ Drag an image file from your file manager and drop it onto the editor. Kova inse
 
 A dashed overlay appears over the editor while you drag to confirm the drop target.
 
+**Paste a clipboard image:** copy an image from any app (screenshot, browser, design tool) and press `Ctrl+V` (or `Cmd+V` on macOS) in the editor. Kova saves the image alongside your document and inserts the reference automatically.
+
 !!! note
-    If no document is currently saved, Kova falls back to the absolute file path. Save your file first to get relative paths.
+    If no document is currently saved, image paths fall back to the absolute file path. Save your file first to get relative paths.
 
 ---
 
