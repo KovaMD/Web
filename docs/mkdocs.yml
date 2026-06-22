@@ -77,7 +77,7 @@ nav:
     - Keyboard Shortcuts: keyboard-shortcuts.md
     - Settings & Keybindings: settings-and-keybindings.md
     - Exporting (PDF & PowerPoint): exporting.md
-    - Importing (PowerPoint): importing.md
+    - Importing: importing.md
   - Examples:
     - Business Pitch: examples/business-pitch.md
     - Technical Talk: examples/technical-talk.md
