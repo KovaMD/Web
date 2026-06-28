@@ -44,8 +44,8 @@ Without writing a custom theme file, you can override specific aspects of any bu
 | **Body font** | Font used for all other text |
 | **Code font** | Monospace font for code blocks |
 | **Logo** | Image displayed in the header or footer |
-| **Header text** | Custom text shown at the top of every slide |
-| **Footer text** | Custom text shown at the bottom — supports `{slide_number}`, `{total}`, `{title}`, `{date}` |
+| **Header text** | Custom text shown at the top of every slide — supports template variables and `\|` segmented layout |
+| **Footer text** | Custom text shown at the bottom — supports `{slide_number}`, `{total}`, `{title}`, `{date}` and `\|` segmented layout |
 
 Kova saves overrides to the file automatically.
 
@@ -102,6 +102,24 @@ Use these in `header` and `footer` strings:
 | `{date}` | Document date |
 | `{slide_number}` | Current slide number |
 | `{total}` | Total slide count |
+
+### Segmented header/footer layout
+
+Use `|` as a stretch separator to divide a header or footer into **left**, **centre**, and **right** sections:
+
+```yaml
+header: "My Deck | {title} | {date}"
+footer: "{title} | | {slide_number}/{total}"
+```
+
+| Example | Result |
+|---------|--------|
+| `Left header` | Left-aligned (unchanged) |
+| `{date} \| caption \| {total}` | Three parts: left · centre · right |
+| `\| caption` | Centre-aligned |
+| `\|\| {slide_number}/{total}` | Right-aligned |
+
+Text without a `|` renders left-aligned as before, so existing decks are unaffected. Segmented layout works in both the Inspector text fields and custom theme YAML. It is also faithfully reproduced in PowerPoint export.
 
 ### Inheriting from built-in themes
 

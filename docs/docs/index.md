@@ -55,7 +55,7 @@ Kova parses the file in real time, detects the best layout for each slide automa
 
 ---
 
-!!! info "Alpha status"
+!!! info "Beta status"
     Core features are stable, but you may encounter rough edges. Please [report issues](https://github.com/KovaMD/Kova/issues) on GitHub with your OS, Kova version, and reproduction steps.
 
 ---

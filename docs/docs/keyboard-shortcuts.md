@@ -11,6 +11,8 @@
 | `Ctrl+S` | Save (opens **Save As** if the file has never been saved) |
 | `Ctrl+Shift+S` | Save As |
 | `Ctrl+Shift+F` | Toggle focus mode |
+| `F5` | Start presentation from the first slide |
+| `Shift+F5` | Start presentation from the current editor slide |
 
 ---
 
@@ -31,8 +33,19 @@
 | `Ctrl+V` | Paste — also pastes clipboard images directly into the editor |
 | `Ctrl+Z` | Undo |
 | `Ctrl+Shift+Z` | Redo |
+| `Ctrl++` | Zoom editor in (increase font size) |
+| `Ctrl+-` | Zoom editor out (decrease font size) |
+| `Ctrl+0` | Reset editor zoom to default |
+| `Ctrl+↑` / `PageUp` | Move to previous slide |
+| `Ctrl+↓` / `PageDown` | Move to next slide |
+| `Ctrl+Home` | Jump to first slide |
+| `Ctrl+End` | Jump to last slide |
+
+You can also zoom with `Ctrl+scroll` (mouse wheel).
 
 **Heading shortcuts:** pressing the same level again removes the heading marker — `Ctrl+2` on an existing `##` line strips it back to plain text.
+
+**Slide navigation:** the `Ctrl+Arrow` and `Ctrl+Home`/`Ctrl+End` shortcuts move the cursor to the first line of the target slide and scroll it into view. On macOS, `Cmd` replaces `Ctrl`.
 
 **Bold / Italic with no selection:** if nothing is selected, `Ctrl+B` inserts `bold text` and `Ctrl+I` inserts `italic text`, with the placeholder pre-selected so you can type immediately.
 
@@ -44,11 +57,17 @@
 |-----|--------|
 | `→` / `↓` / `Space` / `PageDown` | Next slide |
 | `←` / `↑` / `PageUp` | Previous slide |
+| `Home` | First slide |
+| `End` | Last slide |
 | `N` | Toggle speaker notes panel *(single-screen only)* |
+| `B` | Toggle black blank screen |
+| `W` | Toggle white blank screen |
 | `L` | Toggle laser pointer |
 | `Esc` | Exit presentation mode |
 
 You can also navigate by clicking the **left third** or **right third** of the screen in single-screen mode.
+
+Click the **slide counter** in the HUD to open a number input and jump directly to any slide.
 
 !!! note "Dual-screen mode"
     In dual-screen mode the presenter overlay handles all navigation, and speaker notes are always visible — no key press required. See [Presenting](presenting.md) for full details.

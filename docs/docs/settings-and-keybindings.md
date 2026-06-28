@@ -9,8 +9,11 @@ Open Settings by clicking the **gear icon** (⚙) in the titlebar. An **orange b
 | Setting | Options | Default |
 |---------|---------|---------|
 | **UI theme** | Dark · Light | Dark |
+| **Interface scale** | 70% · 80% · 90% · 100% · 110% · 120% · 130% · 140% · 150% | 100% |
 
 Toggles between Dark and Light mode for the interface, editor, and panels. Changes take effect immediately — no restart required.
+
+**Interface scale** zooms the entire app chrome — titlebars, panels, menus, editor. Useful if the default size feels too large or too small on your display. Presentation slides are always rendered at pixel-exact resolution regardless of the scale setting.
 
 ---
 
@@ -29,8 +32,13 @@ When enabled, Kova saves the file automatically after the first manual save. Aut
 | Setting | Options | Default |
 |---------|---------|---------|
 | **Show frontmatter** | On · Off | Off |
+| **Word wrap** | On · Off | On |
 
 When **Show frontmatter** is on, the YAML frontmatter block is visible in the editor. By default it is hidden — Kova manages it automatically via the Inspector. Turn it on if you want to edit frontmatter directly.
+
+When **Word wrap** is off, long lines extend past the panel edge and a horizontal scrollbar appears instead of wrapping. Useful when working with wide tables or code snippets.
+
+**Editor zoom** — hold `Ctrl` and scroll the mouse wheel to increase or decrease the editor font size. Keyboard shortcuts also work: `Ctrl++` to zoom in, `Ctrl+-` to zoom out, `Ctrl+0` to reset to default. The zoom level is not persisted across sessions.
 
 ---
 

@@ -106,6 +106,15 @@ Slides containing only code blocks or Mermaid diagrams automatically use the `co
 | Custom themes | ✅     |
 ```
 
+**Inline formatting in cells** — bold, italic, links, images, and inline math (`$...$`) all render correctly inside table cells:
+
+```markdown
+| Method | Formula | Notes |
+|--------|---------|-------|
+| **Mean** | $\bar{x} = \frac{\sum x_i}{n}$ | Sensitive to outliers |
+| *Median* | middle value | More [robust](https://en.wikipedia.org/wiki/Robust_statistics) |
+```
+
 !!! tip "Insert table dialog"
     Right-click in the editor and choose **Insert → Table** to open a dialog where you can set the number of rows and columns. Kova inserts a ready-to-fill GFM table at the cursor position.
 
@@ -250,6 +259,26 @@ Displays the video thumbnail on the slide. During presentation, clicking the thu
 ```
 
 Renders a scannable QR code pointing to the URL, plus the URL as text — useful for live audience interaction with [Poll Everywhere](https://polleverywhere.com) or any URL-based polling tool.
+
+---
+
+### Academic references (`!ref`)
+
+Attach source citations to any slide using `!ref[...]` lines:
+
+```markdown
+!ref[Smith et al. (2024). *The Impact of AI on Education*. Journal of Learning Technologies, 12(3), 45–67.]
+!ref[Jones, A. (2023). Pedagogical frameworks for Markdown-native tools. Open Education Review.]
+```
+
+References appear as small, muted text at the **bottom-right** of the slide, stacked vertically. They are styled to be unobtrusive — readable as annotations without competing with slide content. The colour automatically adapts to the active theme (greyed on light themes, softened white on dark themes).
+
+Multiple `!ref` lines on the same slide are listed in the order they appear in the Markdown.
+
+**PowerPoint export** — references are included in `.pptx` output as a 7 pt right-aligned text block placed just above the footer, so citations survive the export intact.
+
+!!! tip "Insert via menu"
+    In the editor, go to **Insert → Reference** (right-click menu) to place a `!ref[]` placeholder with the cursor inside, ready to type.
 
 ---
 
