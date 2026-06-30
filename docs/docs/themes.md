@@ -56,22 +56,23 @@ Kova saves overrides to the file automatically.
 
 ## Custom themes
 
-Create a `.yaml` file in `~/.kova/themes/` to define a fully custom theme. Kova loads all valid `.yaml` files from that directory on startup. Any parse errors are reported in **Settings → Themes**.
+Create a `.yaml` file in `~/.config/kova/themes/` (macOS/Linux) or `%APPDATA%\kova\themes\` (Windows) to define a fully custom theme. Kova loads all valid `.yaml` files from that directory on startup. Any parse errors are reported in **Settings → Themes**.
 
 ### File format
 
 ```yaml
-# ~/.kova/themes/my-brand.yaml
+# ~/.config/kova/themes/my-brand.yaml
 
 name: My Brand          # Display name shown in the Inspector
 id: my-brand            # The ID Kova uses internally to reference this theme
 
 colors:
-  primary:    "#0057B8"   # Accent colour (headings, progress bars, decorations)
-  accent:     "#003F8A"   # Secondary accent
-  background: "#FFFFFF"   # Slide background
+  primary:    "#0057B8"   # Background of title and section slides
+  accent:     "#003F8A"   # Links, progress bars, and highlights
+  background: "#FFFFFF"   # All other slide backgrounds
   text:       "#1A1A1A"   # Body text
-  muted:      "#6B7280"   # Subdued text (attributions, captions)
+  title_text: "#FFFFFF"   # Heading text on title and section slides
+  section_bg: "#E8F0FE"   # Overrides primary for section slides only
   code_bg:    "#F3F4F6"   # Code block background
 
 fonts:
@@ -80,21 +81,41 @@ fonts:
   code:  "JetBrains Mono, monospace"
 
 layout:
-  alignment: left         # "left" | "center" | "right" — text alignment on title slide
-  decoration: subtle      # "none" | "subtle" | "bold" — decorative pattern intensity
+  title_align:   center   # "center" | "left" | "bottom-left" — text alignment on title slide
+  heading_align: left     # "left" | "center" — heading alignment on content slides
+  decoration:    none     # "none" | "dots" | "grid" | "diagonal" | "bar-left"
 
-logo:
-  path: "./assets/logo.png"   # Path relative to the theme file
-  position: header            # "header" | "footer" | "none"
-  size: 48px
+logo: /absolute/path/to/logo.png   # Must be an absolute path
+logo_position: bottom-left         # "top-left" | "top-right" | "bottom-left" | "bottom-right"
 
-header: ""               # Text in the header bar on every slide ("" to hide)
-footer: "{title}"        # Text in the footer — supports template variables
+footer:
+  show:              false
+  text:              "{title} | {date} | {slide_number}/{total}"
+  show_slide_number: true
+
+header:
+  show: false
+  text: ""
 ```
+
+!!! note "Logo paths"
+    The `logo` field requires an **absolute path**. Relative paths are not reliably resolved. On Windows, use forward slashes or a single backslash — do not quote the path or double-escape backslashes.
+
+### Color reference
+
+| Key | What it controls |
+|-----|-----------------|
+| `primary` | Background of title and section slides |
+| `accent` | Links, progress bars, and highlight elements |
+| `background` | Background of all other slides |
+| `text` | Body text |
+| `title_text` | Heading text on title and section slides — set this if `primary` is dark, otherwise text may be unreadable |
+| `section_bg` | Background of section slides only; overrides `primary` for those slides |
+| `code_bg` | Code block background |
 
 ### Template variables
 
-Use these in `header` and `footer` strings:
+Use these in `header.text` and `footer.text`:
 
 | Variable | Value |
 |----------|-------|
@@ -108,8 +129,13 @@ Use these in `header` and `footer` strings:
 Use `|` as a stretch separator to divide a header or footer into **left**, **centre**, and **right** sections:
 
 ```yaml
-header: "My Deck | {title} | {date}"
-footer: "{title} | | {slide_number}/{total}"
+header:
+  show: true
+  text: "My Deck | {title} | {date}"
+
+footer:
+  show: true
+  text: "{title} | | {slide_number}/{total}"
 ```
 
 | Example | Result |
