@@ -34,7 +34,7 @@ Press ++n++ to reveal the notes panel below the slide — it shows the `???` blo
 
 **Blank screen** — press `B` to blank the audience display to black, or `W` for white. Press the same key again to return to the slide. The HUD stays visible in single-screen mode so you can un-blank without losing control.
 
-**Jump to slide** — click the slide counter in the HUD to open a number input. Type a slide number and press ++enter++ to jump directly to it. Press ++escape++ or click away to cancel.
+**Jump to slide** — click the slide counter in the HUD to open a number input, or just start typing a number — pressing any digit key opens the input immediately without clicking first. Type a slide number and press ++enter++ to jump directly to it. Press ++escape++ or click away to cancel.
 
 ---
 
@@ -56,7 +56,7 @@ Keyboard navigation in the presenter overlay controls both windows simultaneousl
 
 **Blank screen** — press `B` (black) or `W` (white) to blank the audience display. The presenter overlay shows an *"Audience screen is blank"* indicator while blanked. Press the key again to restore the slide.
 
-**Jump to slide** — click the slide counter in the presenter overlay to enter a slide number and jump directly to it.
+**Jump to slide** — click the slide counter in the presenter overlay to enter a slide number and jump directly to it, or just start typing a number to open the input without clicking first.
 
 !!! warning "Dual-screen is in active development"
     Multi-monitor support is actively being refined and is currently unstable. **Single-screen mode is stable** — use dual-screen with caution for important presentations.

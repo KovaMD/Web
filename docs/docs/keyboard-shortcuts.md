@@ -67,7 +67,7 @@ You can also zoom with `Ctrl+scroll` (mouse wheel).
 
 You can also navigate by clicking the **left third** or **right third** of the screen in single-screen mode.
 
-Click the **slide counter** in the HUD to open a number input and jump directly to any slide.
+Click the **slide counter** in the HUD to open a number input and jump directly to any slide — or just start typing a digit to open the input immediately, no click needed.
 
 !!! note "Dual-screen mode"
     In dual-screen mode the presenter overlay handles all navigation, and speaker notes are always visible — no key press required. See [Presenting](presenting.md) for full details.

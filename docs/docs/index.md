@@ -46,11 +46,11 @@ Kova parses the file in real time, detects the best layout for each slide automa
 | **11 built-in themes** | Customisable per-document via the Inspector panel |
 | **Custom themes** | Drop a `.yaml` file into `~/.kova/themes/` |
 | **Mermaid diagrams** | Rendered and auto-themed to match your presentation |
-| **Kova extensions** | Progress bars, YouTube embeds, poll/QR codes |
+| **Kova extensions** | Progress bars, local video, table of contents, YouTube embeds, poll/QR codes |
 | **Speaker notes** | Hidden from the audience, visible in presenter view |
 | **Presenter view** | Dual-screen: next slide preview, notes, elapsed timer |
-| **Export to PowerPoint** | Full `.pptx` output via PptxGenJS — no internet required |
-| **Import from PowerPoint** | Convert a `.pptx` file into a Kova Markdown presentation |
+| **Export to PDF, PowerPoint, or HTML** | Full `.pptx`/PDF/standalone-HTML output — no internet required |
+| **Import from PowerPoint, URL, or Marp** | Convert an existing deck into a Kova Markdown presentation |
 | **Focus mode** | Distraction-free writing with `Ctrl+Shift+F` |
 
 ---
@@ -107,12 +107,12 @@ Kova parses the file in real time, detects the best layout for each slide automa
 -   :material-export: **[Exporting](exporting.md)**
 
     ---
-    PDF and `.pptx` export and what carries across
+    PDF, `.pptx`, and HTML export and what carries across
 
 -   :material-import: **[Importing](importing.md)**
 
     ---
-    Convert a `.pptx` file to a Kova Markdown presentation
+    Convert a PowerPoint file, a URL, or a Marp deck into a Kova Markdown presentation
 
 -   :material-source-branch: **[Contributing](contributing.md)**
 

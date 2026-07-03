@@ -63,6 +63,9 @@ Kova also tracks **Learned words** — words you've right-clicked and added to y
 |---------|---------|---------|
 | **Confirm before closing** | On · Off | On |
 | **On startup** | Blank document · Reopen last file | Blank document |
+| **PDF page size** | A4 · Letter | A4 |
+
+**PDF page size** — paper size used for [PDF export](exporting.md#export-options). Pages are always laid out landscape.
 
 **Confirm before closing** — when enabled, Kova shows a confirmation dialog if you try to close or quit with unsaved changes. This applies to the window × button, Alt+F4, taskbar close, and Cmd+Q.
 

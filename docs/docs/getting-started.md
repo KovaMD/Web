@@ -10,12 +10,14 @@ When you open Kova you'll see four panels:
 
 | Panel | Location | Purpose |
 |-------|----------|---------|
-| **Slides** | Left | Thumbnail strip — click any slide to jump to it; drag thumbnails to reorder |
+| **Slides** | Left | Thumbnail strip — click any slide to jump to it; drag thumbnails to reorder; right-click for more options |
 | **Editor** | Centre-left | Write your Markdown here |
 | **Preview** | Centre-right | Live rendering of the current slide |
 | **Inspector** | Right | Theme, colours, fonts, logo, and text formatting tools |
 
 The **Inspector** can be toggled open or closed with the **ⓘ** button in the titlebar, independent of focus mode. Inside the Inspector, the **Format** accordion provides one-click buttons for headings (H1–H6), inline styles (bold, italic, underline, strikethrough, inline code), and block elements (lists, blockquote, divider).
+
+Right-click a slide thumbnail for **Move up**, **Move down**, **Duplicate slide**, **Hide slide** (excludes it from presenting and export without deleting it), and **Delete slide**.
 
 The **status bar** at the bottom shows the current slide number, total word count, and estimated presentation time.
 
@@ -110,17 +112,18 @@ See [Presenting](presenting.md) for the full reference.
 
 ## Step 7 — Open and insert files
 
-**Open a Markdown file:** drag a `.md` file from your file manager and drop it onto the Kova window. Kova opens the file, replacing the current document (with an unsaved-changes prompt if needed).
+**Open a Markdown file:** drag a `.md` file from your file manager and drop it onto the Kova window. Kova opens the file, replacing the current document (with an unsaved-changes prompt if needed). **File → Open Recent** also lists your most recently opened documents — click one to reopen it, or use **Clear** to empty the list.
 
-**Insert an image:** drag an image file from your file manager and drop it onto the **editor**. Kova inserts a Markdown image reference at the drop position using a **path relative to the current document**:
+**Insert an image or video:** drag an image or video file from your file manager and drop it onto the **editor**. Kova inserts a Markdown reference at the drop position using a **path relative to the current document**:
 
 ```markdown
 ![My diagram](./assets/diagram.png)
+!video[Demo clip](./assets/demo.mp4)
 ```
 
-A dashed overlay appears over the editor while you drag to confirm the drop target.
+A dashed overlay appears over the editor while you drag to confirm the drop target. See [Markdown & Syntax](markdown-and-syntax.md#local-video-video) for supported video formats.
 
-**Paste a clipboard image:** copy an image from any app (screenshot, browser, design tool) and press `Ctrl+V` (or `Cmd+V` on macOS) in the editor. Kova saves the image alongside your document and inserts the reference automatically.
+**Paste a clipboard image or video:** copy an image or video from any app (screenshot, browser, design tool) and press `Ctrl+V` (or `Cmd+V` on macOS) in the editor. Kova saves the file alongside your document and inserts the reference automatically.
 
 !!! note
     If no document is currently saved, image paths fall back to the absolute file path. Save your file first to get relative paths.

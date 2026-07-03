@@ -138,7 +138,7 @@ Large centred quote with optional attribution in smaller text.
 
 **Triggered by:** a `|||` column break, or the overflow guard on a dense pure-text slide.
 
-Splits the slide into two equal columns. If `|||` is present the split occurs there; otherwise Kova splits at the element midpoint.
+Splits the slide into two equal columns. If `|||` is present the split occurs there; otherwise Kova splits at the element midpoint. A [`!toc`](markdown-and-syntax.md#table-of-contents-toc) list long enough to overflow the slide splits the same way, balancing entries across both columns by title length.
 
 ```markdown
 ## Before and after
