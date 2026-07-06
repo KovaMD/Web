@@ -122,6 +122,9 @@ Kova is a native desktop application for macOS, Windows, and Linux. Download the
         ./Kova_*.AppImage --no-sandbox
         ```
 
+    !!! warning "No automatic updates"
+        The AppImage release does **not** currently support automatic in-app updates. Check the [Releases page](https://github.com/KovaMD/Kova/releases) manually for new versions. This is a known limitation tracked in [issue #3](https://github.com/KovaMD/Kova/issues/3).
+
     !!! note "AppImageLauncher"
         For desktop integration (application menu entry, file associations), install [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher) and double-click the AppImage.
 

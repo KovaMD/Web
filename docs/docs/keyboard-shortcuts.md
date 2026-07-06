@@ -11,6 +11,8 @@
 | `Ctrl+S` | Save (opens **Save As** if the file has never been saved) |
 | `Ctrl+Shift+S` | Save As |
 | `Ctrl+Shift+F` | Toggle focus mode |
+| `F5` | Start presentation from the first slide |
+| `Shift+F5` | Start presentation from the current editor slide |
 
 ---
 
@@ -31,24 +33,21 @@
 | `Ctrl+V` | Paste — also pastes clipboard images directly into the editor |
 | `Ctrl+Z` | Undo |
 | `Ctrl+Shift+Z` | Redo |
-| `Ctrl+=` / `Ctrl+-` / `Ctrl+0` | Zoom editor font size in / out / reset — `Ctrl+scroll wheel` also works |
+| `Ctrl++` | Zoom editor in (increase font size) |
+| `Ctrl+-` | Zoom editor out (decrease font size) |
+| `Ctrl+0` | Reset editor zoom to default |
+| `Ctrl+↑` / `PageUp` | Move to previous slide |
+| `Ctrl+↓` / `PageDown` | Move to next slide |
+| `Ctrl+Home` | Jump to first slide |
+| `Ctrl+End` | Jump to last slide |
+
+You can also zoom with `Ctrl+scroll` (mouse wheel).
 
 **Heading shortcuts:** pressing the same level again removes the heading marker — `Ctrl+2` on an existing `##` line strips it back to plain text.
 
+**Slide navigation:** the `Ctrl+Arrow` and `Ctrl+Home`/`Ctrl+End` shortcuts move the cursor to the first line of the target slide and scroll it into view. On macOS, `Cmd` replaces `Ctrl`.
+
 **Bold / Italic with no selection:** if nothing is selected, `Ctrl+B` inserts `bold text` and `Ctrl+I` inserts `italic text`, with the placeholder pre-selected so you can type immediately.
-
----
-
-## Editor slide navigation
-
-Jump the editor cursor between slides without leaving the keyboard:
-
-| Shortcut | Action |
-|----------|--------|
-| `Ctrl+Up` / `Ctrl+Down` (`Cmd` on macOS) or `PageUp` / `PageDown` | Previous / next slide |
-| `Ctrl+Left` / `Ctrl+Right` (`Cmd` on macOS) or `Home` / `End` | First / last slide |
-
-Each jump scrolls the target slide's first line to the top of the editor.
 
 ---
 
@@ -58,17 +57,17 @@ Each jump scrolls the target slide's first line to the top of the editor.
 |-----|--------|
 | `→` / `↓` / `Space` / `PageDown` | Next slide |
 | `←` / `↑` / `PageUp` | Previous slide |
-| `Home` / `End` | Jump to first / last slide |
-| Digit key | Open the slide-jump input — `Enter` jumps, `Esc` cancels |
-| Scroll wheel | Advance / go back a slide |
-| `F5` | Start presenting from the first slide |
-| `Shift+F5` | Start presenting from the current editor slide |
+| `Home` | First slide |
+| `End` | Last slide |
 | `N` | Toggle speaker notes panel *(single-screen only)* |
-| `B` / `W` | Blank the audience display to black / white |
+| `B` | Toggle black blank screen |
+| `W` | Toggle white blank screen |
 | `L` | Toggle laser pointer |
 | `Esc` | Exit presentation mode |
 
-You can also navigate by clicking the **left third** or **right third** of the screen in single-screen mode, or click the slide counter in the HUD to open the slide-jump input with the mouse.
+You can also navigate by clicking the **left third** or **right third** of the screen in single-screen mode.
+
+Click the **slide counter** in the HUD to open a number input and jump directly to any slide — or just start typing a digit to open the input immediately, no click needed.
 
 !!! note "Dual-screen mode"
     In dual-screen mode the presenter overlay handles all navigation, and speaker notes are always visible — no key press required. See [Presenting](presenting.md) for full details.

@@ -9,11 +9,11 @@ Open Settings by clicking the **gear icon** (⚙) in the titlebar. An **orange b
 | Setting | Options | Default |
 |---------|---------|---------|
 | **UI theme** | Dark · Light | Dark |
-| **Interface scale** | 70%–150% | 100% |
+| **Interface scale** | 70% · 80% · 90% · 100% · 110% · 120% · 130% · 140% · 150% | 100% |
 
 Toggles between Dark and Light mode for the interface, editor, and panels. Changes take effect immediately — no restart required.
 
-**Interface scale** resizes the entire app chrome (toolbar, panels, editor UI). Presentation windows counter-scale so slides stay pixel-exact regardless of the interface scale setting.
+**Interface scale** zooms the entire app chrome — titlebars, panels, menus, editor. Useful if the default size feels too large or too small on your display. Presentation slides are always rendered at pixel-exact resolution regardless of the scale setting.
 
 ---
 
@@ -36,7 +36,9 @@ When enabled, Kova saves the file automatically after the first manual save. Aut
 
 When **Show frontmatter** is on, the YAML frontmatter block is visible in the editor. By default it is hidden — Kova manages it automatically via the Inspector. Turn it on if you want to edit frontmatter directly.
 
-When **Word wrap** is off, long lines extend past the editor's width instead of wrapping, and a horizontal scrollbar appears.
+When **Word wrap** is off, long lines extend past the panel edge and a horizontal scrollbar appears instead of wrapping. Useful when working with wide tables or code snippets.
+
+**Editor zoom** — hold `Ctrl` and scroll the mouse wheel to increase or decrease the editor font size. Keyboard shortcuts also work: `Ctrl++` to zoom in, `Ctrl+-` to zoom out, `Ctrl+0` to reset to default. The zoom level is not persisted across sessions.
 
 ---
 
@@ -53,9 +55,6 @@ When enabled, a **Dictionary language** selector appears. Kova supports 22 langu
 
 Kova also tracks **Learned words** — words you've right-clicked and added to your personal dictionary. These are listed in Settings and can be removed individually.
 
-!!! note "Interface language"
-    Separately from the spellcheck dictionary, Kova's own interface (menus, dialogs, Settings) is localised and follows your OS locale automatically. English is always available; German and Slovenian are also supported, with more languages added over time.
-
 ---
 
 ## Workspace
@@ -64,6 +63,9 @@ Kova also tracks **Learned words** — words you've right-clicked and added to y
 |---------|---------|---------|
 | **Confirm before closing** | On · Off | On |
 | **On startup** | Blank document · Reopen last file | Blank document |
+| **PDF page size** | A4 · Letter | A4 |
+
+**PDF page size** — paper size used for [PDF export](exporting.md#export-options). Pages are always laid out landscape.
 
 **Confirm before closing** — when enabled, Kova shows a confirmation dialog if you try to close or quit with unsaved changes. This applies to the window × button, Alt+F4, taskbar close, and Cmd+Q.
 
@@ -98,16 +100,6 @@ Sets the theme applied when you create a new document with `Ctrl+N`. Existing fi
 Shows the path to the custom themes folder (`~/.kova/themes/`) with an **Open folder** button. If Kova finds any `.yaml` files with syntax errors in that folder, the filenames and error details are listed here.
 
 See [Themes — Custom themes](themes.md#custom-themes) for the theme file format.
-
----
-
-## Export
-
-| Setting | Options | Default |
-|---------|---------|---------|
-| **PDF paper size** | A4 · Letter | A4 |
-
-Controls the page size used for the [PDF export print-layout options](exporting.md#print-layout-options) (N-up and speaker-notes handout). Slides are scaled and centred onto the selected page size.
 
 ---
 

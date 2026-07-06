@@ -10,10 +10,8 @@ Click **▶ Present** in the titlebar, or press the button in the toolbar. Kova 
 
 | Shortcut | Action |
 |----------|--------|
-| `F5` | Start presenting from the first slide |
-| `Shift+F5` | Start presenting from the slide currently open in the editor |
-
-Slides transition with a short fade, matching PowerPoint's default transition when exported.
+| `F5` | Start from the **first slide** |
+| `Shift+F5` | Start from the **current editor slide** |
 
 ---
 
@@ -25,16 +23,18 @@ The current slide fills the screen. Navigate with the keyboard or by clicking th
 |-----|--------|
 | ++arrow-right++ / ++arrow-down++ / ++space++ / ++page-down++ | Next slide |
 | ++arrow-left++ / ++arrow-up++ / ++page-up++ | Previous slide |
-| ++home++ / ++end++ | Jump to first / last slide |
-| Type a digit | Open the slide-jump input — type a number and press ++enter++ to jump, ++escape++ to cancel |
-| Scroll wheel | Advance / go back a slide |
+| ++home++ | First slide |
+| ++end++ | Last slide |
 | ++n++ | Toggle speaker notes panel |
-| `B` / `W` | Blank the audience display to black / white |
+| ++b++ | Toggle black blank screen |
+| ++w++ | Toggle white blank screen |
 | ++escape++ | Exit presentation |
 
 Press ++n++ to reveal the notes panel below the slide — it shows the `???` block from your Markdown.
 
-Click the slide counter in the HUD to open the same slide-jump input with the mouse. While the audience display is blanked, the presenter overlay shows an "Audience screen is blank" indicator; press `B` or `W` again to restore the slide.
+**Blank screen** — press `B` to blank the audience display to black, or `W` for white. Press the same key again to return to the slide. The HUD stays visible in single-screen mode so you can un-blank without losing control.
+
+**Jump to slide** — click the slide counter in the HUD to open a number input, or just start typing a number — pressing any digit key opens the input immediately without clicking first. Type a slide number and press ++enter++ to jump directly to it. Press ++escape++ or click away to cancel.
 
 ---
 
@@ -50,7 +50,13 @@ When Kova detects an external display (with **Auto** or **Dual** mode enabled), 
     - Elapsed timer (bottom bar)
     - Slide counter
 
+The **next-slide preview panel** can be resized by dragging the vertical handle between the current slide and the right column. Drag it left to widen the preview for more detail, or right to give the current slide more space. The width is clamped between 180 px and 600 px and persisted across sessions.
+
 Keyboard navigation in the presenter overlay controls both windows simultaneously.
+
+**Blank screen** — press `B` (black) or `W` (white) to blank the audience display. The presenter overlay shows an *"Audience screen is blank"* indicator while blanked. Press the key again to restore the slide.
+
+**Jump to slide** — click the slide counter in the presenter overlay to enter a slide number and jump directly to it, or just start typing a number to open the input without clicking first.
 
 !!! warning "Dual-screen is in active development"
     Multi-monitor support is actively being refined and is currently unstable. **Single-screen mode is stable** — use dual-screen with caution for important presentations.
