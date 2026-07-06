@@ -8,6 +8,13 @@ Kova offers two presentation modes: **single-screen** (fullscreen slideshow on o
 
 Click **▶ Present** in the titlebar, or press the button in the toolbar. Kova detects connected displays and opens the appropriate view.
 
+| Shortcut | Action |
+|----------|--------|
+| `F5` | Start presenting from the first slide |
+| `Shift+F5` | Start presenting from the slide currently open in the editor |
+
+Slides transition with a short fade, matching PowerPoint's default transition when exported.
+
 ---
 
 ## Single-screen mode
@@ -18,10 +25,16 @@ The current slide fills the screen. Navigate with the keyboard or by clicking th
 |-----|--------|
 | ++arrow-right++ / ++arrow-down++ / ++space++ / ++page-down++ | Next slide |
 | ++arrow-left++ / ++arrow-up++ / ++page-up++ | Previous slide |
+| ++home++ / ++end++ | Jump to first / last slide |
+| Type a digit | Open the slide-jump input — type a number and press ++enter++ to jump, ++escape++ to cancel |
+| Scroll wheel | Advance / go back a slide |
 | ++n++ | Toggle speaker notes panel |
+| `B` / `W` | Blank the audience display to black / white |
 | ++escape++ | Exit presentation |
 
 Press ++n++ to reveal the notes panel below the slide — it shows the `???` block from your Markdown.
+
+Click the slide counter in the HUD to open the same slide-jump input with the mouse. While the audience display is blanked, the presenter overlay shows an "Audience screen is blank" indicator; press `B` or `W` again to restore the slide.
 
 ---
 

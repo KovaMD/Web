@@ -1,6 +1,6 @@
 # Example: Business Pitch
 
-A complete business pitch deck demonstrating the `title`, `section`, `title-content`, `bsp`, `two-column`, `quote`, and `grid` layouts — with progress bars, a Mermaid diagram, and speaker notes.
+A complete business pitch deck demonstrating the `title`, `section`, `title-content`, `bsp`, `two-column`, `quote`, and `grid` layouts — with progress bars, a Mermaid diagram, an auto-generated agenda, a callout, a citation, an embedded video, and speaker notes.
 
 Copy the source below into a new `.md` file and open it in Kova.
 
@@ -14,6 +14,12 @@ Copy the source below into a new `.md` file and open it in Kova.
 Turning raw data into decisions that matter.
 
 Jane Smith, CEO · May 2026
+
+---
+
+## Agenda
+
+!toc
 
 ---
 
@@ -76,6 +82,12 @@ the confidence score on every result, the one-click export.
 
 ---
 
+## See it in action
+
+!video[60-second product demo](./assets/demo.mp4)
+
+---
+
 ## How it works
 
 ```mermaid
@@ -127,6 +139,8 @@ on track to hit it by October.
 - **SAM:** $11B — mid-market and enterprise analytics buyers
 - **SOM:** $800M — companies 50–5,000 employees, English-speaking markets
 
+!ref[IDC Worldwide Semiannual Software Tracker, 2025]
+
 ---
 
 ## Competitive landscape
@@ -153,6 +167,9 @@ on track to hit it by October.
 - G&A: ops, legal, finance (25%)
 
 **Target close:** Q3 2026
+
+> [!tip] Round status
+> Already soft-circled $4M. Looking for a lead investor to anchor the round.
 
 ???
 
@@ -184,10 +201,14 @@ Questions?
 | Slide | Layout | Feature |
 |-------|--------|---------|
 | Title | `title` | Subtitle, theme |
+| "Agenda" | `two-column` | `!toc` auto-generated agenda (auto-splits — this deck has enough slides to overflow one column) |
 | Section breaks | `section` | Chapter dividers |
 | "Why existing tools" | `two-column` | `\|\|\|` column break |
+| "See it in action" | `media` | `!video` local video embed |
 | "How it works" | `code` | Mermaid flowchart |
 | "Traction" | `bsp` | Progress bars grouped as one logical element |
 | "Why now" | `quote` | Blockquote with attribution |
+| "Total addressable market" | `title-content` | `!ref` academic-style citation |
 | "Competitive landscape" | `title-content` | GFM table |
+| "Series A — $8M" | `title-content` | `> [!tip]` callout |
 | Speaker notes | — | `???` delimiter on several slides |

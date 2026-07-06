@@ -1,6 +1,6 @@
 # Example: Classroom Slides
 
-A lecture-style presentation demonstrating a mix of diagrams, tables, blockquotes, two-column comparisons, embedded polls, and speaker notes. Uses the `editorial` theme for a clean academic look.
+A lecture-style presentation demonstrating a mix of diagrams, tables, blockquotes, two-column comparisons, an auto-generated agenda, a callout, a citation, an embedded video, embedded polls, and speaker notes. Uses the `editorial` theme for a clean academic look.
 
 Copy the source below into a new `.md` file and open it in Kova.
 
@@ -19,12 +19,7 @@ Dr. Priya Nair · CS 4810 · Spring 2026
 
 ## Today's agenda
 
-- Recap: what is a model?
-- Supervised vs. unsupervised learning
-- Linear regression — intuition and math
-- Decision trees
-- Overfitting and how to fight it
-- Lab preview
+!toc
 
 ???
 
@@ -226,7 +221,15 @@ In today's lab you will:
 - Fit a linear regression model and a decision tree
 - Evaluate both on a held-out test set
 - Plot the bias–variance curves
-- Submit your notebook to Gradescope by **Friday 23:59**
+
+> [!warning] Deadline
+> Submit your notebook to Gradescope by **Friday 23:59**.
+
+---
+
+## Lab environment walkthrough
+
+!video[Lab environment walkthrough](./assets/lab-walkthrough.mp4)
 
 ---
 
@@ -234,7 +237,8 @@ In today's lab you will:
 
 - Course notes: Chapter 3 — Linear Models
 - Scikit-learn docs: `sklearn.linear_model`, `sklearn.tree`
-- Optional: Bishop Ch. 3.1–3.3
+
+!ref[Bishop, C. (2006). Pattern Recognition and Machine Learning. Springer, Ch. 3.1–3.3.]
 
 See you Thursday.
 
@@ -251,6 +255,7 @@ TA sessions: Wednesday 18:00 on Discord.
 | Slide | Layout | Feature |
 |-------|--------|---------|
 | Title | `title` | Subtitle |
+| "Today's agenda" | `two-column` | `!toc` auto-generated agenda (auto-splits — this deck has enough slides to overflow one column) |
 | "Types of learning" | `two-column` | `\|\|\|` column break |
 | "The learning loop" | `code` | Mermaid flowchart |
 | "Linear regression — intuition" | `title-content` | Display math (`$$...$$`) |
@@ -261,4 +266,7 @@ TA sessions: Wednesday 18:00 on Discord.
 | "Bias–variance tradeoff" | `bsp` | Progress bar group |
 | "Remedies" | `two-column` | Column break |
 | "Quick check" | `media` | `!poll` QR code |
+| "Lab preview" | `title-content` | `> [!warning]` callout |
+| "Lab environment walkthrough" | `media` | `!video` local video embed |
+| "Resources" | `title-content` | `!ref` academic-style citation |
 | Speaker notes | — | `???` throughout |

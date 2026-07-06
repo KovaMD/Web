@@ -1,6 +1,6 @@
 # Example: Technical Talk
 
-A conference-style talk demonstrating the `code` layout, Mermaid diagrams, annotated code blocks, and the `split` and `full-bleed` layouts. Uses the `forge` theme for a technical aesthetic.
+A conference-style talk demonstrating the `code` layout, Mermaid diagrams, annotated code blocks, an auto-generated agenda, callouts, a citation, an embedded video, and the `split` and `full-bleed` layouts. Uses the `forge` theme for a technical aesthetic.
 
 Copy the source below into a new `.md` file and open it in Kova.
 
@@ -19,11 +19,7 @@ Marcus Lee · SRE Summit 2026
 
 ## Agenda
 
-- The old way and its costs
-- Blue-green at scale
-- Our canary pipeline
-- Observability hooks
-- What we got wrong first
+!toc
 
 ---
 
@@ -125,6 +121,14 @@ impl CanaryGate {
 ./shift.sh --canary 100 && ./retire.sh --blue
 ```
 
+!ref[Google (2018). Site Reliability Engineering: Canary Analysis. O'Reilly.]
+
+---
+
+## Live traffic shift demo
+
+!video[Live traffic shift demo](./assets/traffic-shift-demo.mp4)
+
 ---
 
 ## Observability hooks
@@ -160,9 +164,11 @@ talk notes.
 
 ## Mistake 1: comparing against a fixed threshold
 
-**Wrong:** roll back if error rate > 0.1%
+> [!danger] Wrong
+> Roll back if error rate > 0.1%.
 
-**Right:** roll back if error rate > baseline × 1.5
+> [!tip] Right
+> Roll back if error rate > baseline × 1.5.
 
 Traffic spikes make absolute thresholds fire constantly on perfectly
 healthy deploys.
@@ -229,11 +235,14 @@ Take questions. Common ones:
 | Slide | Layout | Feature |
 |-------|--------|---------|
 | Title | `title` | Theme and document settings |
+| "Agenda" | `two-column` | `!toc` auto-generated agenda (auto-splits — this deck has enough slides to overflow one column) |
 | "The cost" | `bsp` | Multiple progress bars |
 | "Architecture overview" | `code` | Mermaid flowchart |
 | "The canary gate" | `code` | Rust syntax highlighting |
-| "Traffic shifting" | `code` | Bash code block |
+| "Traffic shifting" | `code` | Bash code block, `!ref` citation |
+| "Live traffic shift demo" | `media` | `!video` local video embed |
 | "Dashboard" | `title-image` | Image-heavy slide |
+| "Mistake 1" | `title-content` | `> [!danger]` and `> [!tip]` callouts |
 | "Mistake 2" | `split` | Manual `<!-- layout:split -->` override |
 | "Mistake 3" | `title-content` | GFM table |
 | "Results" | `bsp` | Progress bar group |

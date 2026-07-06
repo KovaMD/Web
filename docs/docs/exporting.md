@@ -35,11 +35,24 @@ The page size matches the aspect ratio set in the Inspector:
 | 16:10 | 254 mm × 158.8 mm |
 | 4:3 | 254 mm × 190.5 mm |
 
+### Print layout options
+
+The PDF export dialog offers layouts beyond one slide per page:
+
+| Option | Result |
+|--------|--------|
+| **1 slide per page** *(default)* | Standard, one slide per landscape page |
+| **2 / 4 / 6 slides per page (N-up)** | Multiple slides tiled per page, each framed with a border matching the slide's aspect ratio — handy for printed handouts |
+| **Speaker-notes handout (1-up)** | One slide per page with its speaker notes printed below, separated by a divider rule |
+
+**Paper size** — choose **A4** (default) or **Letter** in **Settings**. Slides are scaled and centred onto the selected standard landscape page size regardless of the presentation's aspect ratio.
+
 ### Limitations
 
 | Element | Export behaviour |
 |---------|-----------------|
 | **YouTube embeds** (`!youtube`) | Rendered as a static thumbnail/placeholder — not a playable video |
+| **Local video** (`!video`) | Rendered as a static placeholder frame — not a playable video |
 | **Poll / QR codes** (`!poll`) | Rendered as a static QR code image |
 
 ---
@@ -69,7 +82,7 @@ Every slide layout is reproduced in the `.pptx` output:
 
 **Theme colours and fonts** are applied to all slides. Progress bars are exported as visual bars matching the slide theme. Code blocks are exported with syntax highlighting using the `github-dark` palette. Mermaid diagrams are rendered to PNG and embedded in the `.pptx`. The theme logo (if set) is stamped on every slide at the correct corner position with the theme's opacity setting. The `bar-left` decoration is replicated as an accent-coloured rectangle behind slide content.
 
-**Inline formatting** (bold, italic, inline code, and links) inside list items is preserved in the `.pptx` output.
+**Inline formatting** (bold, italic, inline code, and links) inside list items is preserved in the `.pptx` output. Slides use the same fade transition as in-app presentation mode. Academic references added with `!ref` are exported to the bottom-right of their slide.
 
 !!! note "Mermaid render warnings"
     If a Mermaid diagram fails to render during export, Kova shows a warning after export naming the affected slide. The rest of the presentation exports normally.
@@ -89,6 +102,7 @@ The output respects the aspect ratio set in the Inspector. Use the **Aspect Rati
 | Element | Export behaviour |
 |---------|-----------------|
 | **YouTube embeds** (`!youtube`) | Exported as a text placeholder with the URL — not as an embedded video |
+| **Local video** (`!video`) | Exported as a text placeholder — not as an embedded video |
 | **Poll / QR codes** (`!poll`) | Exported as a text placeholder with the URL — not as a QR code |
 | **Custom web fonts** | Substituted with the closest PowerPoint-safe alternative (e.g. Georgia for a serif theme font) |
 

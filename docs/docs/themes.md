@@ -103,6 +103,23 @@ Use these in `header` and `footer` strings:
 | `{slide_number}` | Current slide number |
 | `{total}` | Total slide count |
 
+### Three-part header/footer
+
+Split a `header` or `footer` string with `|` to lay out left / centre / right sections instead of one left-aligned block:
+
+```yaml
+footer: "{date} | Confidential | {slide_number}/{total}"
+```
+
+| Text | Result |
+|------|--------|
+| `Left text` (no `\|`) | Left-aligned — unchanged from a plain string |
+| `{date} \| caption \| {total}` | Three parts: left, centre, right |
+| `\| caption` | Centred |
+| `\|\| {slide_number}/{total}` | Right-aligned |
+
+Existing decks without a `\|` in their header/footer text render exactly as before.
+
 ### Inheriting from built-in themes
 
 Omitted fields inherit from the **Light** theme defaults. You only need to specify what you want to change:

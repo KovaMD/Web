@@ -88,6 +88,25 @@ Kova is a native desktop application for macOS, Windows, and Linux. Download the
     sudo zypper refresh && sudo zypper install kova
     ```
 
+=== "Flatpak"
+
+    Flathub's current policy excludes LLM-assisted apps, so Kova ships from a self-hosted Flatpak repo:
+
+    ```bash
+    flatpak install https://flatpak.kova.md/kova.flatpakref
+    flatpak run md.kova.app
+    ```
+
+    Or build it locally from the manifest in the [Kova repository](https://github.com/KovaMD/Kova):
+
+    ```bash
+    flatpak install flathub org.gnome.Platform//49 org.gnome.Sdk//49
+    curl -fsSL -o packaging/flatpak/kova.deb \
+      https://github.com/KovaMD/Kova/releases/latest/download/Kova_Linux.deb
+    flatpak-builder --user --install --force-clean build packaging/flatpak/md.kova.app.yml
+    flatpak run md.kova.app
+    ```
+
 === "AppImage"
 
     1. Download the `.AppImage` file.
@@ -119,3 +138,33 @@ See the [Contributing](contributing.md) page for full instructions on cloning th
 ## Verifying your version
 
 After installing, open Kova and check **Settings → Updates** to see the installed version and optionally enable automatic update checks.
+
+---
+
+## Verifying a download
+
+You don't have to trust a release binary blindly — every release can be checked back to its source.
+
+### Build provenance (recommended)
+
+Each release asset (`.dmg`, `.msi`, `.exe`, `.deb`, `.rpm`, `.AppImage`) carries a signed [build provenance attestation](https://docs.github.com/actions/security-guides/using-artifact-attestations) tying it to the exact commit and GitHub Actions run that built it. Verify with the [GitHub CLI](https://cli.github.com/):
+
+```bash
+gh attestation verify Kova_Linux.deb --repo KovaMD/Kova
+```
+
+A pass confirms the file was produced, unmodified, by Kova's release workflow from the KovaMD/Kova repository.
+
+### Rebuild from source (Nix)
+
+For full reproducibility, rebuild from pinned source instead of trusting a prebuilt binary:
+
+```bash
+nix build github:KovaMD/Kova
+```
+
+### Package repositories
+
+The APT and RPM repositories (`deb.kova.md`, `rpm.kova.md`) are GPG-signed — `apt`/`dnf` verify signatures automatically once the key is added, as shown above. Desktop auto-updates are signed with Tauri's updater key.
+
+See [SECURITY.md](https://github.com/KovaMD/Kova/blob/main/SECURITY.md) for how to report a vulnerability.

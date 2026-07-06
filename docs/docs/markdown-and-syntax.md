@@ -253,6 +253,70 @@ Renders a scannable QR code pointing to the URL, plus the URL as text — useful
 
 ---
 
+### Local video (`!video`)
+
+```markdown
+!video[Demo walkthrough](./assets/demo.mp4)
+```
+
+Embeds a local video file, played back in place during presentation. You can also insert a video via **right-click → Insert → Video**, by dragging a video file onto the editor, or by pasting one — Kova copies it into an `assets/` folder next to your document (or references it relatively if it's already alongside the file) and writes the `!video[...]` line for you.
+
+!!! note "Export behaviour"
+    Standalone HTML export embeds the video inline. PowerPoint and PDF export do not currently play video — see [Exporting](exporting.md#limitations_1).
+
+---
+
+### Academic references (`!ref`)
+
+```markdown
+## Findings
+
+Adoption increased 40% after rollout.
+
+!ref[Smith, J. (2025). Rollout Outcomes. Journal of Product Adoption.]
+!ref[Lee, A. (2024). Change Management at Scale.]
+```
+
+Each `!ref[...]` line adds one citation to a small reference list rendered in the bottom-right corner of that slide. References are plain text — write them in whatever citation style you prefer.
+
+---
+
+### Table of contents (`!toc`)
+
+```markdown
+!toc
+```
+
+Placed alone on a slide, `!toc` renders an auto-generated agenda listing the titles of the other slides in the deck — no manual list to keep in sync as you add or reorder slides. Use **Insert → Agenda slide** in the editor to add one. Long tables of contents automatically split into two columns to keep entries readable.
+
+---
+
+## Callouts / admonitions
+
+Turn a blockquote into a coloured admonition box by starting it with a `[!type]` marker:
+
+```markdown
+> [!tip] Pro tip
+> Press `Ctrl+B` with no selection to insert placeholder bold text.
+
+> [!warning]
+> Unsaved changes are lost if you close without saving.
+```
+
+The marker's first line becomes the box's title (defaulting to the capitalised type name if you don't supply one). Five canonical styles are supported — `note`, `tip`, `warning`, `danger`, `info` — and common synonyms are mapped onto them automatically:
+
+| You write | Renders as |
+|-----------|-----------|
+| `caution`, `attention` | `warning` |
+| `error`, `failure`, `fail`, `bug`, `missing` | `danger` |
+| `question`, `help`, `faq` | `info` |
+| `hint`, `important`, `success`, `check`, `done` | `tip` |
+| `abstract`, `summary`, `tldr`, `quote`, `cite`, `example` | `note` |
+
+A blockquote without a `[!type]` marker renders as a normal quote, as described above.
+
+---
+
 ## Speaker notes
 
 Add speaker notes below `???` on any slide. Notes are never visible to the audience.

@@ -9,8 +9,11 @@ Open Settings by clicking the **gear icon** (⚙) in the titlebar. An **orange b
 | Setting | Options | Default |
 |---------|---------|---------|
 | **UI theme** | Dark · Light | Dark |
+| **Interface scale** | 70%–150% | 100% |
 
 Toggles between Dark and Light mode for the interface, editor, and panels. Changes take effect immediately — no restart required.
+
+**Interface scale** resizes the entire app chrome (toolbar, panels, editor UI). Presentation windows counter-scale so slides stay pixel-exact regardless of the interface scale setting.
 
 ---
 
@@ -29,8 +32,11 @@ When enabled, Kova saves the file automatically after the first manual save. Aut
 | Setting | Options | Default |
 |---------|---------|---------|
 | **Show frontmatter** | On · Off | Off |
+| **Word wrap** | On · Off | On |
 
 When **Show frontmatter** is on, the YAML frontmatter block is visible in the editor. By default it is hidden — Kova manages it automatically via the Inspector. Turn it on if you want to edit frontmatter directly.
+
+When **Word wrap** is off, long lines extend past the editor's width instead of wrapping, and a horizontal scrollbar appears.
 
 ---
 
@@ -46,6 +52,9 @@ When **Check spelling while typing** is enabled, Kova underlines misspelled word
 When enabled, a **Dictionary language** selector appears. Kova supports 22 languages including English (US/UK/AU), French, German, Spanish, Italian, Portuguese, Dutch, Polish, Russian, Ukrainian, and more.
 
 Kova also tracks **Learned words** — words you've right-clicked and added to your personal dictionary. These are listed in Settings and can be removed individually.
+
+!!! note "Interface language"
+    Separately from the spellcheck dictionary, Kova's own interface (menus, dialogs, Settings) is localised and follows your OS locale automatically. English is always available; German and Slovenian are also supported, with more languages added over time.
 
 ---
 
@@ -89,6 +98,16 @@ Sets the theme applied when you create a new document with `Ctrl+N`. Existing fi
 Shows the path to the custom themes folder (`~/.kova/themes/`) with an **Open folder** button. If Kova finds any `.yaml` files with syntax errors in that folder, the filenames and error details are listed here.
 
 See [Themes — Custom themes](themes.md#custom-themes) for the theme file format.
+
+---
+
+## Export
+
+| Setting | Options | Default |
+|---------|---------|---------|
+| **PDF paper size** | A4 · Letter | A4 |
+
+Controls the page size used for the [PDF export print-layout options](exporting.md#print-layout-options) (N-up and speaker-notes handout). Slides are scaled and centred onto the selected page size.
 
 ---
 
