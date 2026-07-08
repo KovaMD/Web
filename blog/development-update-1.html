@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Development Update 1 — kova.md</title>
+  <meta name="description" content="Four months in: where Kova sits in the presentation software space, what's coming next — plugins, a CLI, editor integrations, animations — and where LLMs do and don't fit into the project.">
+  <meta property="og:title" content="Development Update 1">
+  <meta property="og:description" content="Four months in: where Kova sits in the presentation software space, what's coming next — plugins, a CLI, editor integrations, animations — and where LLMs do and don't fit into the project.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kova.md/blog/development-update-1.html">
+  <meta property="og:image" content="https://kova.md/assets/og-image.png">
+  <link rel="canonical" href="https://kova.md/blog/development-update-1.html">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-0CcKsY49q+QPM5JuwYJRbLzDg1qPO/qPc+rmWY6FDQ8='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src https://api.github.com; base-uri 'self'; form-action 'none'">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="../assets/favicon-128.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/style.css?v=20260522">
+  <link rel="stylesheet" href="../css/blog.css?v=20260708a">
+  <script>
+    (function() {
+      var t = localStorage.getItem('kova-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════ -->
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="../assets/kova-icon.svg?v=20260522" width="28" height="28" alt="">
+    <span class="nav-wordmark">kova<span class="tld">.md</span></span>
+  </a>
+  <div class="nav-spacer"></div>
+  <ul class="nav-links">
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="https://wiki.kova.md">Docs</a></li>
+    <li><a href="../open-source.html">Open source</a></li>
+    <li><a href="index.html" aria-current="page">Blog</a></li>
+    <li><a href="https://github.com/kovamd/kova">GitHub</a></li>
+    <li>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle colour scheme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="8" y1="1.5" x2="8" y2="3"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="8" y1="13"  x2="8" y2="14.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="1.5" y1="8" x2="3"   y2="8"  stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="13"  y1="8" x2="14.5" y2="8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="3.4" y1="3.4" x2="4.5" y2="4.5"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="11.5" y1="11.5" x2="12.6" y2="12.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="12.6" y1="3.4" x2="11.5" y2="4.5"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="4.5"  y1="11.5" x2="3.4" y2="12.6"  stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M14 8.5A6 6 0 0 1 7.5 2 6.5 6.5 0 1 0 14 8.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </li>
+    <li>
+      <a href="https://github.com/kovamd/kova/releases" class="btn btn-primary" style="padding:7px 16px;font-size:13px;">
+        Download
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ═══ POST HERO ══════════════════════════════════════════ -->
+<section class="post-hero">
+  <div class="container">
+    <a href="index.html" class="post-back">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <path d="M7.5 2.5L3 6l4.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to blog
+    </a>
+    <h1>Development Update 1</h1>
+    <div class="post-meta">
+      <span>Jul 8, 2026</span>
+      <span class="post-meta-sep">·</span>
+      <span>Ross</span>
+      <span class="post-meta-sep">·</span>
+      <span>Announcement</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ POST BODY ══════════════════════════════════════════ -->
+<section class="post-body-section">
+  <div class="container">
+    <div class="post-layout">
+    <aside class="post-toc" aria-label="Table of contents">
+      <p class="post-toc-label">Contents</p>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#where-does-kova-sit">Where does Kova sit?</a></li>
+        <li><a href="#direction-and-moving-forward">Direction and Moving Forward</a>
+          <ol>
+            <li><a href="#features">Features</a>
+              <ol>
+                <li><a href="#kova-plugins">Kova Plugins</a></li>
+                <li><a href="#kova-cli">Kova CLI</a></li>
+                <li><a href="#third-party-editor-plugins">Third-party Editor Plugins</a></li>
+                <li><a href="#slide-content-animation-and-transitions">Slide Content Animation and Transitions</a></li>
+              </ol>
+            </li>
+            <li><a href="#packaging">Packaging</a></li>
+            <li><a href="#security">Security</a></li>
+            <li><a href="#a-note-on-llms">A note on LLMs</a></li>
+          </ol>
+        </li>
+        <li><a href="#thanks">Thanks</a></li>
+      </ol>
+    </aside>
+    <article class="post-body">
+
+      <h2 id="introduction">Introduction</h2>
+      <p>The development of Kova has been rapid. The project is now four months old and is in a very usable state, usage has worked its way into my day to day toolbox for lecturing and I know that there have been other users and contributors for whom it has become a useful tool.</p>
+      <p>Through all of the feature requests, issues logged, and pull requests I can see that there are people that have a similar passion for the project as myself. And with these developments I do not want to risk the feature set being muddied, or contrary to the original philosophy that Kova was built against.</p>
+      <p>This post serves as two things, a bit of background into how I personally view Kova, where it sits in the software space, and the ethos behind decisions surrounding features and direction. Finally, I want to share and discuss future ideas for the project that I see us working towards.</p>
+
+      <h2 id="where-does-kova-sit">Where does Kova sit?</h2>
+      <p>Kova is not going toe to toe with the big names in presentation software, and that should be apparent. The majority of the world has never heard of Markdown, let alone engaged with it in a meaningful way (granted Apple Notes utilises Markdown underneath to some extent).</p>
+      <p>To my mind, Kova is for two categories of people. The first are those who use Markdown for documentation purposes, with a potential to need presentations without the headache of transplanting Markdown content into presentation software.</p>
+      <p>The second is academics, educators, and students that utilise Markdown as part of the notes and study processes, with PKMs (Personal Knowledge Managers) becoming very popular over the past few years I feel that this is a demographic of user that would be interested in a Markdown-driven option for their presentations.</p>
+      <p>The aim is not to take on the big presentation software in the space but to offer a local, privacy conserving application that does what the majority of Markdown users need. When deciding on features I would look at the use case, the user base demand, and dependency weight (we are not shipping Chromium to get a feature that we can't achieve through Tauri).</p>
+
+      <h2 id="direction-and-moving-forward">Direction and Moving Forward</h2>
+      <p>At the time of writing, we have received fifteen feature requests from the community, twenty bugs, and sixty-five pull requests that have been merged. This velocity prompted the creation of the <a href="https://matrix.to/#/#kova-md:matrix.org">Kova.md Matrix Server</a> for discussions relating to development and we of course welcome any visitors with suggestions, quick questions before making a PR, or to share their overall experience with Kova. It is appreciated, it does support in the direction for the project, and I welcome it at all stages.</p>
+      <p>Going forward, there are some key areas that I am currently reviewing as targets within the development process. These are things that have either been floating around in my mind, or have been raised by a community member.</p>
+
+      <h3 id="features">Features</h3>
+      <p>Part of the motivation behind writing this post is outlining some of the core functionality going forward. These are drawn from personal goals for the application, but also components that I feel would help reduce barriers for users that are considering Kova, but can't quite find feature parity with their existing presentation tool.</p>
+
+      <h4 id="kova-plugins">Kova Plugins</h4>
+      <p>The first, a plugin system. This will reside in its own repository at <code>KovaMD/Plugins</code> and be fed into the Kova desktop app in the same way as the themes repository feeds the <em>More Themes</em> interface. This would be a system that enables users to create patches using either Javascript or Typescript to expand Kova's functionality to specific use cases.</p>
+      <p>The scope of plugins is something I am actively reviewing, as we are based on Tauri instead of Electron (a decision taken to reduce footprint), it does create some limitations in what user created patches can achieve within Kova as it would have to be built at compile time, making local plugin loading complicated. I do feel that Tauri was the right choice, I have nothing against Electron — but when an application is built around a simple language designed to be quick and simple, having a large-scale backend like Electron does not make sense for this project. This is early days, and I have only started scratching the surface of what could be achieved with plugins at this time.</p>
+      <p>Some examples of what could be achieved based on the current codebase:</p>
+      <ul>
+        <li>Markdown syntax extensions</li>
+        <li>Additional inspector elements</li>
+        <li>Additional export functionality (watermarks, footers, headers etc)</li>
+        <li>Third-party themes outside of the Kova theme library system</li>
+      </ul>
+      <p>I will emphasise that plugins are part of the long game for Kova. Creating an implementation that is effective, secure, and intuitive for contributors is important and does not happen overnight. I am intentionally not attaching dates to these goals as I do not want to raise hopes on what is a project I work on in my free time.</p>
+
+      <h4 id="kova-cli">Kova CLI</h4>
+      <p>Following a suggestion from @a1880 on batch processing from the command line, this got my brain ticking over what functionality we could have from running Kova as a terminal application for specific use cases.</p>
+      <p>So far I am thinking that having the following could be useful for those of us who live in terminals and TWMs.</p>
+      <ul>
+        <li><code>kova --present MyPresentation.md</code> — Launch the presentation mode of Kova, loading in a Markdown presentation directly.</li>
+        <li><code>kova --import marp/pptx/url MyMarpPresentation.md MyKovaPresentation.md</code> — Convert a file that is currently in another format into a Markdown file utilising Kova syntax, or directly import a remote file.</li>
+        <li><code>kova --export pptx/pdf MyPresentation.md MyExport.pptx/pdf</code> — Export a pre-existing Markdown file directly to a PPTX or PDF file using Kova's syntax.</li>
+      </ul>
+      <p>Additional flags could include, and open to suggestions of course:</p>
+      <ul>
+        <li><code>--theme=gruvbox-dark</code> — Temporarily override the theme of a presentation before presenting/exporting. Either naming a preconfigured theme, or providing a path to a YAML file, e.g. <code>--theme=~/path/to/theme.yaml</code></li>
+        <li><code>--check</code> — Review syntax for errors before running a subsequent command.</li>
+      </ul>
+      <p>An example Kova command could be: <code>kova --check --theme=firefly --present CancelledTooSoon.md</code></p>
+
+      <h4 id="third-party-editor-plugins">Third-party Editor Plugins (Obsidian, Joplin, and VS Code)</h4>
+      <p>With the introduction of a CLI based tool, this opens up some interesting avenues that can be explored in the Markdown universe as far as using Kova as a presentation engine for pre-existing applications, utilising our syntax. This could take the form of a plugin for the likes of Obsidian and Joplin (of which Kova shares the CodeMirror library for rendering) making it a relatively simple translation. Joplin does however operate a sandboxed plugin system which would make integration a little more complex, but not impossible. Obsidian has a more open approach to plugins, meaning we could quite easily have a command palette item labelled <code>Present with Kova</code> that simply triggers a <code>kova --present $currentfile</code> in the background to launch the presentation engine from Obsidian/Joplin.</p>
+      <p>VS Code is also on my radar, it is one of the most popular editors in existence so it can't really be ignored. It does however use a different editor engine called Monaco that operates a little differently, plugins are also sandboxed like Joplin, however the API for plugins to interact with the editor is incredibly broad so we should be able to achieve the required features with relative ease.</p>
+
+      <h4 id="slide-content-animation-and-transitions">Slide Content Animation and Transitions</h4>
+      <p>Finally, animations. They are a staple of presentation software and something that has been largely omitted from Kova. There is a short fade transition between slides, but nothing as far as introducing slide elements. In my use case teaching, this is a real bug bear of mine as it is useful to be able to gradually introduce concepts to students without needing multiple slides. The main reason for the delay in this so far has been trying to work out an effective way of adding this without compromising the Markdown while also working on all potential elements (including code blocks, LaTeX, math etc). This is actively being discussed in <a href="https://github.com/KovaMD/Kova/issues/92">issue 92</a>, and I think we're getting close to an effective solution, it must also translate across to the PPTX export system correctly.</p>
+
+      <h3 id="packaging">Packaging</h3>
+      <p>Coverage for various Linux distributions. We currently cover <code>.deb</code> and <code>.rpm</code> distro directly through Apt, DNF, and Zypper. I have built an Arch Linux <code>PKGBUILD</code> file that is awaiting submission to the Arch User Repository when user account registrations have been reinstated.</p>
+      <p>A NixOS Flake for installation, alongside the option of running the full development stack for Kova.</p>
+      <p>AppImages now build successfully once an initial display bug was resolved; automatic updates have been fixed in the AppImage as of 0.6.12.</p>
+      <p>A Flatpak version of Kova is available as of 0.6.13; users are able to install the <code>.flatpakref</code> from <code>https://flatpak.kova.md</code> and have it integrated directly into their normal <code>flatpak update</code> command.</p>
+      <p>As a part-time Gentoo user, at some point in the future I would love to personally tackle the <code>ebuild</code> for submission to <a href="https://wiki.gentoo.org/wiki/Project:GURU">GURU</a>.</p>
+      <p>A special thanks to @Vadika for work on the NixOS Flake, AppImage EGL issue, and creation of the Flatpak solution.</p>
+
+      <h3 id="security">Security</h3>
+      <p>Following an issue raised by @a1880, we began exploring issues surrounding the integrity, security, and trust of the code base for new users. It is something that I had been considering since the earlier versions of Kova, mainly centred around building trust with Windows users due to the Smartscreen functionality. I have since applied for a code signing certificate with <a href="https://signpath.io">SignPath</a> and Kova has been accepted onto their provision for open source projects, current version of Kova will remain unsigned but in the near future Windows binaries will be signed.</p>
+      <p>As of 0.6.14, codebase attestation is now built into the release process so that produced binaries can be linked back to a specific commit point in Kova's development. Guidance is also provided on how to verify this independently. Finally, I have added the repo to Snyk which is actively monitoring the code base for both vulnerabilities and malicious code attempts.</p>
+      <p>It was raised that all of this is fine — but at the end of the day, the codebase is large. I hope through continued open communication and insight into the workings of the application and infrastructure that the project develops trust from the user base. For any specific questions about the project, please get in touch through Matrix — or <a href="mailto:opensource@kova.md">email directly</a>.</p>
+
+      <h3 id="a-note-on-llms">A note on LLMs</h3>
+      <p>With LLMs becoming so common in the software development space, especially on small projects with limitations on workforce, I feel that it is important to have a "statement" of sorts of LLM usage in the Kova project specifically. There are places where it is great and works <em>very</em> well, and there are places where it still works but I don't necessarily consider it the most effective for the scenario.</p>
+      <p>In terms of development, I have no issue with the use of LLMs for code submissions but on the condition that the contributor takes relevant steps to ensure that the code created is efficient, does not overreach, and fits within the philosophy of Kova. As a user of Claude Code myself, it is an incredible tool that significantly reduces the workload of expanding features, reviewing code, and doing sanity checks before shipping. As someone who works full time and has Kova as my personal hobby, it allows for a much more consistent flow of fixes and updates in a timely manner.</p>
+      <p>I have some rules for myself as far as where I use AI around the project. In code, PR feedback, and code reviews I don't see there as being an issue with the utilisation of an LLM, the code coming in is initially reviewed by Snyk for correctness and security. I pass over the core function of the patch or feature, Claude Code provides a deeper dive into the repercussions across the wider code base (if any) that need to be considered before a merge. Feedback is given on a PR, points are drafted following the LLM review, then a human touch added before returning to the contributor.</p>
+      <p>There are of course things that I do not use AI for, and I ask that contributors extend the same courtesy. For security reasons, I will not let any LLM or AI touch the VPS. As I hold various keys required for the VPS, GitHub, and other infrastructure, I personally use virtual machines for any development work involving LLMs. This is a personal precaution that I take, but I would not expect contributors to follow the same process.</p>
+      <p>Interaction with you, the community, is something that I feel is wrong to hand off to an LLM. If a user has put the time into an email, Matrix message, or raising an issue on the repo — I feel that it's only fair that I put the respective time into creating a direct response by hand. This applies across Matrix, email, issues that are raised, and a post like this one (you're taking the time to read, so why would I just throw generated work at you).</p>
+
+      <h2 id="thanks">Thanks</h2>
+      <p>Kova had been under the radar for the first couple of months of its existence, I initially posted about Kova on Reddit around two and a half weeks ago at version 0.4.9. We're now sitting on version 0.6.14 with so many touch up features across the codebase. I am appreciative to all that have been involved bug hunting, making recommendations, contributing code, translations, tests, and more.</p>
+      <p>Ross<br><a href="mailto:ross@kova.md">ross@kova.md</a></p>
+
+      <div class="post-footer">
+        <a href="index.html" class="post-back">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M7.5 2.5L3 6l4.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to blog
+        </a>
+      </div>
+    </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <a class="nav-logo" href="/" style="text-decoration:none;">
+      <img src="../assets/kova-icon.svg?v=20260522" width="24" height="24" alt="">
+      <span class="nav-wordmark">kova<span class="tld">.md</span></span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="../features.html">Features</a></li>
+      <li><a href="https://wiki.kova.md">Docs</a></li>
+      <li><a href="../open-source.html">Open source</a></li>
+      <li><a href="index.html">Blog</a></li>
+      <li><a href="https://github.com/KovaMD/Kova/releases">Releases</a></li>
+      <li><a href="https://github.com/KovaMD/Kova">GitHub</a></li>
+      <li><a href="https://github.com/KovaMD/Kova/issues">Issues</a></li>
+      <li><a href="https://github.com/KovaMD/Kova/blob/main/LICENSE">License</a></li>
+      <li><a href="mailto:support@kova.md">Support</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Kova contributors · GPLv3</p>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=20260522" defer></script>
+<script src="../js/blog-toc.js?v=20260708" defer></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — kova.md</title>
+  <meta name="description" content="Notes on building Kova — development updates, design decisions, and what's next.">
+  <meta property="og:title" content="Blog — kova.md">
+  <meta property="og:description" content="Notes on building Kova — development updates, design decisions, and what's next.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kova.md/blog/">
+  <meta property="og:image" content="https://kova.md/assets/og-image.png">
+  <link rel="canonical" href="https://kova.md/blog/">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-0CcKsY49q+QPM5JuwYJRbLzDg1qPO/qPc+rmWY6FDQ8='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src https://api.github.com; base-uri 'self'; form-action 'none'">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="../assets/favicon-128.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/style.css?v=20260522">
+  <link rel="stylesheet" href="../css/blog.css?v=20260708a">
+  <script>
+    (function() {
+      var t = localStorage.getItem('kova-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════ -->
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="../assets/kova-icon.svg?v=20260522" width="28" height="28" alt="">
+    <span class="nav-wordmark">kova<span class="tld">.md</span></span>
+  </a>
+  <div class="nav-spacer"></div>
+  <ul class="nav-links">
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="https://wiki.kova.md">Docs</a></li>
+    <li><a href="../open-source.html">Open source</a></li>
+    <li><a href="index.html" aria-current="page">Blog</a></li>
+    <li><a href="https://github.com/kovamd/kova">GitHub</a></li>
+    <li>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle colour scheme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="8" y1="1.5" x2="8" y2="3"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="8" y1="13"  x2="8" y2="14.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="1.5" y1="8" x2="3"   y2="8"  stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="13"  y1="8" x2="14.5" y2="8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="3.4" y1="3.4" x2="4.5" y2="4.5"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="11.5" y1="11.5" x2="12.6" y2="12.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="12.6" y1="3.4" x2="11.5" y2="4.5"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="4.5"  y1="11.5" x2="3.4" y2="12.6"  stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M14 8.5A6 6 0 0 1 7.5 2 6.5 6.5 0 1 0 14 8.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </li>
+    <li>
+      <a href="https://github.com/kovamd/kova/releases" class="btn btn-primary" style="padding:7px 16px;font-size:13px;">
+        Download
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ═══ PAGE HERO ══════════════════════════════════════════ -->
+<section class="blog-page-hero">
+  <div class="container">
+    <p class="s-label">Blog</p>
+    <h1 class="blog-hero-heading">Notes from building Kova.</h1>
+    <p class="blog-hero-sub">Development updates, design decisions, and what's coming next — written by the people building it.</p>
+  </div>
+</section>
+
+<!-- ═══ POST LIST ══════════════════════════════════════════ -->
+<section class="blog-section">
+  <div class="container">
+    <div class="post-list">
+
+      <a href="development-update-1.html" class="post-card">
+        <span class="post-date">Jul 8, 2026</span>
+        <div>
+          <h2>Development Update 1</h2>
+          <p class="post-excerpt">Four months in: where Kova sits in the presentation software space, what's coming next — plugins, a CLI, editor integrations, animations — and where LLMs do and don't fit into the project.</p>
+          <div class="post-tags">
+            <span class="post-tag">Announcement</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <a class="nav-logo" href="/" style="text-decoration:none;">
+      <img src="../assets/kova-icon.svg?v=20260522" width="24" height="24" alt="">
+      <span class="nav-wordmark">kova<span class="tld">.md</span></span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="../features.html">Features</a></li>
+      <li><a href="https://wiki.kova.md">Docs</a></li>
+      <li><a href="../open-source.html">Open source</a></li>
+      <li><a href="index.html">Blog</a></li>
+      <li><a href="https://github.com/KovaMD/Kova/releases">Releases</a></li>
+      <li><a href="https://github.com/KovaMD/Kova">GitHub</a></li>
+      <li><a href="https://github.com/KovaMD/Kova/issues">Issues</a></li>
+      <li><a href="https://github.com/KovaMD/Kova/blob/main/LICENSE">License</a></li>
+      <li><a href="mailto:support@kova.md">Support</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Kova contributors · GPLv3</p>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=20260522" defer></script>
+</body>
+</html>
