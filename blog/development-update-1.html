@@ -146,7 +146,7 @@
       <p>I will emphasise that plugins are part of the long game for Kova. Creating an implementation that is effective, secure, and intuitive for contributors is important and does not happen overnight. I am intentionally not attaching dates to these goals as I do not want to raise hopes on what is a project I work on in my free time.</p>
 
       <h4 id="kova-cli">Kova CLI</h4>
-      <p>Following a suggestion from @a1880 on batch processing from the command line, this got my brain ticking over what functionality we could have from running Kova as a terminal application for specific use cases.</p>
+      <p>Following a suggestion from <a href="https://github.com/a1880">@a1880</a> on batch processing from the command line, this got my brain ticking over what functionality we could have from running Kova as a terminal application for specific use cases.</p>
       <p>So far I am thinking that having the following could be useful for those of us who live in terminals and TWMs.</p>
       <ul>
         <li><code>kova --present MyPresentation.md</code> — Launch the presentation mode of Kova, loading in a Markdown presentation directly.</li>
@@ -173,10 +173,10 @@
       <p>AppImages now build successfully once an initial display bug was resolved; automatic updates have been fixed in the AppImage as of 0.6.12.</p>
       <p>A Flatpak version of Kova is available as of 0.6.13; users are able to install the <code>.flatpakref</code> from <code>https://flatpak.kova.md</code> and have it integrated directly into their normal <code>flatpak update</code> command.</p>
       <p>As a part-time Gentoo user, at some point in the future I would love to personally tackle the <code>ebuild</code> for submission to <a href="https://wiki.gentoo.org/wiki/Project:GURU">GURU</a>.</p>
-      <p>A special thanks to @Vadika for work on the NixOS Flake, AppImage EGL issue, and creation of the Flatpak solution.</p>
+      <p>A special thanks to <a href="https://github.com/vadika">@vadika</a> for work on the NixOS Flake, AppImage EGL issue, and creation of the Flatpak solution.</p>
 
       <h3 id="security">Security</h3>
-      <p>Following an issue raised by @a1880, we began exploring issues surrounding the integrity, security, and trust of the code base for new users. It is something that I had been considering since the earlier versions of Kova, mainly centred around building trust with Windows users due to the Smartscreen functionality. I have since applied for a code signing certificate with <a href="https://signpath.io">SignPath</a> and Kova has been accepted onto their provision for open source projects, current version of Kova will remain unsigned but in the near future Windows binaries will be signed.</p>
+      <p>Following an issue raised by <a href="https://github.com/a1880">@a1880</a>, we began exploring issues surrounding the integrity, security, and trust of the code base for new users. It is something that I had been considering since the earlier versions of Kova, mainly centred around building trust with Windows users due to the Smartscreen functionality. I have since applied for a code signing certificate with <a href="https://signpath.io">SignPath</a> and Kova has been accepted onto their provision for open source projects, current version of Kova will remain unsigned but in the near future Windows binaries will be signed.</p>
       <p>As of 0.6.14, codebase attestation is now built into the release process so that produced binaries can be linked back to a specific commit point in Kova's development. Guidance is also provided on how to verify this independently. Finally, I have added the repo to Snyk which is actively monitoring the code base for both vulnerabilities and malicious code attempts.</p>
       <p>It was raised that all of this is fine — but at the end of the day, the codebase is large. I hope through continued open communication and insight into the workings of the application and infrastructure that the project develops trust from the user base. For any specific questions about the project, please get in touch through Matrix — or <a href="mailto:opensource@kova.md">email directly</a>.</p>
 
@@ -188,7 +188,7 @@
       <p>Interaction with you, the community, is something that I feel is wrong to hand off to an LLM. If a user has put the time into an email, Matrix message, or raising an issue on the repo — I feel that it's only fair that I put the respective time into creating a direct response by hand. This applies across Matrix, email, issues that are raised, and a post like this one (you're taking the time to read, so why would I just throw generated work at you).</p>
 
       <h2 id="thanks">Thanks</h2>
-      <p>Kova had been under the radar for the first couple of months of its existence, I initially posted about Kova on Reddit around two and a half weeks ago at version 0.4.9. We're now sitting on version 0.6.14 with so many touch up features across the codebase. I am appreciative to all that have been involved bug hunting, making recommendations, contributing code, translations, tests, and more.</p>
+      <p>Kova had been under the radar for the first couple of months of its existence, I initially posted about Kova on Reddit around two and a half weeks ago at version 0.4.9. We're now sitting on version 0.6.14 with so many touch up features across the codebase. I am appreciative to all that have been involved bug hunting, making recommendations, contributing code, translations, tests (thanks <a href="https://github.com/ayush7614">@ayush7614</a>), and more.</p>
       <p>Ross<br><a href="mailto:ross@kova.md">ross@kova.md</a></p>
 
       <div class="post-footer">
