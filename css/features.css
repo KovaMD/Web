@@ -36,7 +36,6 @@
 .feat-detail-reverse { direction: rtl; }
 .feat-detail-reverse > * { direction: ltr; }
 
-.feat-detail-text .s-label { margin-bottom: 10px; }
 .feat-detail-text .s-heading { margin-bottom: 16px; }
 .feat-detail-body {
   font-size: 16px;
