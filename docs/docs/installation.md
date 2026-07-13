@@ -88,6 +88,24 @@ Kova is a native desktop application for macOS, Windows, and Linux. Download the
     sudo zypper refresh && sudo zypper install kova
     ```
 
+=== "Arch (AUR)"
+
+    Kova is published on the AUR as [`kova-bin`](https://aur.archlinux.org/packages/kova-bin), a prebuilt binary package. Install it with your AUR helper of choice:
+
+    ```bash
+    paru -S kova-bin
+    # or
+    yay -S kova-bin
+    ```
+
+    Or build it manually with `makepkg`:
+
+    ```bash
+    git clone https://aur.archlinux.org/kova-bin.git
+    cd kova-bin
+    makepkg -si
+    ```
+
 === "Flatpak"
 
     Flathub's current policy excludes LLM-assisted apps, so Kova ships from a self-hosted Flatpak repo:
