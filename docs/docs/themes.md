@@ -46,8 +46,9 @@ Without writing a custom theme file, you can override specific aspects of any bu
 | **Logo** | Image displayed in the header or footer |
 | **Header text** | Custom text shown at the top of every slide — supports template variables and `\|` segmented layout |
 | **Footer text** | Custom text shown at the bottom — supports `{slide_number}`, `{total}`, `{title}`, `{date}` and `\|` segmented layout |
+| **Table of contents → Numbered list** | Toggles a [`!toc`](markdown-and-syntax.md#table-of-contents-toc) slide between a numbered list and a plain hyperlinked list. On by default |
 
-Kova saves overrides to the file automatically.
+Kova saves overrides to the file automatically. Logo, Header, Footer, and Table of Contents controls live together under the Inspector's **Document** section.
 
 !!! note "Font availability"
     If a font you've chosen in the Inspector isn't installed on the current machine, a **⚠** warning appears next to the font name in the Inspector. Slides will fall back to the theme's default font until the missing font is installed.
@@ -96,6 +97,9 @@ footer:
 header:
   show: false
   text: ""
+
+toc:
+  numbered: true   # false renders a plain hyperlinked list instead of a numbered one
 ```
 
 !!! note "Logo paths"

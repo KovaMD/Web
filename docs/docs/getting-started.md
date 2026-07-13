@@ -17,7 +17,7 @@ When you open Kova you'll see four panels:
 
 The **Inspector** can be toggled open or closed with the **ⓘ** button in the titlebar, independent of focus mode. Inside the Inspector, the **Format** accordion provides one-click buttons for headings (H1–H6), inline styles (bold, italic, underline, strikethrough, inline code), and block elements (lists, blockquote, divider).
 
-Right-click a slide thumbnail for **Move up**, **Move down**, **Duplicate slide**, **Hide slide** (excludes it from presenting and export without deleting it), and **Delete slide**.
+Right-click a slide thumbnail for **Move up**, **Move down**, **Duplicate slide**, **Hide slide** (excludes it from presenting and export without deleting it), **Set slide background…** / **Clear background** (see [Markdown & Syntax — Slide background images](markdown-and-syntax.md#slide-background-images-bg)), and **Delete slide**.
 
 The **status bar** at the bottom shows the current slide number, total word count, and estimated presentation time.
 

@@ -61,7 +61,7 @@ These are the speaker notes from the original PowerPoint slide.
 When elements are skipped, Kova lists them in the **results step** of the import modal (slide number and element type). The rest of the slide is imported normally.
 
 !!! tip "Charts → Mermaid"
-    If you have a bar or pie chart in your PowerPoint, you can often reproduce it as a Mermaid diagram in Kova. See the [Mermaid section in Markdown & Syntax](markdown-and-syntax.md#mermaid-diagrams) for supported chart types.
+    If you have a bar or pie chart in your PowerPoint, you can often reproduce it as a Mermaid diagram in Kova. See the [Mermaid section in Markdown & Syntax](markdown-and-syntax.md#diagrams-mermaid) for supported chart types.
 
 ---
 

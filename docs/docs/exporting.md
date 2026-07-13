@@ -44,7 +44,10 @@ The **Export PDF** dialog offers:
 | **Slides per page** | 1 · 2 · 4 · 6 | Lays multiple slides out on one landscape page, each framed to the slide's own aspect ratio |
 | **Include speaker notes (handout)** | On · Off | Only available at 1 slide per page; adds a divider rule and prints each slide's `???` notes below it. Disabled if the deck has no notes |
 
-**Paper size** (A4 default, or Letter) is set separately in **Settings → Workspace → PDF page size** — see [Settings & Keybindings](settings-and-keybindings.md#workspace). Pages are always laid out landscape.
+**Paper size** — A4 (default), Letter, or **Match slide size** — is set separately in **Settings → Workspace → PDF page size** — see [Settings & Keybindings](settings-and-keybindings.md#workspace). Pages are always laid out landscape.
+
+!!! note "Match slide size"
+    Instead of A4/Letter (which don't share a 16:9 or 4:3 slide's aspect ratio and so leave visible margins), **Match slide size** makes each PDF page exactly the slide's own dimensions — no margins. It falls back to A4 automatically when combined with **Slides per page** greater than 1, or with **Include speaker notes**, since a single slide's bounding box is too small to hold those layouts.
 
 ### Limitations
 

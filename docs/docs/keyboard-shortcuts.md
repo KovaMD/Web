@@ -33,6 +33,7 @@
 | `Ctrl+V` | Paste — also pastes clipboard images directly into the editor |
 | `Ctrl+Z` | Undo |
 | `Ctrl+Shift+Z` | Redo |
+| `Ctrl+F` | Open the **Find** dialog |
 | `Ctrl++` | Zoom editor in (increase font size) |
 | `Ctrl+-` | Zoom editor out (decrease font size) |
 | `Ctrl+0` | Reset editor zoom to default |
@@ -48,6 +49,8 @@ You can also zoom with `Ctrl+scroll` (mouse wheel).
 **Slide navigation:** the `Ctrl+Arrow` and `Ctrl+Home`/`Ctrl+End` shortcuts move the cursor to the first line of the target slide and scroll it into view. On macOS, `Cmd` replaces `Ctrl`.
 
 **Bold / Italic with no selection:** if nothing is selected, `Ctrl+B` inserts `bold text` and `Ctrl+I` inserts `italic text`, with the placeholder pre-selected so you can type immediately.
+
+**Find dialog:** `Ctrl+F` opens a small dialog with two modes — **Text**, which searches the document (`Enter` for next match, `Shift+Enter` for previous), and **Slide #**, which jumps straight to a slide by number. `Esc` closes the dialog.
 
 ---
 

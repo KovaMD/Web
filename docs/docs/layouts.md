@@ -13,16 +13,17 @@ Kova analyses the elements on a slide and applies the **first matching rule** in
 | 1 | H1 heading | [`title`](#title) |
 | 2 | Any `!youtube` or `!poll` element | [`media`](#media) |
 | 3 | A `\|\|\|` column break | [`two-column`](#two-column) |
-| 4 | All elements are code blocks or Mermaid diagrams | [`code`](#code) |
-| 5 | No heading + single image | [`full-bleed`](#full-bleed) |
-| 6 | No heading + single blockquote | [`quote`](#quote) |
-| 7 | H2 + no body content | [`section`](#section) |
-| 8 | Heading + single image only | [`title-image`](#title-image) |
-| 9 | Heading + one image + one text block | [`split`](#split) |
-| 10 | 2–3 logical elements, visually diverse | [`bsp`](#bsp) |
-| 11 | 4 or more logical elements | [`grid`](#grid) |
-| 12 | Dense pure-text exceeding overflow threshold | [`two-column`](#two-column) |
-| 13 | Anything else | [`title-content`](#title-content) |
+| 4 | A lone `!video` (the slide's only element) | [`media`](#media) |
+| 5 | All elements are code blocks or Mermaid diagrams | [`code`](#code) |
+| 6 | No heading + single image | [`full-bleed`](#full-bleed) |
+| 7 | No heading + single blockquote | [`quote`](#quote) |
+| 8 | H2 + no body content | [`section`](#section) |
+| 9 | Heading + single image only | [`title-image`](#title-image) |
+| 10 | Heading + one image + one text block | [`split`](#split) |
+| 11 | 2–3 logical elements, visually diverse | [`bsp`](#bsp) |
+| 12 | 4 or more logical elements | [`grid`](#grid) |
+| 13 | Dense pure-text exceeding overflow threshold | [`two-column`](#two-column) |
+| 14 | Anything else | [`title-content`](#title-content) |
 
 !!! note "Logical element counting"
     Consecutive `!progress` bars are treated as **a single logical unit** for the BSP and Grid threshold checks. A slide with a heading, a paragraph, and four progress bars is counted as 3 logical elements — not 6 — so it uses `bsp` rather than `grid`.
@@ -202,7 +203,7 @@ fn parse_slide(src: &str) -> Slide {
 
 ### `media`
 
-**Triggered by:** a `!youtube` or `!poll` element.
+**Triggered by:** a `!youtube` or `!poll` element, or a `!video` that is the slide's only element.
 
 Centred media display with the title above. Ideal for embedding polls or videos mid-presentation.
 
@@ -211,6 +212,8 @@ Centred media display with the title above. Ideal for embedding polls or videos 
 
 !poll[Which layout do you use most?](https://pollev.com/my-poll)
 ```
+
+A `!video` sharing the slide with other content is **not** forced into `media` — it flows through the normal auto-layout rules instead, the same as an image. See [Markdown & Syntax — Local video](markdown-and-syntax.md#local-video-video).
 
 ---
 

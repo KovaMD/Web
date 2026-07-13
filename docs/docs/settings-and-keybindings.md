@@ -10,10 +10,13 @@ Open Settings by clicking the **gear icon** (⚙) in the titlebar. An **orange b
 |---------|---------|---------|
 | **UI theme** | Dark · Light | Dark |
 | **Interface scale** | 70% · 80% · 90% · 100% · 110% · 120% · 130% · 140% · 150% | 100% |
+| **Content width** | Fixed · Full | Fixed |
 
 Toggles between Dark and Light mode for the interface, editor, and panels. Changes take effect immediately — no restart required.
 
 **Interface scale** zooms the entire app chrome — titlebars, panels, menus, editor. Useful if the default size feels too large or too small on your display. Presentation slides are always rendered at pixel-exact resolution regardless of the scale setting.
+
+**Content width** controls the editor's line width. **Fixed** keeps editor lines at a comfortable reading width, centred in the panel. **Full** stretches the editor to fill the panel as you resize the editor/preview split.
 
 ---
 
@@ -63,9 +66,9 @@ Kova also tracks **Learned words** — words you've right-clicked and added to y
 |---------|---------|---------|
 | **Confirm before closing** | On · Off | On |
 | **On startup** | Blank document · Reopen last file | Blank document |
-| **PDF page size** | A4 · Letter | A4 |
+| **PDF page size** | A4 · Letter · Match slide size | A4 |
 
-**PDF page size** — paper size used for [PDF export](exporting.md#export-options). Pages are always laid out landscape.
+**PDF page size** — paper size used for [PDF export](exporting.md#export-options). Pages are always laid out landscape. **Match slide size** makes each page exactly the slide's own dimensions instead of a fixed paper size — see [Exporting — PDF export](exporting.md#export-options).
 
 **Confirm before closing** — when enabled, Kova shows a confirmation dialog if you try to close or quit with unsaved changes. This applies to the window × button, Alt+F4, taskbar close, and Cmd+Q.
 

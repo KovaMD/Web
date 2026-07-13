@@ -67,6 +67,8 @@ Displays the video thumbnail on the slide. During presentation, clicking the thu
 
 Embeds a local video file, playable inline on the slide during presentation. Drag a video file onto the editor, or paste one from the clipboard, and Kova inserts the `!video[]()` reference automatically — the same drop/paste handling used for images (see [Getting Started](getting-started.md#step-7-open-and-insert-files)). Supported formats: `.mp4`, `.webm`, `.ogv`, `.mov`, `.m4v`, `.mkv`.
 
+A video that's the **only** element on a slide gets the full-slide `media` layout (see [Layouts](layouts.md#media)). A video alongside other content instead flows through Kova's normal layout rules, the same as an image.
+
 !!! note "Export behaviour"
     PDF and PowerPoint export can't play video: PDF export shows the video as a static frame, and PowerPoint export shows a text placeholder with the label and file path. **Standalone HTML export** is the exception — the video is embedded as a real, playable file. See [Exporting](exporting.md).
 
@@ -78,7 +80,9 @@ Embeds a local video file, playable inline on the slide during presentation. Dra
 !toc
 ```
 
-Renders a numbered, clickable list of every titled slide in the presentation — useful as an agenda or overview slide. The list is built automatically from your slide titles (the deck's opening title slide is excluded), so it stays in sync as you add, remove, or reorder slides.
+Renders a clickable list of every titled slide in the presentation — useful as an agenda or overview slide. The list is built automatically from your slide titles (the deck's opening title slide is excluded), so it stays in sync as you add, remove, or reorder slides.
+
+By default entries are numbered; toggle **Table of contents → Numbered list** off in the Inspector's Document section for a plain, bare hyperlinked list instead. See [Themes — Inspector overrides](themes.md#inspector-overrides).
 
 !!! tip "Insert via menu"
     Right-click in the editor and choose **Insert → Table of Contents** to add an `## Agenda` slide with `!toc` in one step.
@@ -93,7 +97,7 @@ During a presentation, clicking an entry jumps straight to that slide — from t
 !poll[What is your biggest challenge?](https://pollev.com/your-poll)
 ```
 
-Renders a scannable QR code pointing to the URL, plus the URL as text — useful for live audience interaction with [Poll Everywhere](https://polleverywhere.com) or any URL-based polling tool.
+Renders a scannable QR code pointing to the URL, plus the URL as text — useful for live audience interaction with [Poll Everywhere](https://polleverywhere.com) or any URL-based polling tool. During a presentation, clicking the QR code also opens the URL in your system's default browser.
 
 ---
 
@@ -114,6 +118,111 @@ Multiple `!ref` lines on the same slide are listed in the order they appear in t
 
 !!! tip "Insert via menu"
     In the editor, go to **Insert → Reference** (right-click menu) to place a `!ref[]` placeholder with the cursor inside, ready to type.
+
+---
+
+### Slide background images (`![bg]`)
+
+Place a `![bg](...)` line anywhere on a slide to set a full-slide background image, Marp-style:
+
+```markdown
+## Quarterly results
+
+![bg](./photos/skyline.jpg)
+
+Revenue is up 22% year over year.
+```
+
+| Syntax | Effect |
+|--------|--------|
+| `![bg](photo.jpg)` | Full-slide background, cropped to fill (`cover`) |
+| `![bg left](photo.jpg)` | Background fills the **left** half only; content occupies the right |
+| `![bg right](photo.jpg)` | Background fills the **right** half only; content occupies the left |
+| `![bg contain](photo.jpg)` or `![bg fit](photo.jpg)` | Background is scaled to fit without cropping instead of covering |
+
+Only the first `![bg]` line on a slide is used, and the line is stripped from the rendered content — it doesn't affect layout detection or show up as a broken image. It's ignored inside fenced code blocks.
+
+!!! tip "Set a background from the Slides panel"
+    Right-click a slide thumbnail and choose **Set slide background…** to pick an image file without typing the syntax, or **Clear background** to remove it. This edits the underlying `![bg]` line for you.
+
+Background images are included in PowerPoint export.
+
+---
+
+## Computed tables (`!sheet`)
+
+Annotate a GFM table with `!sheet` and Kova computes it: formula cells like `=qty * unit` are evaluated live, on every keystroke. The source keeps the formulas, never the cached results, so a deck can't silently go stale when an input changes.
+
+```markdown
+!let vat = 0.255
+
+!sheet
+| item   | qty | unit  | total                   |
+|--------|----:|------:|------------------------:|
+| motor  |   2 | 12.50 | =qty * unit             |
+| ESC    |   2 |  8.00 | =qty * unit             |
+| !Total |     |       | =sum(total) * (1 + vat) |
+```
+
+This renders as an ordinary-looking table with every `=…` cell replaced by its computed value.
+
+!!! note "`!sheet` must sit directly above the table"
+    No blank line between them — `!sheet` annotates whichever table comes immediately next. A table with no `!sheet` line above it is left untouched, even if a cell's text starts with `=`.
+
+### Row formulas vs. footer formulas
+
+- A **data row** formula (`=qty * unit`) — a bare column name means *this row's* value in that column.
+- A row whose first cell starts with `!` is a **footer row** (`| !Total | … |`) — the leading `!` is stripped when rendered. Inside a footer formula, a bare column name means *the whole column* (other footer rows are never counted in it).
+- Column names come from the header: lowercased, punctuation dropped, spaces turned to underscores — `Unit (€)` becomes `unit`.
+
+### Document-wide constants (`!let`)
+
+```markdown
+!let vat = 0.255
+!let base = 10
+```
+
+Declare a `!let` anywhere in the document and every `!sheet` table in the file can reference it, regardless of which slide it's declared on. The right-hand side is a literal or an expression over *earlier* constants — never over table data.
+
+### Operators and functions
+
+| Category | Supported |
+|----------|-----------|
+| Arithmetic | `+` `-` `*` `/` `%` `^` (`^` is right-associative: `2^3^2` = 512, not 64) |
+| Comparison | `==` `!=` `<` `<=` `>` `>=` |
+| Logic | `and` `or` `not`, and the ternary `cond ? a : b` |
+| Scalar functions | `round(x, n)`, `abs(x)`, `if(cond, a, b)`, `concat(...)` |
+| Aggregate functions (footer rows only) | `sum` `avg` `min` `max` `count` `median` — each takes a whole column |
+
+`*` and `/` bind tighter than `+` and `-`, and parentheses override both. Aggregate functions only work in a footer row, since they need a whole column and a data row only ever has scalar values in scope. A footer row is never counted as part of its own column, so `sum(total)` in the totals row can't add itself in.
+
+### Precision
+
+`!sheet` takes an optional `precision=N` option (default `2`):
+
+```markdown
+!sheet precision=6
+| item | unit | share     |
+|------|-----:|----------:|
+| a    |    3 | =unit / 7 |
+```
+
+Whole-number results render without a decimal point regardless of the precision setting.
+
+### Escaping
+
+Inside a `!sheet` table, a cell that should start literally with `=` is escaped as `\=`, and a row label that really starts with `!` is escaped as `\!` — otherwise it's read as a footer row marker.
+
+### Errors
+
+A bad formula shows its error in that cell only (`#ERR …`) — the rest of the table still computes and the slide never goes blank. This matters because Kova re-parses on every keystroke, so a half-typed formula is a normal, transient state rather than a fatal one. Errors are preserved in PDF and PowerPoint export too, so a broken deck looks broken instead of quietly shipping a wrong number.
+
+Common error cases: an unknown column name, an unknown function, divide-by-zero, the wrong number of arguments, a syntax error, or using an aggregate function (`sum`, etc.) in a data row instead of a footer row.
+
+!!! tip "Degrades gracefully outside Kova"
+    A sheet table is an ordinary GFM table under the hood, so opening the file in any other Markdown viewer still shows a valid table — just with the raw `=qty * unit` formula text in place of computed values, and a stray `!` in front of footer row labels.
+
+`!include`, `!fmt`, and `!code` are reserved for future sheet directives and currently produce an error if used, so today's decks won't collide with them later.
 
 ---
 
@@ -175,6 +284,28 @@ $$
 
 !!! tip "Literal dollar signs"
     To display a literal `$` (e.g. a price), escape it with a backslash: `\$49.99`.
+
+---
+
+## Figure captions (`!caption`)
+
+Attach a caption to the image, Mermaid diagram, or math block **directly above** it:
+
+```markdown
+![System architecture](./diagram.png)
+!caption[Figure 1: request flow through the ingest pipeline]
+```
+
+```markdown
+$$
+E = mc^2
+$$
+!caption[Equation 1: mass-energy equivalence]
+```
+
+Kova merges the caption into the element it follows during parsing, so it never becomes ordinary body text — it can't accidentally trigger a `split`/`two-column` layout the way a trailing paragraph would. A `!caption` with no valid image, Mermaid diagram, or math block directly above it is a compile error rather than a silent no-op, the same convention as a misplaced `!sheet`.
+
+Captions render centred underneath the element, in every layout that can hold one. On a `full-bleed` image, where the picture fills the whole slide, the caption sits in a bottom overlay bar instead. Captions survive PowerPoint export for all three element types.
 
 ---
 
@@ -274,6 +405,9 @@ A blockquote without a `[!type]` marker renders as a normal quote, as described 
 ```
 
 Supported units: `%`, `px`, `em`, `rem`, `cqi`.
+
+!!! note "Link targets"
+    A link with no scheme (`[text](example.com)`) defaults to `https://example.com`. During a presentation, clicking any link opens it in your system's default browser instead of navigating away from the presentation itself.
 
 ---
 
