@@ -38,7 +38,7 @@ const LINUX_INSTALL_URL = 'https://wiki.kova.md/installation/#linux';
 
 const OS_ASSET = {
   mac:   { ext: '.dmg', label: 'Download for macOS'  },
-  win:   { ext: '.msi', label: 'Download for Windows' },
+  win:   { ext: '.exe', label: 'Download for Windows' },
   linux: { ext: null,   label: 'Install on Linux'     },
 };
 
