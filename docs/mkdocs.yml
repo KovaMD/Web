@@ -80,4 +80,6 @@ nav:
     - Business Pitch: examples/business-pitch.md
     - Technical Talk: examples/technical-talk.md
     - Classroom Slides: examples/classroom.md
-  - Contributing: contributing.md
+  - Contributing:
+    - Contributing: contributing.md
+    - Translating: translating.md
