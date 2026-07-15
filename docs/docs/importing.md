@@ -108,6 +108,8 @@ In both cases the result opens as an untitled buffer. Save it to a new location 
 | `![bg](image.jpg)` | `<!-- layout:full-bleed -->` + `![](image.jpg)` |
 | `![bg left](image.jpg)` / `![bg right](…)` | `<!-- layout:split -->` + `![](…)` |
 | `<!-- _class: lead -->` | `<!-- layout:title -->` |
+| `<!-- _class: invert -->` | `<!-- _class: invert -->` — kept as Kova's own [per-slide invert](markdown-and-syntax.md#per-slide-text-colour) |
+| `<!-- color: … -->` / `<!-- _color: … -->` | `<!-- color: … -->` — kept as Kova's own [per-slide text colour](markdown-and-syntax.md#per-slide-text-colour) |
 | `size: 4:3` / `size: 16:9` | `aspect_ratio: "4:3"` / `aspect_ratio: "16:9"` |
 | `paginate: true` | `footer: { show_slide_number: true }` |
 | `footer: "My footer"` | `footer: { show: true, text: "My footer" }` |
@@ -120,13 +122,13 @@ Some Marp features have no direct Kova equivalent. Kova logs each dropped item a
 
 | Dropped | Why |
 |---|---|
-| Per-slide `backgroundColor` / `color` | Kova's theme system applies globally, not per-slide |
+| Per-slide `backgroundColor` (`_backgroundColor`) | No per-slide background colour equivalent — use `theme_overrides` or a [background image](markdown-and-syntax.md#slide-background-images-bg) instead |
 | `![bg]` sizing keywords (`left:40%`, `w:300`, etc.) | Images are included but sizing is stripped |
 | Multiple `![bg]` on one slide | Only the first background image is used |
 | `theme:` | Marp themes have no Kova equivalent — choose a Kova theme after import |
 | `header:` | No header element in Kova |
 | `style:` (embedded CSS) | Kova does not accept raw CSS |
-| `backgroundColor` / `backgroundImage` (global) | Use a Kova theme or `theme_overrides` instead |
+| `backgroundColor` / `color` / `backgroundImage` (global, in frontmatter) | Use a Kova theme or `theme_overrides` instead |
 | `_class:` values other than `lead` | Only `lead` maps to a layout |
 
 ### After importing

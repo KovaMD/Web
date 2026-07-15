@@ -50,6 +50,22 @@ Without writing a custom theme file, you can override specific aspects of any bu
 
 Kova saves overrides to the file automatically. Logo, Header, Footer, and Table of Contents controls live together under the Inspector's **Document** section.
 
+### Per-slide-scoped heading and bold colour
+
+Headings and bold/`<strong>` text can take a colour distinct from body text — set separately from the **Text colour** override above via `theme_overrides` in a deck's frontmatter, or the `heading`/`bold` keys in a [custom theme](#custom-themes) file:
+
+```yaml
+theme_overrides:
+  colors:
+    heading: "#0057B8"
+    bold:    "#B8003F"
+```
+
+!!! warning "Prototype stage"
+    This override has no Inspector colour swatch yet — it's YAML-only. Enable **Settings → Editor → Show frontmatter** to edit it directly in a document, or set `heading`/`bold` in a custom theme's `colors` block (see [Color reference](#color-reference)) to apply it to every document using that theme.
+
+Both colours fall back to the theme's plain `text` colour when unset, and both are still overridden by a slide's own [per-slide text colour or invert](markdown-and-syntax.md#per-slide-text-colour) directive, so a slide's text stays legible together rather than mixing an old heading colour with a new per-slide one.
+
 !!! note "Font availability"
     If a font you've chosen in the Inspector isn't installed on the current machine, a **⚠** warning appears next to the font name in the Inspector. Slides will fall back to the theme's default font until the missing font is installed.
 
@@ -57,12 +73,12 @@ Kova saves overrides to the file automatically. Logo, Header, Footer, and Table 
 
 ## Custom themes
 
-Create a `.yaml` file in `~/.config/kova/themes/` (macOS/Linux) or `%APPDATA%\kova\themes\` (Windows) to define a fully custom theme. Kova loads all valid `.yaml` files from that directory on startup. Any parse errors are reported in **Settings → Themes**.
+Create a `.yaml` file in your custom themes folder to define a fully custom theme — see [Settings & Keybindings — Themes](settings-and-keybindings.md#themes) for the exact path on each platform. Kova loads all valid `.yaml` files from that directory on startup. Any parse errors are reported in **Settings → Themes**.
 
 ### File format
 
 ```yaml
-# ~/.config/kova/themes/my-brand.yaml
+# my-brand.yaml, saved to your custom themes folder
 
 name: My Brand          # Display name shown in the Inspector
 id: my-brand            # The ID Kova uses internally to reference this theme
@@ -75,6 +91,8 @@ colors:
   title_text: "#FFFFFF"   # Heading text on title and section slides
   section_bg: "#E8F0FE"   # Overrides primary for section slides only
   code_bg:    "#F3F4F6"   # Code block background
+  heading:    "#0057B8"   # Content-slide heading colour (optional, falls back to `text`)
+  bold:       "#B8003F"   # Inline **bold**/<strong> colour (optional, falls back to `text`)
 
 fonts:
   title: "Georgia, serif"       # H1 and H2
@@ -116,6 +134,8 @@ toc:
 | `title_text` | Heading text on title and section slides — set this if `primary` is dark, otherwise text may be unreadable |
 | `section_bg` | Background of section slides only; overrides `primary` for those slides |
 | `code_bg` | Code block background |
+| `heading` | Content-slide heading colour; falls back to `text` when unset. See [Per-slide-scoped heading and bold colour](#per-slide-scoped-heading-and-bold-colour) |
+| `bold` | Inline `**bold**`/`<strong>` colour; falls back to `text` when unset |
 
 ### Template variables
 

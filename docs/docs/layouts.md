@@ -12,24 +12,27 @@ Kova analyses the elements on a slide and applies the **first matching rule** in
 |:--------:|-----------|---------------|
 | 1 | H1 heading | [`title`](#title) |
 | 2 | Any `!youtube` or `!poll` element | [`media`](#media) |
-| 3 | A `\|\|\|` column break | [`two-column`](#two-column) |
-| 4 | A lone `!video` (the slide's only element) | [`media`](#media) |
-| 5 | All elements are code blocks or Mermaid diagrams | [`code`](#code) |
-| 6 | No heading + single image | [`full-bleed`](#full-bleed) |
-| 7 | No heading + single blockquote | [`quote`](#quote) |
-| 8 | H2 + no body content | [`section`](#section) |
-| 9 | Heading + single image only | [`title-image`](#title-image) |
-| 10 | Heading + one image + one text block | [`split`](#split) |
-| 11 | 2–3 logical elements, visually diverse | [`bsp`](#bsp) |
-| 12 | 4 or more logical elements | [`grid`](#grid) |
-| 13 | Dense pure-text exceeding overflow threshold | [`two-column`](#two-column) |
-| 14 | Anything else | [`title-content`](#title-content) |
+| 3 | Two `\|\|\|` column breaks | [`three-column`](#three-column) |
+| 4 | A single `\|\|\|` column break | [`two-column`](#two-column) |
+| 5 | A lone `!video` (the slide's only element) | [`media`](#media) |
+| 6 | All elements are code blocks or Mermaid diagrams | [`code`](#code) |
+| 7 | All elements are display-math blocks (`$$...$$`) | [`math`](#math) |
+| 8 | No heading + single image | [`full-bleed`](#full-bleed) |
+| 9 | No heading + single blockquote | [`quote`](#quote) |
+| 10 | No heading + no body content | [`blank`](#blank) |
+| 11 | H2 + no body content | [`section`](#section) |
+| 12 | Heading + single image only | [`title-image`](#title-image) |
+| 13 | Heading + one image + one text block | [`split`](#split) |
+| 14 | 2–3 logical elements, visually diverse | [`bsp`](#bsp) |
+| 15 | 4 or more logical elements | [`grid`](#grid) |
+| 16 | Dense pure-text exceeding overflow threshold | [`two-column`](#two-column) |
+| 17 | Anything else | [`title-content`](#title-content) |
 
 !!! note "Logical element counting"
     Consecutive `!progress` bars are treated as **a single logical unit** for the BSP and Grid threshold checks. A slide with a heading, a paragraph, and four progress bars is counted as 3 logical elements — not 6 — so it uses `bsp` rather than `grid`.
 
 !!! note "Overflow guard"
-    Text-only slides that exceed the safe area line count automatically fall back to `two-column` to prevent text clipping (rule 12).
+    Text-only slides that exceed the safe area line count automatically fall back to `two-column` to prevent text clipping (rule 16).
 
 !!! note "Rescaled to fit"
     If a slide's content still exceeds the available space after layout selection, Kova scales it down to fit. A **"rescaled to fit"** badge appears in the bottom-right corner of the preview to let you know. Consider splitting the slide or reducing content if you see this badge.
@@ -135,6 +138,24 @@ Large centred quote with optional attribution in smaller text.
 
 ---
 
+### `blank`
+
+**Triggered by:** no heading and no body content — a slide left (deliberately or accidentally) empty.
+
+Renders nothing but the theme's background colour — no placeholder text, no empty boxes. Useful as an intentional pause slide between sections. A blank slide still shows the theme's header/footer bar and logo if those are enabled, and exports the same way — a plain background-coloured slide, in both PDF and PowerPoint.
+
+```markdown
+<!-- Pause here for questions -->
+```
+
+!!! note "An empty slide alone doesn't count"
+    Two `---` separators with nothing but blank lines between them collapse into nothing — Kova doesn't create a slide there at all. A slide needs *some* non-whitespace content to exist, even if that content (like the comment above) renders as nothing. An ordinary HTML comment works well for this, since Kova only treats specific comment forms (`<!-- layout: ... -->`, `<!-- color: ... -->`, `<!-- hidden -->`, and a few others) as directives — anything else is silently dropped from the rendered slide.
+
+!!! note "A background image beats `blank`"
+    Adding a [`![bg]`](markdown-and-syntax.md#slide-background-images-bg) line to an otherwise-empty, untitled slide produces `full-bleed` instead of `blank` — the background image always wins.
+
+---
+
 ### `two-column`
 
 **Triggered by:** a `|||` column break, or the overflow guard on a dense pure-text slide.
@@ -157,6 +178,37 @@ Splits the slide into two equal columns. If `|||` is present the split occurs th
 1. Write Markdown
 2. Choose a theme
 3. Click Present
+```
+
+---
+
+### `three-column`
+
+**Triggered by:** two `|||` column breaks on the same slide.
+
+Splits the slide into three equal columns, one per `|||`-separated block. Extends the same syntax as `two-column` — a third block just needs a second separator instead of folding into the right-hand column.
+
+```markdown
+## Pricing tiers
+
+**Free**
+
+- Unlimited presentations
+- All themes
+
+|||
+
+**Pro**
+
+- Priority support
+- Team library
+
+|||
+
+**Enterprise**
+
+- SSO
+- Custom deployment
 ```
 
 ---
@@ -198,6 +250,25 @@ fn parse_slide(src: &str) -> Slide {
 }
 ```
 ````
+
+---
+
+### `math`
+
+**Triggered by:** every body element is a **display math** block (`$$...$$`) — one or more, with or without a heading.
+
+Stacks the equations vertically, each centred and scaled up for readability. Only counts standalone `$$...$$` blocks; inline math (`$...$`) inside a paragraph doesn't count as a body element on its own, so a slide mixing prose and inline math uses the normal layout rules instead. A `$$...$$` block paired with text-like content (a paragraph, list, blockquote, or ToC) is deliberately excluded here too — it stacks full-width in whichever layout that content would otherwise get, rather than being squeezed into a narrow BSP pane. See [Markdown & Syntax — Math & LaTeX](markdown-and-syntax.md#math-latex).
+
+```markdown
+## The core identity
+
+$$
+e^{i\pi} + 1 = 0
+$$
+```
+
+!!! note "PowerPoint export"
+    PDF export reproduces the rendered equation exactly, like any other slide. PowerPoint export is a current limitation: the raw LaTeX source (`e^{i\pi} + 1 = 0`) is exported as monospaced text rather than a rendered equation, since PptxGenJS has no LaTeX rendering of its own.
 
 ---
 
@@ -250,4 +321,4 @@ Place `<!-- layout:NAME -->` at the very top of a slide to force any layout rega
 - **Enterprise** — custom deployment (coming soon)
 ```
 
-Available names: `title` · `section` · `title-content` · `title-image` · `split` · `full-bleed` · `quote` · `two-column` · `bsp` · `grid` · `media` · `code`
+Available names: `title` · `section` · `title-content` · `title-image` · `split` · `full-bleed` · `quote` · `blank` · `two-column` · `three-column` · `bsp` · `grid` · `media` · `code` · `math`

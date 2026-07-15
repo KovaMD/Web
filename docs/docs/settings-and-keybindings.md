@@ -100,7 +100,15 @@ Controls for the **▶ Present** feature. See [Presenting](presenting.md) for a 
 
 Sets the theme applied when you create a new document with `Ctrl+N`. Existing files keep whatever theme was last applied to them.
 
-Shows the path to the custom themes folder (`~/.kova/themes/`) with an **Open folder** button. If Kova finds any `.yaml` files with syntax errors in that folder, the filenames and error details are listed here.
+Shows the path to the custom themes folder with an **Open folder** button — the platform config directory, plus `kova/themes/`:
+
+| Platform | Path |
+|----------|------|
+| Linux | `~/.config/kova/themes/` |
+| macOS | `~/Library/Application Support/kova/themes/` |
+| Windows | `%APPDATA%\kova\themes\` |
+
+If Kova finds any `.yaml` files with syntax errors in that folder, the filenames and error details are listed here.
 
 See [Themes — Custom themes](themes.md#custom-themes) for the theme file format.
 
@@ -124,9 +132,15 @@ Five file-level shortcuts can be remapped by editing a YAML file.
 
 ### File location
 
-```
-~/.kova/keybindings.yaml
-```
+The platform config directory, plus `kova/keybindings.yaml`:
+
+| Platform | Path |
+|----------|------|
+| Linux | `~/.config/kova/keybindings.yaml` |
+| macOS | `~/Library/Application Support/kova/keybindings.yaml` |
+| Windows | `%APPDATA%\kova\keybindings.yaml` |
+
+The file is created from Kova's defaults on first read if it doesn't already exist.
 
 ### Format
 

@@ -77,6 +77,7 @@ Every slide layout is reproduced in the `.pptx` output:
 | `full-bleed` | Full-slide image |
 | `quote` | Centred large text with attribution |
 | `two-column` | Two side-by-side content areas |
+| `three-column` | Three side-by-side content areas |
 | `bsp` | Two or three content panes |
 | `grid` | Grid of content cards |
 | `code` | Dark background with monospaced code block |

@@ -33,11 +33,11 @@ Kova is a native desktop application for macOS, Windows, and Linux. Download the
     2. Run the setup executable and follow the prompts.
 
 !!! warning "Windows SmartScreen"
-    Because Kova is not yet code-signed for Windows, SmartScreen may show a **"Windows protected your PC"** warning.
+    Windows installers are signed via [SignPath](https://signpath.io) as part of the release pipeline, but currently with SignPath's **test** certificate while the production certificate application is pending — so SmartScreen may still show a **"Windows protected your PC"** warning.
 
     To proceed: click **More info** → **Run anyway**.
 
-    This warning will disappear once Kova acquires a Windows code-signing certificate.
+    This warning will disappear once the production SignPath certificate is approved.
 
 ---
 

@@ -6,29 +6,13 @@ Kova offers two presentation modes: **single-screen** (fullscreen slideshow on o
 
 ## Starting a presentation
 
-Click **▶ Present** in the titlebar, or press the button in the toolbar. Kova detects connected displays and opens the appropriate view.
-
-| Shortcut | Action |
-|----------|--------|
-| `F5` | Start from the **first slide** |
-| `Shift+F5` | Start from the **current editor slide** |
+Click **▶ Present** in the titlebar, or press the button in the toolbar — or use `F5` to start from the first slide, `Shift+F5` from the current editor slide (see [Keyboard Shortcuts](keyboard-shortcuts.md#file-operations)). Kova detects connected displays and opens the appropriate view.
 
 ---
 
 ## Single-screen mode
 
-The current slide fills the screen. Navigate with the keyboard or by clicking the left or right third of the screen.
-
-| Key | Action |
-|-----|--------|
-| ++arrow-right++ / ++arrow-down++ / ++space++ / ++page-down++ | Next slide |
-| ++arrow-left++ / ++arrow-up++ / ++page-up++ | Previous slide |
-| ++home++ | First slide |
-| ++end++ | Last slide |
-| ++n++ | Toggle speaker notes panel |
-| ++b++ | Toggle black blank screen |
-| ++w++ | Toggle white blank screen |
-| ++escape++ | Exit presentation |
+The current slide fills the screen. Navigate with the keyboard or by clicking the left or right third of the screen — see [Keyboard Shortcuts — Presentation mode](keyboard-shortcuts.md#presentation-mode) for the full key list.
 
 Press ++n++ to reveal the notes panel below the slide — it shows the `???` block from your Markdown.
 
@@ -112,10 +96,6 @@ Note: the churn drop is worth emphasising — it directly ties to the onboarding
 During a presentation, press `L` (or click the **laser pointer** button in the HUD) to toggle a glowing dot that follows your cursor across the slide. In dual-screen mode the pointer appears on the audience display in real time, at the correct position regardless of display size.
 
 To change the pointer colour, open the **Inspector** before presenting and pick a colour under **Laser colour**.
-
-| Key | Action |
-|-----|--------|
-| `L` | Toggle laser pointer on/off |
 
 ---
 

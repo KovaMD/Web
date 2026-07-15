@@ -79,7 +79,7 @@ Click the **slide counter** in the HUD to open a number input and jump directly 
 
 ## Customising shortcuts
 
-The five file-level shortcuts can be remapped via `~/.kova/keybindings.yaml`:
+The five file-level shortcuts can be remapped via `keybindings.yaml` in Kova's config folder (path varies by platform — see [Settings & Keybindings — File location](settings-and-keybindings.md#file-location)):
 
 ```yaml
 new_file:   ctrl+n

@@ -30,6 +30,9 @@ Force a two-column layout by placing `|||` between two content blocks on the sam
 
 Kova splits the slide at the `|||` and renders each side as a column. See [Layouts — two-column](layouts.md#two-column) for details.
 
+!!! tip "Three columns"
+    Add a **second** `|||` to split into three columns instead of two. See [Layouts — three-column](layouts.md#three-column).
+
 ---
 
 ### Progress bars (`!progress`)
@@ -289,7 +292,7 @@ $$
 
 ## Figure captions (`!caption`)
 
-Attach a caption to the image, Mermaid diagram, or math block **directly above** it:
+Attach a caption to the image, Mermaid diagram, math block, or table **directly above** it:
 
 ```markdown
 ![System architecture](./diagram.png)
@@ -303,9 +306,17 @@ $$
 !caption[Equation 1: mass-energy equivalence]
 ```
 
-Kova merges the caption into the element it follows during parsing, so it never becomes ordinary body text — it can't accidentally trigger a `split`/`two-column` layout the way a trailing paragraph would. A `!caption` with no valid image, Mermaid diagram, or math block directly above it is a compile error rather than a silent no-op, the same convention as a misplaced `!sheet`.
+```markdown
+!sheet
+| item   | qty | unit  | total       |
+|--------|----:|------:|------------:|
+| motor  |   2 | 12.50 | =qty * unit |
+!caption[Table 1: bill of materials]
+```
 
-Captions render centred underneath the element, in every layout that can hold one. On a `full-bleed` image, where the picture fills the whole slide, the caption sits in a bottom overlay bar instead. Captions survive PowerPoint export for all three element types.
+Kova merges the caption into the element it follows during parsing, so it never becomes ordinary body text — it can't accidentally trigger a `split`/`two-column` layout the way a trailing paragraph would. A `!caption` with no valid image, Mermaid diagram, math block, or table directly above it is a compile error rather than a silent no-op, the same convention as a misplaced `!sheet`.
+
+Captions render centred underneath the element, in every layout that can hold one. On a `full-bleed` image, where the picture fills the whole slide, the caption sits in a bottom overlay bar instead. Captions survive PowerPoint export for all four element types.
 
 ---
 
@@ -499,3 +510,28 @@ Force a specific layout regardless of content with an HTML comment at the top of
 ```
 
 See [Layouts — Manual override](layouts.md#manual-override) for the full list of layout names and how automatic detection works.
+
+---
+
+## Per-slide text colour
+
+Override text colour on an individual slide with an HTML comment:
+
+```markdown
+<!-- color: #fff -->
+
+## Dark background slide
+```
+
+`<!-- _color: white -->` (Marp's own syntax) is also recognised and sets the same colour — a Marp deck that already uses `_color` keeps its per-slide colours on import. Accepts hex (`#rgb`, `#rrggbb`, `#rrggbbaa`), functional notations (`rgb()`, `hsl()`, …), and named CSS colours; functional notations are normalised to hex for PowerPoint export.
+
+Alternatively, invert to the deck's inverted palette instead of choosing a colour by hand:
+
+```markdown
+<!-- _class: invert -->
+```
+
+Either directive is honoured in the live preview and PowerPoint export, across every layout — split, two-column, three-column, BSP, grid, and media. Headings and bold text follow the same override by default; to colour them independently, see [Themes — per-slide-scoped heading and bold colour](themes.md#per-slide-scoped-heading-and-bold-colour).
+
+!!! tip "Exceptions, not the deck-wide default"
+    Per-slide colour is for a handful of exceptions — typically slides with a photo [`![bg]`](#slide-background-images-bg). If most of the deck needs the same colour, change **Text** / **Title text** in the Inspector instead ([Themes — Inspector overrides](themes.md#inspector-overrides)), which applies deck-wide.
