@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Development Update 2 — kova.md</title>
+  <meta name="description" content="The Kova CLI has shipped, Windows code signing is underway with SignPath, and Kova now has an OpenCollective page. Plus what's next: slide animations, editor integrations, and a plan for video tutorials.">
+  <meta property="og:title" content="Development Update 2">
+  <meta property="og:description" content="The Kova CLI has shipped, Windows code signing is underway with SignPath, and Kova now has an OpenCollective page. Plus what's next: slide animations, editor integrations, and a plan for video tutorials.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://kova.md/blog/development-update-2.html">
+  <meta property="og:image" content="https://kova.md/assets/og-image.png">
+  <link rel="canonical" href="https://kova.md/blog/development-update-2.html">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-0CcKsY49q+QPM5JuwYJRbLzDg1qPO/qPc+rmWY6FDQ8='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src https://api.github.com; base-uri 'self'; form-action 'none'">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="../assets/favicon-128.png">
+  <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+  <link rel="stylesheet" href="../css/style.css?v=20260522">
+  <link rel="stylesheet" href="../css/blog.css?v=20260708a">
+  <script>
+    (function() {
+      var t = localStorage.getItem('kova-theme');
+      if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+<!-- ═══ NAV ═══════════════════════════════════════════════ -->
+<nav>
+  <a class="nav-logo" href="/">
+    <img src="../assets/kova-icon.svg?v=20260522" width="28" height="28" alt="">
+    <span class="nav-wordmark">kova<span class="tld">.md</span></span>
+  </a>
+  <div class="nav-spacer"></div>
+  <ul class="nav-links">
+    <li><a href="../features.html">Features</a></li>
+    <li><a href="https://wiki.kova.md">Docs</a></li>
+    <li><a href="../open-source.html">Open source</a></li>
+    <li><a href="index.html" aria-current="page">Blog</a></li>
+    <li><a href="https://github.com/kovamd/kova">GitHub</a></li>
+    <li>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle colour scheme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="8" cy="8" r="3.2" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="8" y1="1.5" x2="8" y2="3"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="8" y1="13"  x2="8" y2="14.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="1.5" y1="8" x2="3"   y2="8"  stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="13"  y1="8" x2="14.5" y2="8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="3.4" y1="3.4" x2="4.5" y2="4.5"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="11.5" y1="11.5" x2="12.6" y2="12.6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="12.6" y1="3.4" x2="11.5" y2="4.5"   stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <line x1="4.5"  y1="11.5" x2="3.4" y2="12.6"  stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M14 8.5A6 6 0 0 1 7.5 2 6.5 6.5 0 1 0 14 8.5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </li>
+    <li>
+      <a href="https://github.com/kovamd/kova/releases" class="btn btn-primary" style="padding:7px 16px;font-size:13px;">
+        Download
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ═══ POST HERO ══════════════════════════════════════════ -->
+<section class="post-hero">
+  <div class="container">
+    <a href="index.html" class="post-back">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <path d="M7.5 2.5L3 6l4.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Back to blog
+    </a>
+    <h1>Development Update 2</h1>
+    <div class="post-meta">
+      <span>Jul 23, 2026</span>
+      <span class="post-meta-sep">·</span>
+      <span>Ross</span>
+      <span class="post-meta-sep">·</span>
+      <span>Announcement</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ POST BODY ══════════════════════════════════════════ -->
+<section class="post-body-section">
+  <div class="container">
+    <div class="post-layout">
+    <aside class="post-toc" aria-label="Table of contents">
+      <p class="post-toc-label">Contents</p>
+      <ol>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#roadmap-items">Roadmap Items</a></li>
+        <li><a href="#project-updates">Project Updates</a></li>
+        <li><a href="#next-steps">Next Steps</a>
+          <ol>
+            <li><a href="#getting-started">Getting Started</a></li>
+            <li><a href="#intermediate-features">Intermediate Features</a></li>
+            <li><a href="#cli-power-users">CLI / Power Users</a></li>
+          </ol>
+        </li>
+        <li><a href="#thanks">Thanks</a></li>
+      </ol>
+    </aside>
+    <article class="post-body">
+
+      <h2 id="introduction">Introduction</h2>
+      <p>It has only been around two weeks since my initial development update was released. That post covered some of the grounding ethos of the project, longer-term goals, and thoughts on LLM-supported development. This can be read here: <a href="development-update-1.html">Development Update 1</a>.</p>
+      <p>It has been a busy couple of weeks that I felt warranted an update — this one will be a touch shorter and more concise, covering the changes and updates to the project as a whole.</p>
+
+      <h2 id="roadmap-items">Roadmap Items</h2>
+      <p>As of version <code>0.7.3</code>, Kova CLI has been implemented, allowing users to present, check, import, and export from the command line. I moved to put this as the first item to approach as the CLI functionality supports the third-party integration roadmap items; it also allows users to implement some basic automation using an external programming language. For example, a user can batch check a set of Markdown files for syntactical correctness, and if the check passes then export the file to a PDF.</p>
+      <p>I won't go into the full breakdown of how it works here — the CLI documentation can be found here: <a href="https://wiki.kova.md/command-line/">Kova CLI — Wiki</a>.</p>
+      <p>The next item that I am going to be focusing on is a basic animation system for slide items. Being able to gradually introduce content in a pre-determined order is something that I am personally missing quite a bit as this is a useful tool in education. My current solution is to have multiple slides that are duplicates, but with an additional point added on each subsequent slide — not elegant. Following this, I will be looking at the third-party integration options with Obsidian, Joplin, and VS Code.</p>
+      <p>We have now achieved all of our packaging goals for Kova with the exception of Windows code signing (discussed below). We now ship for Windows, macOS, and many flavours of Linux (deb, rpm, AUR, flatpak, AppImage, Nix).</p>
+
+      <h2 id="project-updates">Project Updates</h2>
+      <p>Two main updates on the Kova project itself.</p>
+      <p>First being our progress towards code signing on Windows. We have been accepted onto the <a href="https://signpath.org">SignPath Foundation</a> programme for free open source software projects as of 8th July 2026. I have since gotten the CI pipeline functional using the testing certificate that SignPath initially provided, and as of 21st July 2026 I have applied to have the full production signing certificate created — this will mean our Windows <code>.exe</code> and <code>.msi</code> files get better recognition from Microsoft's SmartScreen, reducing barriers to installation for Windows users. I hope that this should be achieved in the next couple of weeks.</p>
+      <p>Secondly, Kova has been accepted by a fiscal host on <a href="https://opencollective.com">OpenCollective</a> — this allows users to donate to support the project in either a repeating or one-off fashion. Kova is FOSS, that will not change, and I did not create the project with the intention of gaining any financial recompense. Hosting for all services is paid for by me personally, and it's still cheaper than an annual subscription to a certain proprietary software suite to upkeep. Donations at this time will be used to help cover the running costs of the VPS that holds the deb, rpm, flatpak, and themes repositories. If funds were to grow any further, that would warrant another post with more financial detail, but at this time it is not necessary.</p>
+      <p>The Kova Open Collective page can be found here: <a href="https://opencollective.com/kovamd">Kova on OpenCollective</a></p>
+
+      <h2 id="next-steps">Next Steps</h2>
+      <p>One of my goals going forward is to raise more awareness around Kova and to grow our user base further. At the time of writing we have reached 275 stars on GitHub, something I was not expecting, and I do not have any true metrics for the total user base as I do not implement telemetry on our repos. But I have been looking at ways of sharing more about Kova with the general academic community that I work within, and a large portion of the hesitation has been "I don't know how to code" when I show people the editor.</p>
+      <p>I get it. Anything in a monospace font is intimidating for anyone outside of the tech/IT/sciences space, especially for my colleagues in academia. I have been thinking about approaching this through a set of short-form video tutorials. These videos would be in a structure along the lines of:</p>
+
+      <h3 id="getting-started">Getting Started</h3>
+      <ul>
+        <li>What is Kova?</li>
+        <li>Writing your first presentation in Markdown</li>
+        <li>Basic styling, branding, and themes</li>
+        <li>Presenting and exporting</li>
+      </ul>
+
+      <h3 id="intermediate-features">Intermediate Features</h3>
+      <ul>
+        <li>Animations (to be completed)</li>
+        <li>Speaker notes</li>
+        <li>Custom themes</li>
+        <li>Images, embeds, code blocks</li>
+        <li>Project config file</li>
+      </ul>
+
+      <h3 id="cli-power-users">CLI / Power Users</h3>
+      <ul>
+        <li>CLI overview: what it unlocks beyond the GUI</li>
+        <li>Single-file CLI operations (render, export, watch)</li>
+        <li>Batch processing basics</li>
+        <li>Platform scripts (Bash, PowerShell, cross-platform wrapper)</li>
+        <li>CI/automation tie-in (presentations hosted in a repo)</li>
+      </ul>
+
+      <p>I am, of course, open to suggestions and ideas of topics and areas that could be interesting for potential users to experience. Perhaps a side-by-side comparison of the same presentation being made in another traditional slide deck program, while also being created in Kova. Unsure at this time, as I want Kova to stand on its own merits and not try to "one-up" other software.</p>
+
+      <h2 id="thanks">Thanks</h2>
+      <p>As always, I want to send my thanks to those who have been involved in Kova's development. Those of you that have submitted PRs and raised issues help keep Kova moving, make it better, and turn it into a useful tool. If we ever cross paths, I owe you a tea/coffee :)</p>
+      <p>Ross<br><a href="mailto:ross@kova.md">ross@kova.md</a></p>
+
+      <div class="post-footer">
+        <a href="index.html" class="post-back">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M7.5 2.5L3 6l4.5 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to blog
+        </a>
+      </div>
+    </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <a class="nav-logo" href="/" style="text-decoration:none;">
+      <img src="../assets/kova-icon.svg?v=20260522" width="24" height="24" alt="">
+      <span class="nav-wordmark">kova<span class="tld">.md</span></span>
+    </a>
+    <ul class="footer-links">
+      <li><a href="../features.html">Features</a></li>
+      <li><a href="https://wiki.kova.md">Docs</a></li>
+      <li><a href="../open-source.html">Open source</a></li>
+      <li><a href="index.html">Blog</a></li>
+      <li><a href="https://github.com/KovaMD/Kova/releases">Releases</a></li>
+      <li><a href="https://github.com/KovaMD/Kova">GitHub</a></li>
+      <li><a href="https://github.com/KovaMD/Kova/issues">Issues</a></li>
+      <li><a href="https://github.com/KovaMD/Kova/blob/main/LICENSE">License</a></li>
+      <li><a href="../privacy.html">Privacy</a></li>
+      <li><a href="mailto:support@kova.md">Support</a></li>
+    </ul>
+    <p class="footer-copy">© 2026 Kova contributors · GPLv3</p>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=20260522" defer></script>
+<script src="../js/blog-toc.js?v=20260708" defer></script>
+</body>
+</html>
