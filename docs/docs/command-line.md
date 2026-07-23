@@ -8,7 +8,7 @@ After a standard install, `kova` works as a command-line tool on macOS, Windows,
 
 | Platform | Setup |
 |---|---|
-| **Windows** | Both the `.msi` and setup `.exe` register `kova` on the system PATH automatically. Open a new terminal after installing. |
+| **Windows** | You choose. The setup `.exe` asks **Add `kova` to PATH?** (yes/no). The `.msi` offers a **PATH** choice of **User**, **System**, or **None**. Pick yes, User, or System to get `kova` on PATH; open a new terminal after installing. |
 | **Linux** | Already on PATH — the `.deb`, `.rpm`, AUR, Nix, and Flatpak packages all install the binary into a directory your shell already searches. |
 | **macOS** | Not automatic. Go to the **Kova** menu → **Install 'kova' Command in PATH**. This symlinks the binary into `/opt/homebrew/bin` or `/usr/local/bin` (whichever exists), without overwriting a `kova` command that isn't Kova's. Open a new terminal afterwards. |
 
