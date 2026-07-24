@@ -32,12 +32,8 @@ Kova is a native desktop application for macOS, Windows, and Linux. Download the
     1. Download the `_x64-setup.exe` file from the [Releases page](https://github.com/KovaMD/Kova/releases).
     2. Run the setup executable and follow the prompts.
 
-!!! warning "Windows SmartScreen"
-    Windows installers are signed via [SignPath](https://signpath.io) as part of the release pipeline, but currently with SignPath's **test** certificate while the production certificate application is pending — so SmartScreen may still show a **"Windows protected your PC"** warning.
-
-    To proceed: click **More info** → **Run anyway**.
-
-    This warning will disappear once the production SignPath certificate is approved.
+!!! success "Signed via SignPath"
+    Windows installers are signed with a production certificate via [SignPath](https://signpath.io) as part of the release pipeline.
 
 ---
 
