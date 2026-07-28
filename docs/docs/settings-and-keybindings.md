@@ -2,6 +2,8 @@
 
 Open Settings by clicking the **gear icon** (⚙) in the titlebar. An **orange badge** appears on the icon when a Kova update is available.
 
+Categories are listed in a rail down the left side; the window stays a constant size as you switch between them. Use the **search box** at the top to jump straight to a setting by name instead of browsing categories.
+
 ---
 
 ## Appearance
@@ -17,16 +19,6 @@ Toggles between Dark and Light mode for the interface, editor, and panels. Chang
 **Interface scale** zooms the entire app chrome — titlebars, panels, menus, editor. Useful if the default size feels too large or too small on your display. Presentation slides are always rendered at pixel-exact resolution regardless of the scale setting.
 
 **Content width** controls the editor's line width. **Fixed** keeps editor lines at a comfortable reading width, centred in the panel. **Full** stretches the editor to fill the panel as you resize the editor/preview split.
-
----
-
-## Saving
-
-| Setting | Options | Default |
-|---------|---------|---------|
-| **Autosave** | Off · 15 sec · 30 sec · 1 min · 5 min | 30 sec |
-
-When enabled, Kova saves the file automatically after the first manual save. Autosave does not trigger on an unsaved new document.
 
 ---
 
@@ -64,9 +56,12 @@ Kova also tracks **Learned words** — words you've right-clicked and added to y
 
 | Setting | Options | Default |
 |---------|---------|---------|
+| **Autosave** | Off · 15 sec · 30 sec · 1 min · 5 min | 30 sec |
 | **Confirm before closing** | On · Off | On |
 | **On startup** | Blank document · Reopen last file | Blank document |
 | **PDF page size** | A4 · Letter · Match slide size | A4 |
+
+When **Autosave** is enabled, Kova saves the file automatically after the first manual save, at the chosen interval. Autosave does not trigger on an unsaved new document.
 
 **PDF page size** — paper size used for [PDF export](exporting.md#export-options). Pages are always laid out landscape. **Match slide size** makes each page exactly the slide's own dimensions instead of a fixed paper size — see [Exporting — PDF export](exporting.md#export-options).
 
@@ -86,9 +81,13 @@ Controls for the **▶ Present** feature. See [Presenting](presenting.md) for a 
 | Setting | Options | Default |
 |---------|---------|---------|
 | **Display mode** | Auto · Single · Dual · Mirror | Auto |
+| **Windowed presenter view** | On · Off | Off |
+| **Always on top** | On · Off | Off |
 | **Show next slide** | On · Off | On |
 | **Show timer** | On · Off | On |
 | **Notes font size** | Small · Medium · Large | Medium |
+
+**Windowed presenter view** keeps the dual-screen presenter overlay in a normal, resizable window on your own display instead of fullscreen — see [Presenting — Windowed presenter view](presenting.md#windowed-presenter-view). **Always on top** appears once windowed view is on, and keeps that window above other apps.
 
 ---
 
@@ -123,6 +122,12 @@ See [Themes — Custom themes](themes.md#custom-themes) for the theme file forma
 When enabled, Kova checks the [GitHub Releases page](https://github.com/KovaMD/Kova/releases) for new versions and shows an orange badge on the gear icon when one is available. No data is sent to Kova's servers — only a public GitHub API call is made.
 
 Use the **Check now** button for an on-demand check without enabling automatic checks.
+
+---
+
+## About
+
+Links to the GitHub repository, issue reporting, this wiki, [Open Collective](https://opencollective.com) support, and the community Matrix chat. A **Licenses** drill-down lists the open-source packages Kova is built on.
 
 ---
 

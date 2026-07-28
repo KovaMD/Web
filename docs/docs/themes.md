@@ -40,19 +40,21 @@ Without writing a custom theme file, you can override specific aspects of any bu
 | **Primary colour** | Accent colour used for headings, progress bars, and decorative elements |
 | **Background colour** | Slide background |
 | **Text colour** | Body text |
+| **Heading colour** | Content-slide heading colour; falls back to Text colour until set |
+| **Bold text colour** | Inline **bold**/`<strong>` colour; falls back to Text colour until set |
 | **Title font** | Font used for H1 and H2 headings |
 | **Body font** | Font used for all other text |
 | **Code font** | Monospace font for code blocks |
 | **Logo** | Image displayed in the header or footer |
 | **Header text** | Custom text shown at the top of every slide — supports template variables and `\|` segmented layout |
-| **Footer text** | Custom text shown at the bottom — supports `{slide_number}`, `{total}`, `{title}`, `{date}` and `\|` segmented layout |
+| **Footer text** | Custom text shown at the bottom — supports `{slide_number}`, `{total}`, `{title}`, `{author}`, `{date}` and `\|` segmented layout |
 | **Table of contents → Numbered list** | Toggles a [`!toc`](markdown-and-syntax.md#table-of-contents-toc) slide between a numbered list and a plain hyperlinked list. On by default |
 
 Kova saves overrides to the file automatically. Logo, Header, Footer, and Table of Contents controls live together under the Inspector's **Document** section.
 
-### Per-slide-scoped heading and bold colour
+### Heading and bold colour
 
-Headings and bold/`<strong>` text can take a colour distinct from body text — set separately from the **Text colour** override above via `theme_overrides` in a deck's frontmatter, or the `heading`/`bold` keys in a [custom theme](#custom-themes) file:
+Headings and bold/`<strong>` text can take a colour distinct from body text — set it via the **Heading colour** / **Bold text colour** swatches above, or directly in YAML via `theme_overrides` in a deck's frontmatter, or the `heading`/`bold` keys in a [custom theme](#custom-themes) file:
 
 ```yaml
 theme_overrides:
@@ -61,8 +63,7 @@ theme_overrides:
     bold:    "#B8003F"
 ```
 
-!!! warning "Prototype stage"
-    This override has no Inspector colour swatch yet — it's YAML-only. Enable **Settings → Editor → Show frontmatter** to edit it directly in a document, or set `heading`/`bold` in a custom theme's `colors` block (see [Color reference](#color-reference)) to apply it to every document using that theme.
+Set `heading`/`bold` in a custom theme's `colors` block (see [Color reference](#color-reference)) to apply the colours to every document using that theme, rather than one document at a time via the Inspector.
 
 Both colours fall back to the theme's plain `text` colour when unset, and both are still overridden by a slide's own [per-slide text colour or invert](markdown-and-syntax.md#per-slide-text-colour) directive, so a slide's text stays legible together rather than mixing an old heading colour with a new per-slide one.
 
@@ -134,7 +135,7 @@ toc:
 | `title_text` | Heading text on title and section slides — set this if `primary` is dark, otherwise text may be unreadable |
 | `section_bg` | Background of section slides only; overrides `primary` for those slides |
 | `code_bg` | Code block background |
-| `heading` | Content-slide heading colour; falls back to `text` when unset. See [Per-slide-scoped heading and bold colour](#per-slide-scoped-heading-and-bold-colour) |
+| `heading` | Content-slide heading colour; falls back to `text` when unset. See [Heading and bold colour](#heading-and-bold-colour) |
 | `bold` | Inline `**bold**`/`<strong>` colour; falls back to `text` when unset |
 
 ### Template variables
@@ -144,6 +145,7 @@ Use these in `header.text` and `footer.text`:
 | Variable | Value |
 |----------|-------|
 | `{title}` | Document title |
+| `{author}` | Document author (frontmatter `author:`) |
 | `{date}` | Document date |
 | `{slide_number}` | Current slide number |
 | `{total}` | Total slide count |

@@ -531,7 +531,7 @@ Alternatively, invert to the deck's inverted palette instead of choosing a colou
 <!-- _class: invert -->
 ```
 
-Either directive is honoured in the live preview and PowerPoint export, across every layout — split, two-column, three-column, BSP, grid, and media. Headings and bold text follow the same override by default; to colour them independently, see [Themes — per-slide-scoped heading and bold colour](themes.md#per-slide-scoped-heading-and-bold-colour).
+Either directive is honoured in the live preview and PowerPoint export, across every layout — split, two-column, three-column, BSP, grid, and media. Headings and bold text follow the same override by default; to colour them independently, see [Themes — heading and bold colour](themes.md#heading-and-bold-colour).
 
 !!! tip "Exceptions, not the deck-wide default"
     Per-slide colour is for a handful of exceptions — typically slides with a photo [`![bg]`](#slide-background-images-bg). If most of the deck needs the same colour, change **Text** / **Title text** in the Inspector instead ([Themes — Inspector overrides](themes.md#inspector-overrides)), which applies deck-wide.

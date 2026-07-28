@@ -45,6 +45,10 @@ Keyboard navigation in the presenter overlay controls both windows simultaneousl
 !!! warning "Dual-screen is in active development"
     Multi-monitor support is actively being refined and is currently unstable. **Single-screen mode is stable** — use dual-screen with caution for important presentations.
 
+### Windowed presenter view
+
+By default the presenter overlay is fullscreen on your own display. Turn on **Windowed presenter view** in **Settings → Presentation** to keep it in a normal, resizable window instead — useful for placing it alongside a video call or another app. A dependent **Always on top** toggle appears once windowed view is on, keeping the presenter window above other apps so nothing covers it. The audience window is unaffected either way — it always stays fullscreen.
+
 ---
 
 ## Display mode settings
@@ -65,6 +69,8 @@ Go to **Settings → Presentation** to configure how Kova uses connected display
 | **Show next slide** | On | Displays the upcoming slide in the top-right pane |
 | **Show timer** | On | Shows elapsed time at the bottom of the presenter overlay |
 | **Notes font size** | Medium | Speaker notes text size: Small / Medium / Large |
+| **Windowed presenter view** | Off | Keeps the presenter overlay in a resizable window instead of fullscreen |
+| **Always on top** | Off | Keeps the windowed presenter view above other apps — shown only when windowed view is on |
 
 ---
 

@@ -49,6 +49,9 @@ The **Export PDF** dialog offers:
 !!! note "Match slide size"
     Instead of A4/Letter (which don't share a 16:9 or 4:3 slide's aspect ratio and so leave visible margins), **Match slide size** makes each PDF page exactly the slide's own dimensions — no margins. It falls back to A4 automatically when combined with **Slides per page** greater than 1, or with **Include speaker notes**, since a single slide's bounding box is too small to hold those layouts.
 
+!!! tip "Scripting PDF export"
+    `kova --export pdf` exposes these same options as `--notes`, `--per-page <1|2|4|6>`, and `--paper <a4|letter|slide>` — see [Command Line — PDF handout options](command-line.md#pdf-handout-options).
+
 ### Limitations
 
 | Element | Export behaviour |
@@ -119,6 +122,21 @@ The `.pptx` file is a standard Office Open XML file. Open it in any compatible a
 
 ## Standalone HTML export
 
-**File → Export → HTML** saves the presentation as a single, self-contained `.html` file. Images and local videos are inlined as base64 data URIs, so the file opens and plays back correctly in any modern browser — no Kova installation, and no separate asset files to keep alongside it.
+**File → Export → HTML** saves the presentation as a single, self-contained `.html` file — an interactive, one-slide-at-a-time deck rather than a scrolling page of slides. Images and local videos are inlined as base64 data URIs, so the file opens and plays back correctly in any modern browser — no Kova installation, and no separate asset files to keep alongside it.
 
 This is the one export format where **local video plays back normally**, since it's opened in a real browser rather than printed to a static page.
+
+### Navigation
+
+| Input | Action |
+|-------|--------|
+| `→` / `Page Down` / `Space` | Next slide |
+| `←` / `Page Up` / `Backspace` | Previous slide |
+| `Home` / `End` | Jump to the first / last slide |
+| `F` | Toggle fullscreen |
+| Click the right / left half of the screen | Next / previous slide |
+
+A slide counter (`1 / N`) is shown in the bottom-right corner.
+
+!!! tip "Still prints cleanly"
+    The exported file keeps a print stylesheet, so printing it (`Ctrl+P`/`Cmd+P` in the browser it's opened in) lays it back out as one slide per page — the same static, print-style output this format used before slide-by-slide navigation was added.

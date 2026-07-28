@@ -26,11 +26,13 @@ kova --version
 
 ```text
 kova [FILE...]                            open file(s) in the editor
-kova --present <FILE>                     present FILE directly
-kova --check <FILE>                       validate FILE and exit
+kova --present <FILE.md>                  present FILE directly
+kova --check <FILE.md>                    validate FILE and exit
 kova --import <marp|pptx|url> <IN> <OUT>  convert IN to Kova Markdown
 kova --export <pptx|pdf> <IN> <OUT>       export IN via Kova's engine
 ```
+
+`--present` and `--check` require a `.md`/`.markdown` file, matching the requirement `--import`/`--export` already have — Kova rejects anything else rather than silently trying to read it as Markdown.
 
 Only one **action** is allowed per invocation. Modifiers combine with an action in any order:
 
@@ -38,10 +40,16 @@ Only one **action** is allowed per invocation. Modifiers combine with an action 
 |---|---|
 | `--theme <NAME\|PATH>` | Override the deck's theme for this run. A bare name (e.g. `firefly`) resolves against built-in and installed community themes; anything that looks like a path (contains `/` or `\`, starts with `~`, or ends in `.yaml`/`.yml`) is read as a theme file instead. Valid with `--present` and `--export`. |
 | `--check` | Validate the deck before running the action. See [Validating with `--check`](#validating-with-check) below. |
+| `--notes` | Include a speaker-notes handout (1-up only). Valid with `--export pdf` only. |
+| `--per-page <1\|2\|4\|6>` | Slides per PDF page (default `1`). Valid with `--export pdf` only. |
+| `--paper <a4\|letter\|slide>` | PDF page size, overriding the persisted Settings value for this run. Valid with `--export pdf` only. |
 
 `-h`/`--help` and `--version` win regardless of where they appear or what else is on the command line, and always exit `0`.
 
-Both `--flag value` and `--flag=value` forms work for `--present`, `--theme`, and `--import`/`--export`'s format argument.
+Both `--flag value` and `--flag=value` forms work for `--present`, `--theme`, `--per-page`, `--paper`, and `--import`/`--export`'s format argument.
+
+!!! tip "Flag typo detection"
+    A single-dash typo of a known long flag (e.g. `-check` instead of `--check`) errors with a suggestion — `unknown option '-check' — did you mean '--check'?` — instead of silently falling through to the editor-launch path with the flag's value misread as a file to open. Unrecognised single-dash flags (e.g. platform-injected launcher args) are still silently ignored, since that isn't a typo of anything Kova knows.
 
 ---
 
@@ -80,12 +88,14 @@ talk.md:34: error: unknown directive '!videoo'
 | Unknown frontmatter key | warning |
 | Unknown `theme:` value | warning |
 | Unknown `<!-- layout: ... -->` name | error |
+| Invalid `<!-- color: ... -->` / `<!-- _color: ... -->` value | warning |
 | Unknown `!directive` | error |
 | Missing local media file (image/video) | error |
+| Unreachable remote media URL (`http://`/`https://` image or video) | warning |
 | Document contains no visible slides | error |
 | Document fails to parse | error |
 
-Fenced code blocks are skipped when scanning for layout comments and directives, so a `!youtube` mentioned inside a code sample isn't flagged. Hidden slides are skipped for the missing-media check, and a media file referenced from several slides is only reported once.
+Fenced code blocks are skipped when scanning for layout comments and directives, so a `!youtube` mentioned inside a code sample isn't flagged. Hidden slides are skipped for the missing-media check, and a media file or remote URL referenced from several slides is only reported once. The remote-URL check sends a single request per unique URL (no full download) and reports the failure reason (bad host, 404, etc.) alongside the URL.
 
 **As a standalone action** (`kova --check FILE`), the process always exits after reporting — `0` if there are no errors (warnings alone still exit `0`), `1` if there are.
 
@@ -124,6 +134,18 @@ kova --export pdf talk.md talk.pdf
 See [Importing](importing.md) and [Exporting](exporting.md) for what each conversion actually does with your content — the CLI path produces identical output to the GUI, including the same dropped-element reporting for Marp imports and the same warnings for export.
 
 `--theme` composes with `--export` the same way it does with `--present`. `--check` composes too: a broken input file aborts before any output file is written.
+
+### PDF handout options
+
+`--export pdf` accepts the same speaker-notes handout and page-layout options as the GUI's **Export PDF** dialog (see [Exporting — Export options](exporting.md#export-options)):
+
+```bash
+kova --export pdf talk.md talk.pdf --notes
+kova --export pdf talk.md talk.pdf --per-page 4
+kova --export pdf talk.md talk.pdf --paper letter
+```
+
+`--notes`, `--per-page`, and `--paper` are rejected outside `--export pdf` (e.g. combined with `--export pptx`). `--paper slide` corresponds to the GUI's **Match slide size** option; omitting `--paper` falls back to the persisted **Settings → Workspace → PDF page size** value, same as the GUI.
 
 !!! warning "Extension guards"
     Input and output are two separate positional arguments with no other way to tell them apart, so Kova rejects a call where either file doesn't have the expected extension for its format — this is what catches a shell glob that happened to expand to exactly two files (e.g. `kova --export pptx *.md out.pptx` matching two decks) before it silently overwrites the second one. The one gap this can't close: `--import marp`'s input and output are both legitimately `.md`, so a two-file glob that lands on that specific combination still parses as a deliberate call.
