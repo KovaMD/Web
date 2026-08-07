@@ -32,8 +32,11 @@ Kova is a native desktop application for macOS, Windows, and Linux. Download the
     1. Download the `_x64-setup.exe` file from the [Releases page](https://github.com/KovaMD/Kova/releases).
     2. Run the setup executable and follow the prompts.
 
-!!! success "Signed via SignPath"
-    Windows installers are signed with a production certificate via [SignPath](https://signpath.io) as part of the release pipeline.
+!!! warning "Test-signed via SignPath"
+    Windows installers are signed via [SignPath](https://signpath.io), but currently under SignPath's **test-signing** policy rather than a production certificate — production signing is approved on SignPath's side but temporarily blocked by an unrelated submission issue. Expect a **SmartScreen** warning on first run ("Windows protected your PC" → **More info** → **Run anyway**).
+
+!!! note "Possible Windows Defender false positive"
+    Windows Defender may flag Kova as `Trojan:Win32/Wacatac.C!ml` during install or update. This is a false positive from Microsoft's heuristic/ML detection tied to the test-signing status above, not an actual threat — allow it in Defender if you hit it. This note will be removed once production signing is live.
 
 ---
 

@@ -74,6 +74,12 @@ Go to **Settings → Presentation** to configure how Kova uses connected display
 
 ---
 
+## Build animations
+
+If a slide has `<!-- step -->` markers, a "next" action reveals its elements one click at a time before advancing to the next slide; going backward across a slide boundary lands on the previous slide fully revealed rather than at its start. This applies in single-screen mode, dual-screen presenter view (audience window and presenter overlay stay in sync), and the standalone HTML export. See [Build Animations](animations.md) for the full syntax and behaviour.
+
+---
+
 ## Speaker notes
 
 Add speaker notes to any slide using the `???` delimiter. Notes are **never shown to the audience**.

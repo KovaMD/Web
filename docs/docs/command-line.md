@@ -40,6 +40,7 @@ Only one **action** is allowed per invocation. Modifiers combine with an action 
 |---|---|
 | `--theme <NAME\|PATH>` | Override the deck's theme for this run. A bare name (e.g. `firefly`) resolves against built-in and installed community themes; anything that looks like a path (contains `/` or `\`, starts with `~`, or ends in `.yaml`/`.yml`) is read as a theme file instead. Valid with `--present` and `--export`. |
 | `--check` | Validate the deck before running the action. See [Validating with `--check`](#validating-with-check) below. |
+| `--force` | With `--import`, overwrite an existing output file instead of refusing. Valid with `--import` only. |
 | `--notes` | Include a speaker-notes handout (1-up only). Valid with `--export pdf` only. |
 | `--per-page <1\|2\|4\|6>` | Slides per PDF page (default `1`). Valid with `--export pdf` only. |
 | `--paper <a4\|letter\|slide>` | PDF page size, overriding the persisted Settings value for this run. Valid with `--export pdf` only. |
@@ -134,6 +135,13 @@ kova --export pdf talk.md talk.pdf
 See [Importing](importing.md) and [Exporting](exporting.md) for what each conversion actually does with your content — the CLI path produces identical output to the GUI, including the same dropped-element reporting for Marp imports and the same warnings for export.
 
 `--theme` composes with `--export` the same way it does with `--present`. `--check` composes too: a broken input file aborts before any output file is written.
+
+!!! note "Import refuses to overwrite by default"
+    `kova --import` exits `2` if the output path already exists, to catch a shell glob that happened to land on an existing file. Pass `--force` to overwrite it deliberately:
+
+    ```bash
+    kova --import marp deck.md talk.md --force
+    ```
 
 ### PDF handout options
 

@@ -23,7 +23,7 @@ Select **File → Print** to send your slides to the OS print dialog. Each slide
 
 ## PDF export
 
-Each slide is rendered to a single page at the exact pixel dimensions of the current aspect ratio. Because PDF export captures the live slide view, it faithfully reproduces everything you see in Kova — fonts, colours, gradients, images, Mermaid diagrams, syntax-highlighted code, and progress bars.
+Each slide is rendered to a single page at the exact pixel dimensions of the current aspect ratio. Because PDF export captures the live slide view, it faithfully reproduces everything you see in Kova — fonts, colours, gradients, images, Mermaid diagrams, syntax-highlighted code, and progress bars. A slide with [`<!-- step -->`](animations.md) build markers exports as one page in its final, fully-revealed state — PDF and Print don't add extra pages per click.
 
 ### Aspect ratio
 
@@ -92,6 +92,8 @@ Every slide layout is reproduced in the `.pptx` output:
 
 **Slide transitions** — every exported slide gets the same fade transition used in Kova's presentation mode, so playback in PowerPoint, Keynote, or Google Slides matches what you see when presenting from Kova.
 
+**Build animations** (`<!-- step -->`) export as real, native click-triggered animations, not a flattened always-visible placeholder — see [Build Animations](animations.md#export-behaviour) for the one known scope gap (the `quote` and `media` layouts) and current verification status.
+
 !!! note "Mermaid render warnings"
     If a Mermaid diagram fails to render during export, Kova shows a warning after export naming the affected slide. The rest of the presentation exports normally.
 
@@ -136,7 +138,7 @@ This is the one export format where **local video plays back normally**, since i
 | `F` | Toggle fullscreen |
 | Click the right / left half of the screen | Next / previous slide |
 
-A slide counter (`1 / N`) is shown in the bottom-right corner.
+A slide counter (`1 / N`) is shown in the bottom-right corner. `<!-- step -->` build animations work here too, stepping through each slide's builds before advancing — see [Build Animations](animations.md).
 
 !!! tip "Still prints cleanly"
     The exported file keeps a print stylesheet, so printing it (`Ctrl+P`/`Cmd+P` in the browser it's opened in) lays it back out as one slide per page — the same static, print-style output this format used before slide-by-slide navigation was added.

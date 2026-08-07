@@ -69,6 +69,7 @@ nav:
   - Writing Slides:
     - Markdown & Syntax: markdown-and-syntax.md
     - Layouts: layouts.md
+    - Build Animations: animations.md
     - Themes: themes.md
   - Working with Kova:
     - Presenting: presenting.md

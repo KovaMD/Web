@@ -77,6 +77,20 @@ A video that's the **only** element on a slide gets the full-slide `media` layou
 
 ---
 
+### Build animations (`<!-- step -->`)
+
+Mark an element with `<!-- step -->` and it appears on its own click during a presentation instead of the whole slide landing at once:
+
+```markdown
+- Always visible from the start
+- Appears on the first click <!-- step -->
+- Appears on the second click <!-- step -->
+```
+
+`<!-- step -->` auto-increments; `<!-- step: N -->` groups several elements onto the same click. It works on list items, images, code blocks, tables, display math, Mermaid diagrams, blockquotes, and more. See [Build Animations](animations.md) for the full syntax, editor toggle, presenting behaviour, and export support.
+
+---
+
 ### Table of Contents (`!toc`)
 
 ```markdown

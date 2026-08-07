@@ -22,6 +22,7 @@
 |----------|--------|
 | `Ctrl+B` | Wrap selection in **bold** (`**…**`) |
 | `Ctrl+I` | Wrap selection in *italic* (`*…*`) |
+| `Ctrl+Shift+R` | Toggle **Reveal on click** (`<!-- step -->`) on the current line, or every line in the selection |
 | `Ctrl+1` | Toggle H1 heading on the current line |
 | `Ctrl+2` | Toggle H2 heading on the current line |
 | `Ctrl+3` | Toggle H3 heading on the current line |
@@ -71,6 +72,8 @@ You can also zoom with `Ctrl+scroll` (mouse wheel).
 You can also navigate by clicking the **left third** or **right third** of the screen in single-screen mode.
 
 Click the **slide counter** in the HUD to open a number input and jump directly to any slide — or just start typing a digit to open the input immediately, no click needed.
+
+**Build animations:** on a slide with `<!-- step -->` markers, "next"/"previous" step through its builds one click at a time before moving to the adjacent slide. See [Build Animations](animations.md).
 
 !!! note "Dual-screen mode"
     In dual-screen mode the presenter overlay handles all navigation, and speaker notes are always visible — no key press required. See [Presenting](presenting.md) for full details.
