@@ -107,7 +107,7 @@ Note: the churn drop is worth emphasising — it directly ties to the onboarding
 
 During a presentation, press `L` (or click the **laser pointer** button in the HUD) to toggle a glowing dot that follows your cursor across the slide. In dual-screen mode the pointer appears on the audience display in real time, at the correct position regardless of display size.
 
-To change the pointer colour, open the **Inspector** before presenting and pick a colour under **Laser colour**.
+To change the pointer colour, open **Settings → Presentation** and pick one under **Laser pointer colour** (Red, Orange, Green, Blue, or White).
 
 ---
 

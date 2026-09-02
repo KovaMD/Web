@@ -84,7 +84,7 @@ Every slide layout is reproduced in the `.pptx` output:
 | `bsp` | Two or three content panes |
 | `grid` | Grid of content cards |
 | `code` | Dark background with monospaced code block |
-| `media` | Title with centred placeholder (see [Limitations](#limitations_1)) |
+| `media` | Title with the embedded video (YouTube or local) centred; a poll becomes a text placeholder (see [Limitations](#limitations_1)) |
 
 **Theme colours and fonts** are applied to all slides. Progress bars are exported as visual bars matching the slide theme. Code blocks are exported with syntax highlighting using the `github-dark` palette. Mermaid diagrams are rendered to PNG and embedded in the `.pptx`, preserving their original aspect ratio (a portrait flowchart stays portrait rather than stretching to fill the slide). The theme logo (if set) is stamped on every slide at the correct corner position with the theme's opacity setting. The `bar-left` decoration is replicated as an accent-coloured rectangle behind slide content.
 
@@ -92,7 +92,7 @@ Every slide layout is reproduced in the `.pptx` output:
 
 **Slide transitions** — every exported slide gets the same fade transition used in Kova's presentation mode, so playback in PowerPoint, Keynote, or Google Slides matches what you see when presenting from Kova.
 
-**Build animations** (`<!-- step -->`) export as real, native click-triggered animations, not a flattened always-visible placeholder — see [Build Animations](animations.md#export-behaviour) for the one known scope gap (the `quote` and `media` layouts) and current verification status.
+**Build animations** (`<!-- step -->`) export as real, native click-triggered animations, not a flattened always-visible placeholder — see [Build Animations](animations.md#export-behaviour) for the one known scope gap (the `quote` and `media` layouts) and notes on PowerPoint compatibility.
 
 !!! note "Mermaid render warnings"
     If a Mermaid diagram fails to render during export, Kova shows a warning after export naming the affected slide. The rest of the presentation exports normally.
@@ -111,8 +111,8 @@ The output respects the aspect ratio set in the Inspector. Use the **Aspect Rati
 
 | Element | Export behaviour |
 |---------|-----------------|
-| **YouTube embeds** (`!youtube`) | Exported as a text placeholder with the URL — not as an embedded video |
-| **Local video** (`!video`) | Exported as a text placeholder with the label and file path — not as an embedded video |
+| **YouTube embeds** (`!youtube`) | Embedded as a linked online video that plays in desktop PowerPoint; falls back to a text placeholder with the URL if the video ID can't be parsed |
+| **Local video** (`!video`) | Embedded as a playable video, with the file inlined into the `.pptx` (which grows its size); falls back to a text placeholder with the label and path if the file can't be read |
 | **Poll / QR codes** (`!poll`) | Exported as a text placeholder with the URL — not as a QR code |
 | **Custom web fonts** | Substituted with the closest PowerPoint-safe alternative (e.g. Georgia for a serif theme font) |
 

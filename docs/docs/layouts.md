@@ -267,8 +267,8 @@ e^{i\pi} + 1 = 0
 $$
 ```
 
-!!! note "PowerPoint export"
-    PDF export reproduces the rendered equation exactly, like any other slide. PowerPoint export is a current limitation: the raw LaTeX source (`e^{i\pi} + 1 = 0`) is exported as monospaced text rather than a rendered equation, since PptxGenJS has no LaTeX rendering of its own.
+!!! note "PDF and PowerPoint export"
+    Both reproduce the rendered equation as an image. PDF captures the live slide; PowerPoint renders each `$$…$$` block with KaTeX and embeds it as a picture. If that rasterisation fails for a given equation, Kova falls back to exporting the raw LaTeX source as monospaced text and shows a warning naming the slide.
 
 ---
 
@@ -292,9 +292,11 @@ A `!video` sharing the slide with other content is **not** forced into `media` �
 
 **Triggered by:** 4 or more logical elements.
 
-Elements are arranged in a responsive grid of cards. Good for feature comparisons or category overviews.
+Elements are arranged in a responsive grid of cards. Good for feature comparisons or category overviews. A bullet list counts as a **single** element, so to build a grid out of list items, force the layout with [`<!-- layout:grid -->`](#manual-override) — each item then becomes its own card:
 
 ```markdown
+<!-- layout:grid -->
+
 ## Supported platforms
 
 - **macOS** — Universal binary, Apple Silicon and Intel

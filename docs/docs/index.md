@@ -44,7 +44,7 @@ Kova parses the file in real time, detects the best layout for each slide automa
 | **Plain Markdown** | Standard Markdown + GitHub Flavored Markdown tables |
 | **Automatic layouts** | Content-aware layout rules applied without manual configuration — see [Layouts](layouts.md) |
 | **11 built-in themes** | Customisable per-document via the Inspector panel |
-| **Custom themes** | Drop a `.yaml` file into `~/.kova/themes/` |
+| **Custom themes** | Drop a `.yaml` file into Kova's config folder — see [Settings & Keybindings](settings-and-keybindings.md#themes) |
 | **Mermaid diagrams** | Rendered and auto-themed to match your presentation |
 | **Kova extensions** | Progress bars, local video, table of contents, YouTube embeds, poll/QR codes |
 | **Speaker notes** | Hidden from the audience, visible in presenter view |

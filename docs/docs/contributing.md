@@ -123,10 +123,10 @@ Bare tokens have no room for parameters, are easy to collide with legitimate Mar
 
 ### 3. Slide-level flags/overrides (HTML comments)
 
-`<!-- hidden -->` and `<!-- layout: NAME -->`, each alone on its own line within a slide. These:
+`<!-- hidden -->`, `<!-- layout: NAME -->`, `<!-- color: VALUE -->` / `<!-- _color: VALUE -->`, and `<!-- _class: invert -->` — normally each alone on its own line within a slide. The build-reveal marker `<!-- step -->` / `<!-- step: N -->` is the exception that may also trail inline after a list item or paragraph. These:
 
 - carry no visible content of their own (stripped before rendering),
-- toggle something about how the **slide itself** is treated,
+- toggle how the **slide itself** — or one element on it — is treated,
 - degrade gracefully — a plain Markdown viewer just sees a comment.
 
 The pattern is `<!-- key -->` for a flag, `<!-- key: value -->` for a flag with a value. **Prefer this form** for new slide-level steering information (e.g. a future per-slide transition, a slide ID for intra-deck links) rather than inventing new bare tokens or frontmatter-like blocks mid-document.

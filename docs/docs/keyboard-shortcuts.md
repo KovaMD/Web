@@ -11,6 +11,7 @@
 | `Ctrl+S` | Save (opens **Save As** if the file has never been saved) |
 | `Ctrl+Shift+S` | Save As |
 | `Ctrl+Shift+F` | Toggle focus mode |
+| `Ctrl+Shift+H` | Hide / show the current slide (excludes it from presenting and export) |
 | `F5` | Start presentation from the first slide |
 | `Shift+F5` | Start presentation from the current editor slide |
 
@@ -82,7 +83,7 @@ Click the **slide counter** in the HUD to open a number input and jump directly 
 
 ## Customising shortcuts
 
-The five file-level shortcuts can be remapped via `keybindings.yaml` in Kova's config folder (path varies by platform — see [Settings & Keybindings — File location](settings-and-keybindings.md#file-location)):
+The six file-level shortcuts can be remapped via `keybindings.yaml` in Kova's config folder (path varies by platform — see [Settings & Keybindings — File location](settings-and-keybindings.md#file-location)):
 
 ```yaml
 new_file:   ctrl+n
@@ -90,6 +91,7 @@ open_file:  ctrl+o
 save:       ctrl+s
 save_as:    ctrl+shift+s
 focus_mode: ctrl+shift+f
+hide_slide: ctrl+shift+h
 ```
 
 Editor shortcuts (`Ctrl+B`, `Ctrl+I`, heading toggles) and presentation navigation keys are **not currently remappable**.

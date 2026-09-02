@@ -58,7 +58,7 @@ Multiple consecutive `!progress` bars are grouped as a single logical unit for l
 Displays the video thumbnail on the slide. During presentation, clicking the thumbnail opens the video in the default browser.
 
 !!! note "Export behaviour"
-    YouTube embeds export to PowerPoint as a text placeholder with the URL — not as an embedded video. In PDF export they appear as a static placeholder. See [Exporting](exporting.md#limitations_1).
+    YouTube embeds export to PowerPoint as a linked online video that plays in desktop PowerPoint, falling back to a text placeholder with the URL if the video ID can't be parsed. In PDF export they appear as a static placeholder. See [Exporting](exporting.md#limitations_1).
 
 ---
 
@@ -73,7 +73,7 @@ Embeds a local video file, playable inline on the slide during presentation. Dra
 A video that's the **only** element on a slide gets the full-slide `media` layout (see [Layouts](layouts.md#media)). A video alongside other content instead flows through Kova's normal layout rules, the same as an image.
 
 !!! note "Export behaviour"
-    PDF and PowerPoint export can't play video: PDF export shows the video as a static frame, and PowerPoint export shows a text placeholder with the label and file path. **Standalone HTML export** is the exception — the video is embedded as a real, playable file. See [Exporting](exporting.md).
+    PDF export shows a local video as a static frame. PowerPoint export embeds it as a playable video, inlined into the `.pptx` (which grows its file size), falling back to a text placeholder with the label and file path if the file can't be read. **Standalone HTML export** also embeds it as a real, playable file. See [Exporting](exporting.md).
 
 ---
 
@@ -430,6 +430,9 @@ A blockquote without a `[!type]` marker renders as a normal quote, as described 
 ```
 
 Supported units: `%`, `px`, `em`, `rem`, `cqi`.
+
+!!! note "Link styling"
+    An explicit `[text](url)` link is shown in the active theme's accent colour. A bare URL or email address that Markdown auto-links (e.g. `https://example.com` on its own line) stays unstyled plain text.
 
 !!! note "Link targets"
     A link with no scheme (`[text](example.com)`) defaults to `https://example.com`. During a presentation, clicking any link opens it in your system's default browser instead of navigating away from the presentation itself.

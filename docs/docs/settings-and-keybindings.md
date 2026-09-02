@@ -10,11 +10,14 @@ Categories are listed in a rail down the left side; the window stays a constant 
 
 | Setting | Options | Default |
 |---------|---------|---------|
-| **UI theme** | Dark · Light | Dark |
+| **UI theme** | Auto · Dark · Light | Auto |
+| **Display language** | System default, or any bundled UI translation | System default |
 | **Interface scale** | 70% · 80% · 90% · 100% · 110% · 120% · 130% · 140% · 150% | 100% |
 | **Content width** | Fixed · Full | Fixed |
 
-Toggles between Dark and Light mode for the interface, editor, and panels. Changes take effect immediately — no restart required.
+**UI theme** sets Dark or Light mode for the interface, editor, and panels; **Auto** follows your operating system's appearance setting. Changes take effect immediately — no restart required.
+
+**Display language** switches the language of Kova's own interface text. **System default** follows your OS locale; otherwise pick any translation bundled with your build (English, Deutsch, and Slovenščina at the time of writing). This is separate from the spell-check **Dictionary language** below. See [Translating](translating.md) to contribute a language.
 
 **Interface scale** zooms the entire app chrome — titlebars, panels, menus, editor. Useful if the default size feels too large or too small on your display. Presentation slides are always rendered at pixel-exact resolution regardless of the scale setting.
 
@@ -42,11 +45,11 @@ When **Word wrap** is off, long lines extend past the panel edge and a horizonta
 | Setting | Options | Default |
 |---------|---------|---------|
 | **Check spelling while typing** | On · Off | Off |
-| **Dictionary language** | 22 languages | Auto-detected from system locale |
+| **Dictionary language** | 23 languages | Auto-detected from system locale |
 
 When **Check spelling while typing** is enabled, Kova underlines misspelled words in red as you type. The dictionary is loaded on first use.
 
-When enabled, a **Dictionary language** selector appears. Kova supports 22 languages including English (US/UK/AU), French, German, Spanish, Italian, Portuguese, Dutch, Polish, Russian, Ukrainian, and more.
+When enabled, a **Dictionary language** selector appears. Kova supports 23 languages including English (US/UK/AU), French, German, Spanish, Italian, Portuguese, Dutch, Polish, Russian, Ukrainian, and more.
 
 Kova also tracks **Learned words** — words you've right-clicked and added to your personal dictionary. These are listed in Settings and can be removed individually.
 
@@ -86,8 +89,11 @@ Controls for the **▶ Present** feature. See [Presenting](presenting.md) for a 
 | **Show next slide** | On · Off | On |
 | **Show timer** | On · Off | On |
 | **Notes font size** | Small · Medium · Large | Medium |
+| **Laser pointer colour** | Red · Orange · Green · Blue · White | Red |
 
 **Windowed presenter view** keeps the dual-screen presenter overlay in a normal, resizable window on your own display instead of fullscreen — see [Presenting — Windowed presenter view](presenting.md#windowed-presenter-view). **Always on top** appears once windowed view is on, and keeps that window above other apps.
+
+**Laser pointer colour** sets the colour of the pointer dot toggled with `L` during a presentation — see [Presenting — Laser pointer](presenting.md#laser-pointer).
 
 ---
 
@@ -133,7 +139,7 @@ Links to the GitHub repository, issue reporting, this wiki, [Open Collective](ht
 
 ## Keybindings
 
-Five file-level shortcuts can be remapped by editing a YAML file.
+Six file-level shortcuts can be remapped by editing a YAML file.
 
 ### File location
 
@@ -155,6 +161,7 @@ open_file:  ctrl+o
 save:       ctrl+s
 save_as:    ctrl+shift+s
 focus_mode: ctrl+shift+f
+hide_slide: ctrl+shift+h
 ```
 
 ### Modifiers and keys

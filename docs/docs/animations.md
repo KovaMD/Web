@@ -89,8 +89,8 @@ Each marker shows a small **`· N`** badge next to it in the editor, computed th
 
 **PowerPoint export** — steps become real, native click-triggered animations in the `.pptx` file (not a flattened, always-visible placeholder), built from hand-authored OOXML timing data.
 
-!!! warning "Initial release — verified in LibreOffice, not yet in Microsoft PowerPoint"
-    PPTX build animations have been manually verified in **LibreOffice Impress**. They have **not** yet been thoroughly tested in **Microsoft PowerPoint** itself. If a build animation doesn't play correctly there, please [open an issue](https://github.com/KovaMD/Kova/issues).
+!!! warning "Hand-authored timing data — report decks that misbehave"
+    The `.pptx` animation timing is written by hand from the OOXML spec rather than produced by a PowerPoint library. It has been tested in both **LibreOffice Impress** and **Microsoft PowerPoint**, with several bugs fixed in v0.7.9, but edge cases are still possible on complex slides. If a build animation doesn't play correctly, please [open an issue](https://github.com/KovaMD/Kova/issues) and attach the deck.
 
 A `<!-- step -->` on the [`quote`](layouts.md#quote) layout's hero quote, or on the video/poll embed in a full-slide [`media`](layouts.md#media) layout, is a known, bounded gap: it still gates the live preview, presentation, and HTML export normally, but exports to PowerPoint unanimated — visible immediately, the same as before this feature existed.
 

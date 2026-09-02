@@ -126,7 +126,7 @@ Some Marp features have no direct Kova equivalent. Kova logs each dropped item a
 | `![bg]` sizing keywords (`left:40%`, `w:300`, etc.) | Images are included but sizing is stripped |
 | Multiple `![bg]` on one slide | Only the first background image is used |
 | `theme:` | Marp themes have no Kova equivalent — choose a Kova theme after import |
-| `header:` | No header element in Kova |
+| `header:` | Marp's global header text isn't carried across — add one via the Inspector's **Document → Header** after import |
 | `style:` (embedded CSS) | Kova does not accept raw CSS |
 | `backgroundColor` / `color` / `backgroundImage` (global, in frontmatter) | Use a Kova theme or `theme_overrides` instead |
 | `_class:` values other than `lead` | Only `lead` maps to a layout |
