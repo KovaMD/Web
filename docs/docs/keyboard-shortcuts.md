@@ -32,7 +32,8 @@
 | `Ctrl+6` | Toggle H6 heading on the current line |
 | `Ctrl+C` | Copy |
 | `Ctrl+X` | Cut |
-| `Ctrl+V` | Paste — also pastes clipboard images directly into the editor |
+| `Ctrl+V` | Paste — also pastes clipboard images directly into the editor, and wraps a text selection into a link if the clipboard is a bare URL |
+| `Ctrl+Click` (`Cmd+Click` on macOS) | Open the URL under the cursor in your default browser |
 | `Ctrl+Z` | Undo |
 | `Ctrl+Shift+Z` | Redo |
 | `Ctrl+F` | Open the **Find** dialog |
@@ -53,6 +54,8 @@ You can also zoom with `Ctrl+scroll` (mouse wheel).
 **Bold / Italic with no selection:** if nothing is selected, `Ctrl+B` inserts `bold text` and `Ctrl+I` inserts `italic text`, with the placeholder pre-selected so you can type immediately.
 
 **Find dialog:** `Ctrl+F` opens a small dialog with two modes — **Text**, which searches the document (`Enter` for next match, `Shift+Enter` for previous), and **Slide #**, which jumps straight to a slide by number. `Esc` closes the dialog.
+
+**Clickable URLs:** the pointer cursor and underline on a URL in the editor only appear while `Ctrl`/`Cmd` is actually held, so a URL never looks clickable when a plain click would just place the cursor there as normal.
 
 ---
 

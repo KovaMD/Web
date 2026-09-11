@@ -47,10 +47,14 @@ Without writing a custom theme file, you can override specific aspects of any bu
 | **Code font** | Monospace font for code blocks |
 | **Logo** | Image displayed in the header or footer |
 | **Header text** | Custom text shown at the top of every slide — supports template variables and `\|` segmented layout |
+| **Header → Hide on title slide** | Suppresses the header on the title slide only, keeping it everywhere else |
 | **Footer text** | Custom text shown at the bottom — supports `{slide_number}`, `{total}`, `{title}`, `{author}`, `{date}` and `\|` segmented layout |
+| **Footer → Hide on title slide** | Suppresses the footer on the title slide only, keeping it everywhere else |
 | **Table of contents → Numbered list** | Toggles a [`!toc`](markdown-and-syntax.md#table-of-contents-toc) slide between a numbered list and a plain hyperlinked list. On by default |
 
 Kova saves overrides to the file automatically. Logo, Header, Footer, and Table of Contents controls live together under the Inspector's **Document** section.
+
+A small dot appears next to a control's label whenever its current value differs from the active theme's own default — i.e. it's been overridden via `theme_overrides` — as a quick visual sense of how much customising a document carries, which might be a sign it's worth promoting to a proper [custom theme](#custom-themes) instead.
 
 ### Heading and bold colour
 
@@ -74,7 +78,7 @@ Both colours fall back to the theme's plain `text` colour when unset, and both a
 
 ## Custom themes
 
-Create a `.yaml` file in your custom themes folder to define a fully custom theme — see [Settings & Keybindings — Themes](settings-and-keybindings.md#themes) for the exact path on each platform. Kova loads all valid `.yaml` files from that directory on startup. Any parse errors are reported in **Settings → Themes**.
+Create a `.yaml` file in your custom themes folder to define a fully custom theme — see [Settings & Keybindings — Themes](settings-and-keybindings.md#themes) for the exact path on each platform. Kova loads all valid `.yaml` files from that directory on startup, and watches the folder while running — adding, editing, or removing a `.yaml`/`.yml` file there (from any editor) reloads it automatically within moments, no restart needed. Any parse errors are reported in **Settings → Themes**.
 
 ### File format
 
@@ -83,6 +87,7 @@ Create a `.yaml` file in your custom themes folder to define a fully custom them
 
 name: My Brand          # Display name shown in the Inspector
 id: my-brand            # The ID Kova uses internally to reference this theme
+extends: light          # Optional — base theme for any field this file doesn't set. A built-in ID, or another installed custom theme's `id`. Defaults to `light`. See "Inheriting from other themes" below.
 
 colors:
   primary:    "#0057B8"   # Background of title and section slides
@@ -94,6 +99,16 @@ colors:
   code_bg:    "#F3F4F6"   # Code block background
   heading:    "#0057B8"   # Content-slide heading colour (optional, falls back to `text`)
   bold:       "#B8003F"   # Inline **bold**/<strong> colour (optional, falls back to `text`)
+  chart_colors:            # Optional palette override for pie/xychart/timeline diagrams
+    - "#0057B8"
+    - "#00A676"
+    - "#F2A900"
+  diagram_colors:          # Optional overrides for Mermaid flowchart/sequence colours — see "Diagram & chart colours" below
+    primary: "#0057B8"
+    border:  "#003F8A"
+    line:    "#5C6773"
+    cluster: "#E8F0FE"
+    text:    "#1A1A1A"
 
 fonts:
   title: "Georgia, serif"       # H1 and H2
@@ -105,24 +120,26 @@ layout:
   heading_align: left     # "left" | "center" — heading alignment on content slides
   decoration:    none     # "none" | "dots" | "grid" | "diagonal" | "bar-left"
 
-logo: /absolute/path/to/logo.png   # Must be an absolute path
-logo_position: bottom-left         # "top-left" | "top-right" | "bottom-left" | "bottom-right"
+logo: logo.png                      # Absolute path, https:// URL, data:image/... URI, or — as here — a path relative to this theme file's own directory
+logo_position: bottom-left          # "top-left" | "top-right" | "bottom-left" | "bottom-right"
 
 footer:
   show:              false
   text:              "{title} | {date} | {slide_number}/{total}"
   show_slide_number: true
+  hide_on_title:     false   # true suppresses the footer on the title slide only, keeping it everywhere else
 
 header:
   show: false
   text: ""
+  hide_on_title: false   # true suppresses the header on the title slide only, keeping it everywhere else
 
 toc:
   numbered: true   # false renders a plain hyperlinked list instead of a numbered one
 ```
 
 !!! note "Logo paths"
-    The `logo` field requires an **absolute path**. Relative paths are not reliably resolved. On Windows, use forward slashes or a single backslash — do not quote the path or double-escape backslashes.
+    `logo` accepts an absolute path, an `https://` URL, or a `data:image/...` URI — or, as of the theme file's own directory being known, a path **relative to the theme file itself** (e.g. `logo.png` sitting next to `theme.yaml`), so a self-contained theme folder keeps working if it's moved or renamed. A relative path only resolves for a theme loaded from a file; it's dropped for a theme with no file backing it. On Windows, use forward slashes or a single backslash — do not quote the path or double-escape backslashes.
 
 ### Color reference
 
@@ -137,6 +154,27 @@ toc:
 | `code_bg` | Code block background |
 | `heading` | Content-slide heading colour; falls back to `text` when unset. See [Heading and bold colour](#heading-and-bold-colour) |
 | `bold` | Inline `**bold**`/`<strong>` colour; falls back to `text` when unset |
+
+### Diagram & chart colours
+
+Mermaid diagrams otherwise derive their colours from `primary`/`accent`/`code_bg`/`text` above. Two optional keys under `colors` override that for specific diagram types instead:
+
+| Key | Type | Controls |
+|-----|------|----------|
+| `chart_colors` | list of hex colours | Palette used for pie, xychart, and timeline diagrams |
+| `diagram_colors` | map, see below | Flowchart and sequence-diagram colours |
+
+`diagram_colors` fields, all optional and independent:
+
+| Field | Controls |
+|-------|----------|
+| `primary` | Node/actor fill |
+| `border` | Node/actor border; falls back to `primary` when unset |
+| `line` | Connector lines |
+| `cluster` | Subgraph/cluster background |
+| `text` | Label text — doesn't affect pie-slice text, which stays tied to `title_text` for contrast on coloured slices |
+
+Both apply to the live preview and to PDF/PowerPoint export alike. There's no Inspector UI for either — set them via `theme_overrides` in a deck's frontmatter or a custom theme's `colors` block, the same as [heading/bold colour](#heading-and-bold-colour) above.
 
 ### Template variables
 
@@ -173,9 +211,9 @@ footer:
 
 Text without a `|` renders left-aligned as before, so existing decks are unaffected. Segmented layout works in both the Inspector text fields and custom theme YAML. It is also faithfully reproduced in PowerPoint export.
 
-### Inheriting from built-in themes
+### Inheriting from other themes
 
-Omitted fields inherit from the **Light** theme defaults. You only need to specify what you want to change:
+Omitted fields inherit from a base theme's defaults — the **Light** theme, unless you set `extends:`. You only need to specify what you want to change:
 
 ```yaml
 name: Dark Blue
@@ -187,6 +225,19 @@ colors:
   primary:    "#58A6FF"
 ```
 
+Set `extends: <id>` to inherit from a different theme instead of Light — any built-in ID (`dark`, `slate`, `pitch`, …) or another installed custom theme's own `id`:
+
+```yaml
+name: Dark Blue Compact
+id: dark-blue-compact
+extends: dark-blue   # start from dark-blue above, only changing layout here
+
+layout:
+  heading_align: left
+```
+
+`extends` chains resolve transitively, so a custom theme can build on another custom theme that itself extends a third. If `extends` names a theme that doesn't exist, failed to parse, or forms a cycle (including extending itself), that entry falls back to the Light theme instead, with a warning shown in **Settings → Themes** — never the whole batch of custom themes failing together.
+
 ### Applying changes
 
-Edit the YAML file and **restart Kova**. Changes take effect on startup. Any YAML syntax errors are shown in **Settings → Themes** with the file path and line number.
+Edit the YAML file — no restart needed. Kova watches the custom themes folder while it's running and reloads a `.yaml`/`.yml` file within moments of it being added, changed, or removed, whether the edit comes from another editor or Kova's own theme tooling; any open document using that theme updates live. YAML syntax errors are shown in **Settings → Themes** with the file path and error detail.

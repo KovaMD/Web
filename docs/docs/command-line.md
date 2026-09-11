@@ -29,7 +29,7 @@ kova [FILE...]                            open file(s) in the editor
 kova --present <FILE.md>                  present FILE directly
 kova --check <FILE.md>                    validate FILE and exit
 kova --import <marp|pptx|url> <IN> <OUT>  convert IN to Kova Markdown
-kova --export <pptx|pdf> <IN> <OUT>       export IN via Kova's engine
+kova --export <pptx|pdf|html> <IN> <OUT>  export IN via Kova's engine
 ```
 
 `--present` and `--check` require a `.md`/`.markdown` file, matching the requirement `--import`/`--export` already have — Kova rejects anything else rather than silently trying to read it as Markdown.
@@ -124,13 +124,16 @@ kova --import url https://example.com/deck.md talk.md
 
 kova --export pptx talk.md talk.pptx
 kova --export pdf talk.md talk.pdf
+kova --export html talk.md talk.html
 ```
 
 | | Import formats | Export formats |
 |---|---|---|
-| Values | `marp`, `pptx`, `url` | `pptx`, `pdf` |
+| Values | `marp`, `pptx`, `url` | `pptx`, `pdf`, `html` |
 | Input | `.md`/`.markdown` (marp), `.pptx` (pptx), any URL (url) | `.md`/`.markdown` |
-| Output | Always `.md` | `.pptx` or `.pdf` matching the format |
+| Output | Always `.md` | `.pptx`, `.pdf`, or `.html` matching the format |
+
+`--export html` writes the same self-contained, interactive one-slide-at-a-time deck as the GUI's **Export → HTML** (see [Exporting — Standalone HTML export](exporting.md#standalone-html-export)) — a single `.html` file with no separate assets to keep alongside it. It takes no extra options of its own; `--notes`, `--per-page`, and `--paper` remain PDF-only.
 
 See [Importing](importing.md) and [Exporting](exporting.md) for what each conversion actually does with your content — the CLI path produces identical output to the GUI, including the same dropped-element reporting for Marp imports and the same warnings for export.
 

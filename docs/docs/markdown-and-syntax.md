@@ -47,6 +47,28 @@ Numbers represent percentages from 0 to 100; decimals are allowed (`!progress[Al
 
 Multiple consecutive `!progress` bars are grouped as a single logical unit for layout detection — they won't accidentally trigger the `grid` layout.
 
+!!! tip "Progress bars inside table cells"
+    A `!progress[label](value)` directive also works inside a Markdown table cell, rendered as a compact bar meter in place of the raw text:
+
+    ```markdown
+    | Feature | Status |
+    |---------|--------|
+    | Preview | !progress[Task Complete](75) |
+    ```
+
+    It also works with a formula value inside a [computed `!sheet` table](#computed-tables-sheet), including in a footer row:
+
+    ```markdown
+    !sheet
+    | item   | qty | unit  | total                          |
+    |--------|----:|------:|--------------------------------|
+    | motor  |   3 | 12.50 | =qty * unit                    |
+    | ESC    |   2 |  8.00 | =qty * unit                    |
+    | !Total |     |       | !progress[Done](=sum(total))   |
+    ```
+
+    PowerPoint export can't place a real bar shape inside a table cell, so it renders a text meter instead — label, a 10-block filled/empty bar, and the percentage (e.g. `Task Complete  ████████░░  75%`) — rather than running the label and number together as plain text.
+
 ---
 
 ### YouTube embed (`!youtube`)

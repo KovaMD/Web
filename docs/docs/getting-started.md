@@ -128,6 +128,11 @@ A dashed overlay appears over the editor while you drag to confirm the drop targ
 !!! note
     If no document is currently saved, image paths fall back to the absolute file path. Save your file first to get relative paths.
 
+**Turn selected text into a link:** select some text and paste a URL over it — Kova wraps the selection into a Markdown link (`[selected text](url)`) instead of replacing it, matching the paste-to-linkify behaviour of GitHub's editor. This only triggers when the clipboard contains nothing but a URL; pasting a URL alongside other words, or over no selection, pastes as plain text as usual.
+
+!!! tip "Open a link from the editor"
+    Hold `Ctrl` (`Cmd` on macOS) and click a URL in the editor to open it in your default browser without leaving the cursor there. See [Keyboard Shortcuts](keyboard-shortcuts.md#editor).
+
 ---
 
 ## Next steps
