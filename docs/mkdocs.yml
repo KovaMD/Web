@@ -37,6 +37,7 @@ theme:
 
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/icons.css
 
 markdown_extensions:
   - admonition
@@ -70,6 +71,7 @@ nav:
     - Markdown & Syntax: markdown-and-syntax.md
     - Layouts: layouts.md
     - Build Animations: animations.md
+    - Icons: icons.md
     - Themes: themes.md
   - Working with Kova:
     - Presenting: presenting.md

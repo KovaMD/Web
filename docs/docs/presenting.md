@@ -101,6 +101,8 @@ Note: the churn drop is worth emphasising — it directly ties to the onboarding
 - **Single-screen mode:** press ++n++ to toggle the notes panel below the slide.
 - **Dual-screen mode:** notes appear permanently in the presenter overlay bottom-right.
 
+Links in your notes are clickable in both views. A bare `http(s)` URL, a `mailto:` address, or a Markdown `[label](url)` link opens in your default browser or mail app, and the click doesn't advance the slide. Any other kind of link (`file:` or `ftp:`, say) stays plain text.
+
 ---
 
 ## Laser pointer

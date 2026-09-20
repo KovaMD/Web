@@ -38,7 +38,7 @@ Only one **action** is allowed per invocation. Modifiers combine with an action 
 
 | Modifier | Effect |
 |---|---|
-| `--theme <NAME\|PATH>` | Override the deck's theme for this run. A bare name (e.g. `firefly`) resolves against built-in and installed community themes; anything that looks like a path (contains `/` or `\`, starts with `~`, or ends in `.yaml`/`.yml`) is read as a theme file instead. Valid with `--present` and `--export`. |
+| `--theme <NAME\|PATH>` | Override the deck's theme for this run. A bare name (e.g. `firefly`) resolves against built-in and installed community themes; anything that looks like a path (contains `/` or `\`, starts with `~`, or ends in `.yaml`/`.yml`) is read as a theme file instead, and that file's own [`extends:`](themes.md#inheriting-from-other-themes) can name any built-in or installed theme. Valid with `--present` and `--export`. |
 | `--check` | Validate the deck before running the action. See [Validating with `--check`](#validating-with-check) below. |
 | `--force` | With `--import`, overwrite an existing output file instead of refusing. Valid with `--import` only. |
 | `--notes` | Include a speaker-notes handout (1-up only). Valid with `--export pdf` only. |

@@ -47,6 +47,7 @@ Kova parses the file in real time, detects the best layout for each slide automa
 | **Custom themes** | Drop a `.yaml` file into Kova's config folder — see [Settings & Keybindings](settings-and-keybindings.md#themes) |
 | **Mermaid diagrams** | Rendered and auto-themed to match your presentation |
 | **Kova extensions** | Progress bars, local video, table of contents, YouTube embeds, poll/QR codes |
+| **Icons** | 180 built-in icons, dropped into text with `:name:` shortcodes — see [Icons](icons.md) |
 | **Speaker notes** | Hidden from the audience, visible in presenter view |
 | **Presenter view** | Dual-screen: next slide preview, notes, elapsed timer |
 | **Export to PDF, PowerPoint, or HTML** | Full `.pptx`/PDF/standalone-HTML output — no internet required |

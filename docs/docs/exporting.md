@@ -86,7 +86,7 @@ Every slide layout is reproduced in the `.pptx` output:
 | `code` | Dark background with monospaced code block |
 | `media` | Title with the embedded video (YouTube or local) centred; a poll becomes a text placeholder (see [Limitations](#limitations_1)) |
 
-**Theme colours and fonts** are applied to all slides. Progress bars are exported as visual bars matching the slide theme. Code blocks are exported with syntax highlighting using the `github-dark` palette. Mermaid diagrams are rendered to PNG and embedded in the `.pptx`, preserving their original aspect ratio (a portrait flowchart stays portrait rather than stretching to fill the slide). The theme logo (if set) is stamped on every slide at the correct corner position with the theme's opacity setting. The `bar-left` decoration is replicated as an accent-coloured rectangle behind slide content.
+**Theme colours and fonts** are applied to all slides. Progress bars are exported as visual bars matching the slide theme. Code blocks are exported with syntax highlighting using the `github-dark` palette. Mermaid diagrams are rendered to PNG and embedded in the `.pptx`, preserving their original aspect ratio (a portrait flowchart stays portrait rather than stretching to fill the slide). The theme logo (if set) is stamped on every slide at the correct corner position with the theme's opacity setting, except on a title slide where its header or footer bar is hidden with [`hide_on_title`](themes.md#custom-themes). The `bar-left` decoration is replicated as an accent-coloured rectangle behind slide content.
 
 **Inline formatting** (bold, italic, inline code, and links) inside list items is preserved in the `.pptx` output.
 
@@ -115,6 +115,7 @@ The output respects the aspect ratio set in the Inspector. Use the **Aspect Rati
 | **Local video** (`!video`) | Embedded as a playable video, with the file inlined into the `.pptx` (which grows its size); falls back to a text placeholder with the label and path if the file can't be read |
 | **Poll / QR codes** (`!poll`) | Exported as a text placeholder with the URL — not as a QR code |
 | **Custom web fonts** | Substituted with the closest PowerPoint-safe alternative (e.g. Georgia for a serif theme font) |
+| **Icons** (`:name:`) | Written as text in the `Kova Icons` font, which isn't embedded in the `.pptx` — PowerPoint and Keynote only show them on machines where that font is installed. See [Icons](icons.md#exporting) |
 
 ### After exporting
 

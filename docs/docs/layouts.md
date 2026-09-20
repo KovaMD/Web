@@ -37,6 +37,9 @@ Kova analyses the elements on a slide and applies the **first matching rule** in
 !!! note "Rescaled to fit"
     If a slide's content still exceeds the available space after layout selection, Kova scales it down to fit. A **"rescaled to fit"** badge appears in the bottom-right corner of the preview to let you know. Consider splitting the slide or reducing content if you see this badge.
 
+!!! tip "See which layout Kova chose"
+    The **status bar** shows the current slide's layout next to the slide counter, for example `Layout: split`. A layout you've pinned with a [manual override](#manual-override) is marked `(override)`. Hover over it to see whether the layout was auto-detected or set by a comment.
+
 ---
 
 ## Layout reference
@@ -238,7 +241,7 @@ We're making solid progress across all workstreams.
 
 **Triggered by:** all body elements are code blocks or Mermaid diagrams.
 
-Dark, code-focused background with a full-width monospace display. Optimised for code reviews and technical walkthroughs.
+Dark, code-focused background with a full-width monospace display. Optimised for code reviews and technical walkthroughs. A long code block or diagram scales down to fit the slide, like on every other layout, rather than being cut off.
 
 ````markdown
 ## Parsing a slide

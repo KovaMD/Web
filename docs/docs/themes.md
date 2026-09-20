@@ -114,6 +114,7 @@ fonts:
   title: "Georgia, serif"       # H1 and H2
   body:  "Inter, sans-serif"    # All other text
   code:  "JetBrains Mono, monospace"
+  # icon: "Kova Icons"            # Optional — font for :name: icon shortcodes. Leave unset to keep Kova's bundled icon font
 
 layout:
   title_align:   center   # "center" | "left" | "bottom-left" — text alignment on title slide
@@ -140,6 +141,12 @@ toc:
 
 !!! note "Logo paths"
     `logo` accepts an absolute path, an `https://` URL, or a `data:image/...` URI — or, as of the theme file's own directory being known, a path **relative to the theme file itself** (e.g. `logo.png` sitting next to `theme.yaml`), so a self-contained theme folder keeps working if it's moved or renamed. A relative path only resolves for a theme loaded from a file; it's dropped for a theme with no file backing it. On Windows, use forward slashes or a single backslash — do not quote the path or double-escape backslashes.
+
+!!! note "Logo and `hide_on_title`"
+    A logo sits in the header bar when `logo_position` is a top corner and `header.show` is on, and in the footer bar for a bottom corner and `footer.show`. When `hide_on_title` hides that bar on the title slide, the logo goes with it — in PowerPoint export too — rather than being left floating on its own. A logo whose corner has no matching bar turned on always shows.
+
+!!! note "Icon font"
+    The `icon` font draws [`:name:` icon shortcodes](icons.md). It defaults to Kova's bundled `Kova Icons`, so leave it out unless you want a different Nerd-Fonts-patched font — see [Icons in themes](icons.md#icons-in-themes).
 
 ### Color reference
 

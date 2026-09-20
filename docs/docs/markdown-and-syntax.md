@@ -160,6 +160,25 @@ Multiple `!ref` lines on the same slide are listed in the order they appear in t
 
 ---
 
+### Icons (`:name:`)
+
+Drop an icon into your text with an inline `:name:` shortcode. Kova bundles 180 icons, so there's nothing to install:
+
+```markdown
+## Launch checklist
+
+- :check-circle: Tests passing
+- :rocket: Ship on Friday
+```
+
+Icons take the size and colour of the surrounding text, and work in paragraphs, list items, table cells, and bold or italic text. A slide's title (its first heading) and code are never converted, and a name Kova doesn't recognise is left as typed.
+
+**PowerPoint export** — icons are written as text in the `Kova Icons` font, which isn't embedded in the `.pptx`, so PowerPoint and Keynote only show them on machines where that font is installed.
+
+See [Icons](icons.md) for every available name, how to swap the icon font in a theme, and how icons export.
+
+---
+
 ### Slide background images (`![bg]`)
 
 Place a `![bg](...)` line anywhere on a slide to set a full-slide background image, Marp-style:
@@ -534,7 +553,7 @@ Add speaker notes below `???` on any slide — never shown to the audience.
 Pause here and ask the audience what features they most want to see.
 ```
 
-See [Presenting — Speaker Notes](presenting.md#speaker-notes) for how notes appear during a presentation.
+See [Presenting — Speaker Notes](presenting.md#speaker-notes) for how notes appear during a presentation, including clickable links.
 
 ---
 

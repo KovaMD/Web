@@ -136,11 +136,11 @@ Kova is a native desktop application for macOS, Windows, and Linux. Download the
     3. Run it:
 
         ```bash
-        ./Kova_*.AppImage --no-sandbox
+        ./Kova_*.AppImage
         ```
 
-    !!! warning "No automatic updates"
-        The AppImage release does **not** currently support automatic in-app updates. Check the [Releases page](https://github.com/KovaMD/Kova/releases) manually for new versions. This is a known limitation tracked in [issue #3](https://github.com/KovaMD/Kova/issues/3).
+    !!! success "Automatic updates"
+        The AppImage updates itself in-app. Turn on **Check for updates on launch** under **Settings → Updates** (or click **Check now**), then choose **Update Now** and **Restart now** when a new release is found. Updates are signature-verified before they are installed.
 
     !!! note "AppImageLauncher"
         For desktop integration (application menu entry, file associations), install [AppImageLauncher](https://github.com/TheAssassin/AppImageLauncher) and double-click the AppImage.
@@ -157,7 +157,9 @@ See the [Contributing](contributing.md) page for full instructions on cloning th
 
 ## Verifying your version
 
-After installing, open Kova and check **Settings → Updates** to see the installed version and optionally enable automatic update checks.
+After installing, open Kova: the installed version is shown at the right-hand end of the status bar, and in **Settings → About**.
+
+On macOS, Windows, and the Linux AppImage, **Settings → Updates** lets you check for a new release and optionally turn on update checks at launch. Other Linux installs (the APT and RPM repositories, AUR, Flatpak, Nix) are updated through their package manager instead, and **Settings → Updates** says so rather than offering a check.
 
 ---
 
