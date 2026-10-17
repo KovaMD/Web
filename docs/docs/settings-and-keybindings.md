@@ -63,10 +63,13 @@ Kova also tracks **Learned words** — words you've right-clicked and added to y
 | **Confirm before closing** | On · Off | On |
 | **On startup** | Blank document · Reopen last file | Blank document |
 | **PDF page size** | A4 · Letter · Match slide size | A4 |
+| **Diagram renderer** | Mermaid · Pele (experimental) | Mermaid |
 
 When **Autosave** is enabled, Kova saves the file automatically after the first manual save, at the chosen interval. Autosave does not trigger on an unsaved new document.
 
 **PDF page size** — paper size used for [PDF export](exporting.md#export-options). Pages are always laid out landscape. **Match slide size** makes each page exactly the slide's own dimensions instead of a fixed paper size — see [Exporting — PDF export](exporting.md#export-options).
+
+**Diagram renderer** — the engine used to draw ` ```mermaid ` blocks. **Pele (experimental)** renders faster, but its layout and styling differ from Mermaid's. Diagram types Pele doesn't support fall back to Mermaid automatically, and theme colours carry through to PDF and PowerPoint exports with either engine. This option is newer than v0.8.1, so it appears in the next release.
 
 **Confirm before closing** — when enabled, Kova shows a confirmation dialog if you try to close or quit with unsaved changes. This applies to the window × button, Alt+F4, taskbar close, and Cmd+Q.
 
@@ -84,14 +87,22 @@ Controls for the **▶ Present** feature. See [Presenting](presenting.md) for a 
 | Setting | Options | Default |
 |---------|---------|---------|
 | **Display mode** | Auto · Single · Dual · Mirror | Auto |
-| **Windowed presenter view** | On · Off | Off |
-| **Always on top** | On · Off | Off |
-| **Show next slide** | On · Off | On |
-| **Show timer** | On · Off | On |
 | **Notes font size** | Small · Medium · Large | Medium |
 | **Laser pointer colour** | Red · Orange · Green · Blue · White | Red |
+| **Windowed presenter view** | On · Off | Off |
+| **Always on top** | On · Off | Off |
+| **Show next slide preview** | On · Off | On |
+| **Show elapsed timer** | On · Off | On |
+| **Countdown target** | Off · 5 · 10 · 15 · 20 · 30 · 45 · 60 minutes | Off |
+| **Show progress bar** | On · Off | On |
+
+**Notes font size**, the windowed-view options, **Show next slide preview**, **Show elapsed timer** and **Countdown target** apply to the dual-screen presenter view, so they only appear when **Display mode** is **Auto** or **Dual**.
 
 **Windowed presenter view** keeps the dual-screen presenter overlay in a normal, resizable window on your own display instead of fullscreen — see [Presenting — Windowed presenter view](presenting.md#windowed-presenter-view). **Always on top** appears once windowed view is on, and keeps that window above other apps.
+
+**Countdown target** makes the presenter timer count down from your talk length instead of counting up, and turns it red with a `-mm:ss` overrun once you go past it. The target is reused every time you present — see [Presenting — Countdown timer](presenting.md#countdown-timer).
+
+**Show progress bar** draws a thin bar along the bottom edge of the slides showing how far through the deck you are — see [Presenting — Progress bar](presenting.md#progress-bar).
 
 **Laser pointer colour** sets the colour of the pointer dot toggled with `L` during a presentation — see [Presenting — Laser pointer](presenting.md#laser-pointer).
 
@@ -124,16 +135,19 @@ See [Themes — Custom themes](themes.md#custom-themes) for the theme file forma
 | Setting | Options | Default |
 |---------|---------|---------|
 | **Check for updates on startup** | On · Off | Off |
+| **Show what's new after updates** | On · Off | On |
 
 When enabled, Kova checks the [GitHub Releases page](https://github.com/KovaMD/Kova/releases) for new versions and shows an orange badge on the gear icon when one is available. No data is sent to Kova's servers — only a public GitHub API call is made.
 
 Use the **Check now** button for an on-demand check without enabling automatic checks.
 
+**Show what's new after updates** — the first time Kova launches after an update, however it was installed, a dismissable notice links to that version's release notes. Turn this off to skip it.
+
 ---
 
 ## About
 
-Links to the GitHub repository, issue reporting, this wiki, [Open Collective](https://opencollective.com) support, and the community Matrix chat. A **Licenses** drill-down lists the open-source packages Kova is built on.
+Links to the GitHub repository, issue reporting, this wiki, the [Kova VS Code extension](https://marketplace.visualstudio.com/items?itemName=Kovamd.kova), [Open Collective](https://opencollective.com) support, and the community Matrix chat. A **Licenses** drill-down lists the open-source packages Kova is built on.
 
 ---
 

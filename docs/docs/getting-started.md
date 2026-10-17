@@ -10,7 +10,7 @@ When you open Kova you'll see four panels:
 
 | Panel | Location | Purpose |
 |-------|----------|---------|
-| **Slides** | Left | Thumbnail strip — click any slide to jump to it; drag thumbnails to reorder; right-click for more options |
+| **Slides** | Left | Thumbnail strip — click any slide to jump to it; drag thumbnails to reorder; Shift- or Ctrl-click to select several; right-click for more options |
 | **Editor** | Centre-left | Write your Markdown here |
 | **Preview** | Centre-right | Live rendering of the current slide |
 | **Inspector** | Right | Theme, colours, fonts, logo, and text formatting tools |
@@ -18,6 +18,8 @@ When you open Kova you'll see four panels:
 The **Inspector** can be toggled open or closed with the **ⓘ** button in the titlebar, independent of focus mode. Inside the Inspector, the **Format** accordion provides one-click buttons for headings (H1–H6), inline styles (bold, italic, underline, strikethrough, inline code), and block elements (lists, blockquote, divider).
 
 Right-click a slide thumbnail for **Move up**, **Move down**, **Duplicate slide**, **Hide slide** (excludes it from presenting and export without deleting it), **Set slide background…** / **Clear background** (see [Markdown & Syntax — Slide background images](markdown-and-syntax.md#slide-background-images-bg)), and **Delete slide**.
+
+The thumbnail strip also works from the keyboard, and can select and move several slides at once — see [Keyboard Shortcuts — Slide thumbnails](keyboard-shortcuts.md#slide-thumbnails).
 
 The **status bar** at the bottom shows the current slide number, the slide's [layout](layouts.md#automatic-layout-detection), estimated presentation time, and total word count.
 
@@ -106,7 +108,9 @@ See [Presenting](presenting.md) for the full reference.
 | `Ctrl+Shift+S` | Save As — choose a new location |
 
 !!! tip "External editor support"
-    Kova watches the file for external changes and reloads automatically. You can edit your `.md` file in VS Code, Neovim, or any other editor and see updates live in Kova.
+    Kova watches the file for external changes and reloads automatically, showing a small dismissable banner when it does. You can edit your `.md` file in VS Code, Neovim, or any other editor and see updates live in Kova. If you also have unsaved changes in Kova, it asks you to reload the latest version or save your edits under a new name.
+
+    For VS Code there is also an official [Kova extension](https://marketplace.visualstudio.com/items?itemName=Kovamd.kova) to edit and preview Kova slides without leaving the editor.
 
 ---
 

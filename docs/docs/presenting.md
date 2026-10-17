@@ -31,7 +31,7 @@ When Kova detects an external display (with **Auto** or **Dual** mode enabled), 
     - Current slide (large, left side)
     - Next slide preview (top-right)
     - Speaker notes (bottom-right)
-    - Elapsed timer (bottom bar)
+    - Timer — elapsed, or counting down to a target (bottom bar)
     - Slide counter
 
 The **next-slide preview panel** can be resized by dragging the vertical handle between the current slide and the right column. Drag it left to widen the preview for more detail, or right to give the current slide more space. The width is clamped between 180 px and 600 px and persisted across sessions.
@@ -48,6 +48,20 @@ Keyboard navigation in the presenter overlay controls both windows simultaneousl
 ### Windowed presenter view
 
 By default the presenter overlay is fullscreen on your own display. Turn on **Windowed presenter view** in **Settings → Presentation** to keep it in a normal, resizable window instead — useful for placing it alongside a video call or another app. A dependent **Always on top** toggle appears once windowed view is on, keeping the presenter window above other apps so nothing covers it. The audience window is unaffected either way — it always stays fullscreen.
+
+### Countdown timer
+
+The presenter timer counts up from zero by default. To pace yourself against a time budget, set **Countdown target** in **Settings → Presentation** (5, 10, 15, 20, 30, 45 or 60 minutes). The timer then counts down from that length, and once you run over it turns red and shows how far past you are as `-mm:ss`. The target is kept and reused every time you present, rather than asked for each talk.
+
+The countdown also applies to the single-window view when it acts as your own view with no second monitor.
+
+---
+
+## Progress bar
+
+A thin bar along the bottom edge of the slides shows the audience how far through the deck you are. Unlike the slide counter, it never fades out when the mouse is idle. It uses the deck's own theme accent colour and appears in every display mode, including the audience window in dual-screen mode.
+
+It's on by default. Turn off **Show progress bar** in **Settings → Presentation** to hide it.
 
 ---
 
@@ -66,8 +80,9 @@ Go to **Settings → Presentation** to configure how Kova uses connected display
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| **Show next slide** | On | Displays the upcoming slide in the top-right pane |
-| **Show timer** | On | Shows elapsed time at the bottom of the presenter overlay |
+| **Show next slide preview** | On | Displays the upcoming slide in the top-right pane |
+| **Show elapsed timer** | On | Shows elapsed time at the bottom of the presenter overlay |
+| **Countdown target** | Off | Counts down from a talk length instead of up — see [Countdown timer](#countdown-timer) |
 | **Notes font size** | Medium | Speaker notes text size: Small / Medium / Large |
 | **Windowed presenter view** | Off | Keeps the presenter overlay in a resizable window instead of fullscreen |
 | **Always on top** | Off | Keeps the windowed presenter view above other apps — shown only when windowed view is on |

@@ -33,10 +33,12 @@
 | `Ctrl+C` | Copy |
 | `Ctrl+X` | Cut |
 | `Ctrl+V` | Paste — also pastes clipboard images directly into the editor, and wraps a text selection into a link if the clipboard is a bare URL |
-| `Ctrl+Click` (`Cmd+Click` on macOS) | Open the URL under the cursor in your default browser |
+| `Ctrl+Click` (`Cmd+Click` on macOS) | Open the URL under the cursor in your default browser — works on a bare URL and on a Markdown link's label text |
 | `Ctrl+Z` | Undo |
 | `Ctrl+Shift+Z` | Redo |
-| `Ctrl+F` | Open the **Find** dialog |
+| `Ctrl+F` | Open the **Find** dialog (with **Replace**) |
+| `Tab` / `Ctrl+]` | Indent the current line or selection |
+| `Shift+Tab` / `Ctrl+[` | Outdent the current line or selection |
 | `Ctrl++` | Zoom editor in (increase font size) |
 | `Ctrl+-` | Zoom editor out (decrease font size) |
 | `Ctrl+0` | Reset editor zoom to default |
@@ -55,7 +57,29 @@ You can also zoom with `Ctrl+scroll` (mouse wheel).
 
 **Find dialog:** `Ctrl+F` opens a small dialog with two modes — **Text**, which searches the document (`Enter` for next match, `Shift+Enter` for previous), and **Slide #**, which jumps straight to a slide by number. `Esc` closes the dialog.
 
+**Replace:** in **Text** mode, tick **Replace** to show a second field. **Replace** (or `Enter` in that field) replaces the current match; **Replace All** replaces every match in the document and shows how many were changed.
+
+**Type to wrap:** with text selected, typing `*`, `_` or `` ` `` wraps the selection in that marker instead of replacing it. The text stays selected, so typing `*` twice gives `**bold**`.
+
 **Clickable URLs:** the pointer cursor and underline on a URL in the editor only appear while `Ctrl`/`Cmd` is actually held, so a URL never looks clickable when a plain click would just place the cursor there as normal.
+
+---
+
+## Slide thumbnails
+
+Click a thumbnail to give the slide panel keyboard focus, then:
+
+| Shortcut | Action |
+|----------|--------|
+| `↑` / `↓` or `PageUp` / `PageDown` | Previous / next slide |
+| `Home` / `End` | First / last slide |
+| `Shift+↑` / `Shift+↓` | Extend the selection |
+| `Shift+Click` | Select a range of slides |
+| `Ctrl+Click` (`Cmd+Click` on macOS) | Add or remove one slide from the selection |
+| `Delete` / `Backspace` | Delete the selected slides |
+| `Ctrl+D` | Duplicate the active slide |
+
+Drag any selected thumbnail to move the whole selection as one block.
 
 ---
 
