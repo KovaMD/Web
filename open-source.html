@@ -16,8 +16,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="128x128" href="assets/favicon-128.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css?v=20260522">
-  <link rel="stylesheet" href="css/open-source.css?v=20260522">
+  <link rel="stylesheet" href="css/style.css?v=20260930">
+  <link rel="stylesheet" href="css/open-source.css?v=20260930">
   <script>
     (function() {
       var t = localStorage.getItem('kova-theme');
@@ -59,7 +59,7 @@
       </button>
     </li>
     <li>
-      <a href="https://github.com/kovamd/kova/releases" class="btn btn-primary" style="padding:7px 16px;font-size:13px;">
+      <a href="https://github.com/kovamd/kova/releases" class="btn btn-primary btn-sm">
         Download
       </a>
     </li>
@@ -69,7 +69,6 @@
 <!-- ═══ PAGE HERO ══════════════════════════════════════════ -->
 <section class="os-page-hero">
   <div class="container">
-    <p class="s-label">Open source</p>
     <h1 class="os-hero-heading">Free and open source.<br>Always.</h1>
     <p class="os-hero-sub">Kova is licensed under GPLv3. That means you can read the code, modify it, and distribute it — as long as anything you build from it stays open too. It also means Kova will always be free. No one can change that.</p>
     <a href="https://github.com/kovamd/kova" class="btn btn-primary btn-lg os-github-btn">
@@ -86,7 +85,6 @@
   <div class="container">
     <div class="os-two-col">
       <div>
-        <p class="s-label">The licence</p>
         <h2 class="s-heading">What GPLv3 means for you</h2>
       </div>
       <div class="os-body">
@@ -108,13 +106,12 @@
   <div class="container">
     <div class="os-two-col">
       <div>
-        <p class="s-label">Trust</p>
         <h2 class="s-heading">Security &amp; integrity</h2>
       </div>
       <div class="os-body">
         <p>Open source means anyone can read the code. We also take steps to make Kova verifiably trustworthy, not just auditable in theory:</p>
         <ul class="os-list">
-          <li><strong>Code signing.</strong> Kova has been accepted onto <a href="https://signpath.io">SignPath</a>'s free provision for open source projects. Windows binaries are signed via SignPath, currently under a test-signing policy while production signing is finalised — a SmartScreen warning is still expected on first run.</li>
+          <li><strong>Code signing.</strong> Kova has been accepted onto <a href="https://signpath.io">SignPath</a>'s free provision for open source projects. Windows binaries are production-signed via SignPath since v0.8.1. SmartScreen may still warn on the first few downloads while the certificate builds reputation.</li>
           <li><strong>Codebase attestation.</strong> Since v0.6.14, every release binary is linked back to the exact commit it was built from, with guidance to verify this independently.</li>
           <li><strong>Continuous scanning.</strong> The repository is monitored by Snyk for vulnerabilities and malicious code in dependencies and pull requests.</li>
         </ul>
@@ -127,7 +124,6 @@
 <!-- ═══ CONTRIBUTE ══════════════════════════════════════════ -->
 <section class="os-section">
   <div class="container">
-    <p class="s-label">Contribute</p>
     <h2 class="s-heading">Get involved</h2>
     <div class="os-card-grid">
 
@@ -175,7 +171,6 @@
 <section class="os-section os-section-alt">
   <div class="container">
     <div class="os-alpha-box">
-      <p class="s-label">Status</p>
       <h2 class="s-heading">Beta</h2>
       <p class="os-alpha-body">Kova is in active development and currently in beta. Core features — the editor, presenter view, themes, Mermaid diagrams, syntax highlighting, and export — are stable. Some features documented in the wiki are still in progress.</p>
       <p class="os-alpha-body">Feedback directly shapes what gets built next. If something is broken or missing, <a href="https://github.com/KovaMD/Kova/issues">open an issue</a>. If something works well for you, that's worth saying too.</p>
@@ -190,7 +185,7 @@
 <!-- ═══ FOOTER ══════════════════════════════════════════════ -->
 <footer>
   <div class="footer-inner">
-    <a class="nav-logo" href="/" style="text-decoration:none;">
+    <a class="nav-logo" href="/">
       <img src="assets/kova-icon.svg?v=20260522" width="24" height="24" alt="">
       <span class="nav-wordmark">kova<span class="tld">.md</span></span>
     </a>
@@ -203,6 +198,7 @@
       <li><a href="https://github.com/KovaMD/Kova">GitHub</a></li>
       <li><a href="https://github.com/KovaMD/Kova/issues">Issues</a></li>
       <li><a href="https://github.com/KovaMD/Kova/blob/main/LICENSE">License</a></li>
+      <li><a href="https://opencollective.com/kovamd">Donate</a></li>
       <li><a href="privacy.html">Privacy</a></li>
       <li><a href="mailto:support@kova.md">Support</a></li>
     </ul>
@@ -210,6 +206,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=20260522" defer></script>
+<script src="js/main.js?v=20260930" defer></script>
 </body>
 </html>

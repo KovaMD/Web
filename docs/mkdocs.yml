@@ -10,15 +10,14 @@ theme:
   logo: assets/kova-icon.svg
   font: false
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
+    # Light is the default. The toggle switches to dark and back.
+    - scheme: default
       primary: custom
       accent: custom
       toggle:
         icon: material/weather-night
         name: Switch to dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+    - scheme: slate
       primary: custom
       accent: custom
       toggle:
@@ -36,7 +35,7 @@ theme:
     - search.highlight
 
 extra_css:
-  - stylesheets/extra.css
+  - stylesheets/kova-2026.css
   - stylesheets/icons.css
 
 markdown_extensions:

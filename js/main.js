@@ -1,8 +1,12 @@
 /* ─── Theme ───────────────────────────────────────────── */
 const STORAGE_KEY = 'kova-theme';
 
+// Light is the site default. Dark is opt-in through the toggle and remembered
+// in localStorage. To follow the system setting instead, return
+// window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+// here and add the matching prefers-color-scheme rules to css/style.css.
 function getSystemTheme() {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  return 'light';
 }
 
 function applyTheme(theme) {
